@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
+
+Route::get('/registro-civil',function (){
+    return view('civil-registry');
+})->name('civil-registry');
