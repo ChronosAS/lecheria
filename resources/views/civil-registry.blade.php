@@ -1,4 +1,4 @@
-<x-layout.dashboard>
+<x-layout.dashboard title="Registro Civil">
 
     <!-- Masthead1-->
     <header class="masthead1">
@@ -63,7 +63,8 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content">
+                                    <!<i class="fas fa-plus fa-3x"></i><i class="fas fa-plus fa-3x"></i></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/nac.jpg') }}" alt="..." />
                         </a>
@@ -78,7 +79,7 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content"></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/defunciones.jpg') }}" alt="..." />
                         </a>
@@ -93,7 +94,7 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content"></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/residencia.jpg') }}" alt="..." />
                         </a>
@@ -108,7 +109,7 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content"></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/mudanza.jpg') }}" alt="..." />
                         </a>
@@ -123,7 +124,7 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content"></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/conduta.jpg') }}" alt="..." />
                         </a>
@@ -138,7 +139,7 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content"></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/solteria.jpg') }}" alt="..." />
                         </a>

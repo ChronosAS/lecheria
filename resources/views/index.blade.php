@@ -1,4 +1,4 @@
-<x-layout.dashboard>
+<x-layout.dashboard title="Lechería ¡Un Estilo de Vida! ">
 
     <!-- Masthead1-->
     <header class="masthead1">

@@ -1,3 +1,4 @@
+@props(['title'])
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Lechería ¡Un Estilo de Vida!</title>
+        <title>{{ $title }}</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <!-- Font Awesome icons (free version)-->
@@ -31,14 +32,37 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-3 py-lg-0">
 
 
-                        <li class="nav-item"><a class="nav-link" href="http://200.41.118.109/appweb/" target="_blank">Declaración en Línea</a></li>
-                        @if (Route::currentRouteName() != 'civil-registry')
-                            <li class="nav-item"><a class="nav-link" href="{{ route('civil-registry') }}" >Registro Civil</a></li>
-                        @endif
+                        <li class="nav-item">
+                            <a
+                                class="{{ (Route::currentRouteName() == 'home') ? 'nav-link text-primary disabled' : 'nav-link' }}"
+                                href="{{ route('home') }}"
+                            >
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="http://200.41.118.109/appweb/"
+                                target="_blank"
+                            >
+                                Declaración en Línea
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                class="{{ (Route::currentRouteName() == 'civil-registry') ? 'nav-link text-primary disabled' : 'nav-link' }}"
+                                href="{{ route('civil-registry') }}"
+                            >
+                                Registro Civil
+                            </a>
+                        </li>
                         <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Catastro</a></li>-->
                         <!--<li class="nav-item"><a class="nav-link" href="#about">Insert Here</a></li>-->
                         <!--<li class="nav-item"><a class="nav-link" href="#team">Insert Here</a></li>-->
-                        <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
+                        @if (Route::currentRouteName() == "home")
+                            <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
