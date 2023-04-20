@@ -24,7 +24,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Matrimonio</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Illustration</div> --}}
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Unión Estable de Hecho</div>
-                            <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Graphic Design</div> --}}
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Fe de Vida</div>
-                            <div class="portfolio-caption-subheading text-muted">Identity</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Identity</div> --}}
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Nacimientos</div>
-                            <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Branding</div> --}}
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Defunciones</div>
-                            <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Website Design</div> --}}
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Contancia de Residencia</div>
-                            <div class="portfolio-caption-subheading text-muted">Photography</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Photography</div> --}}
                         </div>
                     </div>
                 </div>
@@ -115,14 +115,14 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Permiso de Mudanza</div>
-                            <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Branding</div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                    <!-- Portfolio item 8-->
+                    <!-- Buena Conducta -->
                     <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#buenaConductaModal">
                             <div class="portfolio-hover">
                                 <div class="portfolio-hover-content"></div>
                             </div>
@@ -130,7 +130,7 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Buena Conducta</div>
-                            <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Website Design</div> --}}
                         </div>
                     </div>
                 </div>
@@ -145,11 +145,12 @@
                         </a>
                         <div class="portfolio-caption">
                             <div class="portfolio-caption-heading">Carta de Solteria</div>
-                            <div class="portfolio-caption-subheading text-muted">Photography</div>
+                            {{-- <div class="portfolio-caption-subheading text-muted">Photography</div> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <livewire:civil-registry.buena-conducta-form-modal />
 </x-layout.dashboard>
