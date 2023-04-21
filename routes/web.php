@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::get('/registro-civil',function (){
-    return view('civil-registry');
-})->name('civil-registry');
+Route::prefix('registro-civil')->group(function(){
+    Route::get('/',function (){
+        return view('civil-registry');
+    })->name('civil-registry');
+
+    Route::get('/buena-conducta-pdf',
+        '\App\Http\Controllers\Documents\GeneratePdf'
+    )->name('civil-registry.buena-conducta.generate-pdf');
+});

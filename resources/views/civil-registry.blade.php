@@ -153,4 +153,13 @@
         </div>
     </section>
     <livewire:civil-registry.buena-conducta-form-modal />
+    @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+        <script>
+            config = {
+                dateFormat: 'd-m-Y',
+            }
+            flatpickr("input[type=datetime-local]",config);
+        </script>
+    @endpush
 </x-layout.dashboard>
