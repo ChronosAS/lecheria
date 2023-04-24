@@ -27,21 +27,8 @@
                 text-align: left;
             "
         >
-            El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora
-            Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego
-            Bautista Urbaneja del Estado Anzoátegui,
-            <span class="p"
-                >según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,
-                de la República Bolivariana de Venezuela, Hago constar que hoy
-                se presentó ante esta Despacho, el ciudadano(a):</span
-            ><u><b> Gabriel Gomez </b></u><b> </b
-            ><span class="p">Estado Civil </span><u><b>&nbsp;Viudo </b></u
-            ><span class="p">, </span>de <u><b>&nbsp;36 </b></u><b> </b>años de
-            edad, Nacionalidad: <b>V E </b>y Titular de la C.I. Nº:<u
-                ><b> 18299360 </b></u
-            ><b> </b>, domiciliado(a) en<u><b> Lecheria </b></u
-            ><b> Lechería, Estado Anzoátegui.</b>
-        </p>
+            El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. DiegoBautista Urbaneja del Estado Anzoátegui,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano/a: {{-- $citizen_name --}} Estado Civil {{-- $civil_state --}} , de {{ $citizen_age }} años de edad, Nacionalidad:{{-- -$nationality --}}y Titular de la C.I. Nº: {{-- $citizen_id --}}, domiciliado/a en {{-- $citizen_address --}} Lechería, Estado Anzoátegui.
+
         <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">
             En este mismo acto fueron consignados los documentos siguientes:
         </p>
