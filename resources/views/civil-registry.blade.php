@@ -157,6 +157,7 @@
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <script>
             config = {
+                allowInput:true,
                 dateFormat: 'd-m-Y',
             }
             flatpickr("input[type=datetime-local]",config);

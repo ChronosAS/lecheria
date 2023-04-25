@@ -2219,7 +2219,7 @@ progress {
   background-color: #fff;
   border-color: var(--bs-primary);
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(255, 200, 0, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(4, 0, 255, 0.216);
 }
 .form-control::-webkit-date-and-time-value {
   height: 1.5em;
@@ -2432,9 +2432,9 @@ textarea.form-control-lg {
   }
 }
 .form-select:focus {
-  border-color: #ffe480;
+  border-color: #8084ff;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(255, 200, 0, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(4, 0, 255, 0.216);
 }
 .form-select[multiple], .form-select[size]:not([size="1"]) {
   padding-right: 0.75rem;
@@ -2449,7 +2449,7 @@ textarea.form-control-lg {
 }
 
 .form-select-sm {
-  padding-top: 0.25rem;
+  padding: 0.375rem;
   padding-bottom: 0.25rem;
   padding-left: 0.5rem;
   font-size: 0.875rem;
@@ -2792,7 +2792,7 @@ textarea.form-control-lg {
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn {
-  padding: 0.25rem 0.5rem;
+  padding: 0.375rem 0.75rem;
   font-size: 0.875rem;
   border-radius: 0.2rem;
 }
@@ -11755,7 +11755,7 @@ section#contact form#contactForm .form-group {
 }
 section#contact form#contactForm .form-group input,
 section#contact form#contactForm .form-group textarea {
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 section#contact form#contactForm .form-group input.form-control {
   height: auto;

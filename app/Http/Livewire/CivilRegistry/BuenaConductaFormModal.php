@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\CivilRegistry;
 
-use App\Helpers\pdfHelper;
 use DateTime;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -10,14 +9,18 @@ use Livewire\Component;
 class BuenaConductaFormModal extends Component
 {
     public $citizen_birthdate;
+    public $citizen_name;
+    public $citizen_nationality;
+    public $citizen_id;
 
-    public function submit()
+    public function print()
     {
         $age = Carbon::parse($this->citizen_birthdate)->age;
         $data = [
             'citizen_age' => $age,
         ];
-        pdfHelper::print($data);
+
+        dump($this->citizen_nationality);
 
     }
 
