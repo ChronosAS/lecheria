@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire\CivilRegistry;
 
-use DateTime;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Livewire\Component;
 
 class BuenaConductaFormModal extends Component
@@ -13,15 +14,37 @@ class BuenaConductaFormModal extends Component
     public $citizen_nationality;
     public $citizen_id;
 
-    public function print()
+    protected $listeners  = [
+        'testEvent' => 'testEventAction'
+    ];
+
+    public function download()
     {
+
         $age = Carbon::parse($this->citizen_birthdate)->age;
         $data = [
             'citizen_age' => $age,
         ];
 
-        dump($this->citizen_nationality);
+        $pdf = $this->loadPDF($data);
 
+        return response()->streamDownload(
+            fn () => print($pdf),
+            'buena-conducta.pdf'
+        );
+
+    }
+
+    public function testEventAction()
+    {
+        dd("Event");
+    }
+
+    protected function loadPDF($data)
+    {
+        return Pdf::loadView('documents.buena-conducta-pdf',[
+            'citizen_age' => $data['citizen_age']
+        ])->output();
     }
 
     public function render()

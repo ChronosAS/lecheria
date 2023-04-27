@@ -63,8 +63,7 @@
                     <div class="portfolio-item">
                         <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                             <div class="portfolio-hover">
-                                <div class="portfolio-hover-content">
-                                    <!<i class="fas fa-plus fa-3x"></i><i class="fas fa-plus fa-3x"></i></div>
+                                <div class="portfolio-hover-content"></div>
                             </div>
                             <img class="img-fluid" src="{{ asset('img/portfolio/nac.jpg') }}" alt="..." />
                         </a>

@@ -1,6 +1,6 @@
 <x-modal id="buenaConductaModal">
     <h1>Buena Conducta</h1>
-    <form class="row" wire:submit.prevent="print" >
+    <form class="row" wire:submit.prevent="download" >
         <div class="row">
             <div class="col-6">
                 <div>
@@ -27,7 +27,7 @@
 
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary mt-4 ">Print</button>
-            </form>
+            <button type="submit" class="btn btn-primary mt-4 ">Descargar</button>
         </div>
+    </form>
 </x-modal>
