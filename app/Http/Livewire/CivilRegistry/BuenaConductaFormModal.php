@@ -44,7 +44,7 @@ class BuenaConductaFormModal extends Component
     {
         return Pdf::loadView('documents.buena-conducta-pdf',[
             'citizen_age' => $data['citizen_age']
-        ])->output();
+        ])->setPaper('letter')->output();
     }
 
     public function render()
