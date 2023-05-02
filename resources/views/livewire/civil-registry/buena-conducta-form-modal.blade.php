@@ -16,7 +16,7 @@
                 <div>
                     <label for="citizne_id">Documento</label>
                     <div class="input-group input-group-sm mb-3">
-                        <select class="form-select bg-secondary bg-opacity-25" style="max-width: 76px;" wire:model.defer="citizen_nationality" name="citizen-nationality">
+                        <select class="form-select bg-secondary bg-opacity-25 border-dark" style="max-width: 76px;" wire:model.defer="citizen_nationality" name="citizen-nationality">
                             <option value="V" selected>V</option>
                             <option value="E">E</option>
                         </select>

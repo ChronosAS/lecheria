@@ -2,7 +2,6 @@ body {
     position: relative;
     max-width: 21cm;
     height: 29.7cm;
-    margin: 0 auto 10px auto;
     background: #FFFFFF;
     font-family: Arial, sans-serif;
     font-size: 12px;
@@ -35,17 +34,11 @@ body {
     margin: 0pt;
   }
 
-  .p1 {
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: italic;
-    font-weight: normal;
-    text-decoration: none;
+  .main-p {
+    margin: 0;
+    padding-top: -20px;
     text-align: justify;
-    font-size: 12pt;
-    padding-top: 4pt;
     padding-left: 5pt;
-    text-indent: 0pt;
   }
 
   .p2 {
@@ -82,14 +75,40 @@ body {
     font-size: 12pt;
   }
 
-  .s7 {
+  .obligatorio {
+    margin-bottom: 0pt;
+    margin-left: 5pt;
+  }
+
+  .p4 {
     color: black;
     font-family: "Times New Roman", serif;
     font-style: italic;
-    font-weight: normal;
+    font-weight: bold;
     text-decoration: none;
     font-size: 8pt;
+    padding-top: 10px;
+    padding-left: 130pt;
+    padding-right: 1.5pt;
+    text-indent: -127pt;
+    line-height: 81%;
+    text-align: center;
   }
+
+  .p5 {
+    padding-top: 15pt;
+    padding-left: 5pt;
+    text-indent: 0pt;
+    text-align: left
+  }
+
+  .sign {
+    padding-top: 3pt;
+    text-indent: 0pt;
+    text-align: center;
+    font-weight: bold;
+  }
+
   .s8 {
     color: black;
     font-family: "Times New Roman", serif;
@@ -159,13 +178,19 @@ body {
     border-right-width: 1pt;
   }
 
+  #footer {
+    margin-top: 110pt;
+  }
+
   #header h1 {
     text-align: center;
-    padding-top: 50px;
-    text-decoration: underline;
-    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-family: "Times New Roman", serif;
     font-style: italic;
     font-weight: bold;
+    text-decoration: underline;
+    font-size: 15.5pt;
+    margin-bottom: 20pt;
   }
 
   #header h2 {
@@ -176,14 +201,4 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
     contain-intrinsic-block-size: 100px ;
-  }
-
-  .title {
-    text-align: center;
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: underline;
-    font-size: 15.5pt;
   }
