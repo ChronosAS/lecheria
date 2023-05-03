@@ -13,6 +13,7 @@ class BuenaConductaFormModal extends Component
     public $citizen_name;
     public $citizen_nationality;
     public $citizen_id;
+    public $citizen_address;
 
     protected $listeners  = [
         'testEvent' => 'testEventAction'
