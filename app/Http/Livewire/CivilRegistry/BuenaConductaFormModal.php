@@ -9,19 +9,21 @@ use Livewire\Component;
 
 class BuenaConductaFormModal extends Component
 {
+    public $entity;
     public $citizen_birthdate;
     public $citizen_name;
     public $citizen_nationality;
     public $citizen_id;
     public $citizen_address;
 
-    protected $listeners  = [
-        'testEvent' => 'testEventAction'
-    ];
+    public function entity($entity)
+    {
+        $this->entity= $entity;
+    }
 
     public function download()
     {
-
+        dd($this->entity);
         $age = Carbon::parse($this->citizen_birthdate)->age;
         $data = [
             'citizen_age' => $age,
@@ -34,11 +36,6 @@ class BuenaConductaFormModal extends Component
             'buena-conducta.pdf'
         );
 
-    }
-
-    public function testEventAction()
-    {
-        dd("Event");
     }
 
     protected function loadPDF($data)

@@ -11517,6 +11517,7 @@ header.masthead .masthead-heading {
 }
 
 .portfolio-modal .modal-dialog {
+  display: flex;
   margin: 80px auto;
   max-width: 35vw;
 }
