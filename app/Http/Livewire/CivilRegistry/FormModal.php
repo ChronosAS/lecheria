@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Livewire\Component;
 
-class BuenaConductaFormModal extends Component
+class FormModal extends Component
 {
     public $entity;
     public $citizen_birthdate;
@@ -16,14 +16,19 @@ class BuenaConductaFormModal extends Component
     public $citizen_id;
     public $citizen_address;
 
+
+    protected $listeners = [
+        'setEntity'
+    ];
+
     public function entity($entity)
     {
-        $this->entity= $entity;
+        $this->entity = $entity;
+        dd($entity);
     }
 
     public function download()
     {
-        dd($this->entity);
         $age = Carbon::parse($this->citizen_birthdate)->age;
         $data = [
             'citizen_age' => $age,
@@ -47,6 +52,6 @@ class BuenaConductaFormModal extends Component
 
     public function render()
     {
-        return view('livewire.civil-registry.buena-conducta-form-modal');
+        return view('livewire.civil-registry.form-modal');
     }
 }

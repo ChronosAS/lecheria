@@ -13,16 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', \App\Http\Livewire\Welcome::class)->name('home');
 
 Route::prefix('registro-civil')->group(function(){
-    Route::get('/',function (){
-        return view('civil-registry');
-    })->name('civil-registry');
+    Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
 
-    Route::get('/buena-conducta-pdf',
+    Route::get('/civil-registry-pdf',
         '\App\Http\Controllers\Documents\GeneratePdf'
-    )->name('civil-registry.buena-conducta.generate-pdf');
+    )->name('civil-registry.generate-pdf');
 });

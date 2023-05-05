@@ -21,16 +21,3 @@
         </div>
     </div>
 </div>
-@push("styles")
-<style>
-    .close-modal {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-    background-color: transparent;
-    }
-</style>
-@endpush

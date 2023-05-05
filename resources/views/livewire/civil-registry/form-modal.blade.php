@@ -1,4 +1,4 @@
-<x-modal id="buenaConductaModal" title="Buena Conducta">
+<x-modal id="civilRegistryModal" title="Buena Conducta">
     <form wire:submit.prevent="download">
         <div>
             <label for="citizen_name" class="col-form-lable text-center" >Nombre completo</label>
@@ -23,8 +23,8 @@
             <textarea class="form-control" wire:model.defer="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección" ></textarea>
         </div>
         <div class="flex text-center mb-3">
-            <button type="button" class="btn btn-secondary mr-1" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary ml-1">Descargar</button>
+            <button type="button" class="btn btn-primary mr-1" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-success ml-1">Descargar</button>
         </div>
     </form>
 </x-modal>

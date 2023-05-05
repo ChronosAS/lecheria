@@ -1,8 +1,4 @@
-<x-layout.dashboard title="Registro Civil">
-    @php
-        $entity=null;
-        dump($entity);
-    @endphp
+<div>
     <!-- Masthead1-->
     <div>
         <header class="masthead1">
@@ -124,7 +120,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <!-- Buena Conducta -->
                         <div class="portfolio-item">
-                            <a class="portfolio-link" x-on:click="$wire.entity('buena-conducta')" data-bs-toggle="modal" href="#buenaConductaModal">
+                            <a class="portfolio-link" @click="$wire.emit('entity','buena-conducta')" data-bs-toggle="modal" href="#civilRegistryModal">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
@@ -139,7 +135,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <!-- Portfolio item 9-->
                         <div x-data="" class="portfolio-item">
-                            <a class="portfolio-linkb" wire:click="entity('solteria')" data-bs-toggle="modal" href="#buenaConductaModal">
+                            <a class="portfolio-link" @click="$wire.emit('entity','solteria')"  data-bs-toggle="modal" href="#civilRegistryModal">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
@@ -154,7 +150,7 @@
                 </div>
             </div>
         </section>
-        <livewire:civil-registry.buena-conducta-form-modal/>
+        <livewire:civil-registry.form-modal/>
         @push('scripts')
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
             <script>
@@ -166,4 +162,4 @@
             </script>
         @endpush
     </div>
-</x-layout.dashboard>
+</div>
