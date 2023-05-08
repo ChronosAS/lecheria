@@ -9,6 +9,7 @@ use Livewire\Component;
 
 class FormModal extends Component
 {
+
     public $entity;
     public $citizen_birthdate;
     public $citizen_name;
@@ -18,7 +19,7 @@ class FormModal extends Component
 
 
     protected $listeners = [
-        'setEntity'
+        'entity'
     ];
 
     public function entity($entity)
