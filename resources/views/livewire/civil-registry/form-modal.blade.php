@@ -1,12 +1,32 @@
 <x-modal id="civilRegistryModal" title="Buena Conducta">
+    @push("styles")
+        <style>
+            select:required:invalid {
+                color:gray;
+            }
+            option {
+                color:black;
+            }
+        </style>
+    @endpush
     <form wire:submit.prevent="download">
         <div>
-            <label for="citizen_name" class="col-form-lable text-center" >Nombre completo</label>
+            <label for="citizen_name" class="col-form-label text-center" >Nombre completo</label>
             <input type="text" class="form-control" wire:model.defer="citizen_name" id="citizen_name" name="citizen_name" placeholder="Escriba su nombre completo" />
         </div>
         <div>
+            <label for="citizen_civil_status" class="col-form-label text-center">Estado Civil</label>
+            <select class="form-select border-dark" wire:model.defer="citizen_civil_status" name="citizen_civil_status" id="citizen_civil_status" required>
+                <option selected disabled hidden value="" >Elija su estado civil</option>
+                <option value="s">Soltero</option>
+                <option value="c">Casado</option>
+                <option value="d">Divorciado</option>
+                <option value="v">Viudo</option>
+            </select>
+        </div>
+        <div>
             <label for="citizen_birthdate" class="col-form-label text-center">Fecha de Nacimiento</label>
-            <input type="datetime-local" wire:model.defer="citizen_birthdate" id="citizen_birthdate" name="citizen_birthdate"  class="form-control" placeholder="Seleccione fecha" />
+            <input type="datetime-local" wire:model.defer="citizen_birthdate" id="citizen_birthdate" name="citizen_birthdate"  class="form-control border-dark" placeholder="Seleccione fecha" />
         </div>
         <div>
             <label for="citizen_id" class="col-form-label text-center">Documento</label>
@@ -15,7 +35,7 @@
                     <option value="V" selected>V</option>
                     <option value="E">E</option>
                 </select>
-                <input type="text"  class="form-control" wire:model.defer="citizen_id" id="citizen_id" name="citizen_id" />
+                <input type="text"  class="form-control" wire:model.defer="citizen_id" id="citizen_id" name="citizen_id" placeholder="Ingrese N° de documento"/>
             </div>
         </div>
         <div class="mb-4">

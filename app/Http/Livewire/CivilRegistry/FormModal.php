@@ -11,9 +11,10 @@ class FormModal extends Component
 {
 
     public $entity;
-    public $citizen_birthdate;
     public $citizen_name;
+    public $citizen_civil_status = "";
     public $citizen_nationality;
+    public $citizen_birthdate;
     public $citizen_id;
     public $citizen_address;
 
@@ -25,7 +26,6 @@ class FormModal extends Component
     public function entity($entity)
     {
         $this->entity = $entity;
-        dd($entity);
     }
 
     public function download()
@@ -39,14 +39,14 @@ class FormModal extends Component
 
         return response()->streamDownload(
             fn () => print($pdf),
-            'buena-conducta.pdf'
+            'civil-registry.pdf'
         );
 
     }
 
     protected function loadPDF($data)
     {
-        return Pdf::loadView('documents.buena-conducta-pdf',[
+        return Pdf::loadView('documents.civil-registry-pdf',[
             'citizen_age' => $data['citizen_age']
         ])->setPaper('letter')->output();
     }
