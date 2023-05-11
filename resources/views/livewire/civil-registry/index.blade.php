@@ -44,8 +44,8 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                        <div x-data="{}" class="portfolio-item">
+                            <a class="portfolio-link" @click="$wire.emit('entity','fe-de-vida')"  data-bs-toggle="modal" href="#civilRegistryModal">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>

@@ -1,4 +1,4 @@
-<x-modal id="civilRegistryModal" title="Buena Conducta">
+<x-modal id="civilRegistryModal" title="{{ $title }}">
     @push("styles")
         <style>
             select:required:invalid {
