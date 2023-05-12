@@ -9,7 +9,12 @@ use Livewire\Component;
 
 class FormModal extends Component
 {
-    public $title;
+    public $titles = [
+        "" => "Registro Civil",
+        "buena-conducta" => "Buena Conducta",
+        "solteria" => "Carta de Soltería",
+        "fe-de-vida" => "Fe de Vida"
+    ];
     public $entity;
     public $citizen_name;
     public $citizen_civil_status = "";
@@ -26,23 +31,6 @@ class FormModal extends Component
     public function entity($entity)
     {
         $this->entity = $entity;
-
-        switch ($entity) {
-            case 'buena-conducta':
-                $this->title = "Buena Conducta";
-                break;
-            case 'solteria':
-                $this->title = "Solteria";
-                break;
-            case 'fe-de-vida':
-                $this->title = "Fe de Vida";
-                break;
-            default:
-                $this->title = "Registro Civil";
-                break;
-        }
-
-        $this->render();
     }
 
     public function download()
