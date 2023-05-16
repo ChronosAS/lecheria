@@ -1,32 +1,38 @@
-body {
+  body {
     position: relative;
     max-width: 21cm;
     height: 29.7cm;
     background: #FFFFFF;
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", serif;
     font-size: 12px;
   }
 
-  h4 {
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: normal;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 8.5pt;
-  }
   h1 {
     color: black;
-    font-family: "Times New Roman", serif;
     font-style: italic;
     font-weight: bold;
     text-decoration: underline;
     font-size: 15.5pt;
   }
 
+  h3 {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 10.5pt;
+  }
+
+  h4 {
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 8.5pt;
+  }
+
   p {
     color: black;
-    font-family: "Times New Roman", serif;
     font-style: normal;
     font-weight: normal;
     text-decoration: none;
@@ -50,7 +56,6 @@ body {
 
   .p3 {
     color: black;
-    font-family: "Times New Roman", serif;
     font-style: normal;
     font-weight: bold;
     text-decoration: none;
@@ -68,7 +73,6 @@ body {
 
   h2 {
     color: black;
-    font-family: "Times New Roman", serif;
     font-style: normal;
     font-weight: bold;
     text-decoration: none;
@@ -82,7 +86,6 @@ body {
 
   .p4 {
     color: black;
-    font-family: "Times New Roman", serif;
     font-style: italic;
     font-weight: bold;
     text-decoration: none;
@@ -102,45 +105,6 @@ body {
     text-align: left
   }
 
-  .sign {
-    padding-top: 3pt;
-    text-indent: 0pt;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  .s8 {
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: none;
-    font-size: 10pt;
-  }
-  h3 {
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: normal;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 10.5pt;
-  }
-  .s9 {
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 10.5pt;
-  }
-  .s10 {
-    color: black;
-    font-family: "Times New Roman", serif;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: none;
-    font-size: 10.5pt;
-  }
   table,
   tbody {
     border-collapse: collapse;
@@ -178,14 +142,43 @@ body {
     border-right-width: 1pt;
   }
 
-  #footer {
-    margin-top: 110pt;
+  .footer {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: stretch;
+    align-items: stretch;
+    grid-template-areas:
+      "f1 f2"
+      "f3 f3";
   }
+
+  .f1 {
+    grid-area: f1;
+    border-color: red;
+    border-style: dotted;
+
+}
+
+  .f2 {
+    grid-area: f2;
+    border-color: red;
+    border-style: dotted;
+}
+
+  .f3 {
+    grid-area: f3;
+    border-color: red;
+    border-style: dotted;
+}
+
 
   #header h1 {
     text-align: center;
     color: black;
-    font-family: "Times New Roman", serif;
     font-style: italic;
     font-weight: bold;
     text-decoration: underline;
@@ -196,9 +189,14 @@ body {
   #header h2 {
     text-align: center;
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
     font-style: italic;
     font-weight: bold;
     margin-bottom: 10px;
+    font-size: 8.80pt;
     contain-intrinsic-block-size: 100px ;
+  }
+
+  #header p {
+    text-align: right;
+    font-size: 12;
   }

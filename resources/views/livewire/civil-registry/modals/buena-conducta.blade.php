@@ -1,7 +1,7 @@
-<x-modal id="civilRegistryModal" title="{{ $titles[$entity] }}">
+<x-modal id="buenaConductaModal" title="Buena Conducta">
     @push("styles")
         <style>
-            select:required:invalid {
+            select:invalid {
                 color:gray;
             }
             option {
@@ -12,21 +12,21 @@
     <form wire:submit.prevent="download">
         <div>
             <label for="citizen_name" class="col-form-label text-center" >Nombre completo</label>
-            <input type="text" class="form-control" wire:model.defer="citizen_name" id="citizen_name" name="citizen_name" placeholder="Escriba su nombre completo" />
+            <input type="text" class="form-control" wire:model.defer="citizen_name" id="citizen_name" name="citizen_name" placeholder="Escriba su nombre completo"/>
         </div>
         <div>
             <label for="citizen_civil_status" class="col-form-label text-center">Estado Civil</label>
-            <select class="form-select border-dark" wire:model.defer="citizen_civil_status" name="citizen_civil_status" id="citizen_civil_status" required>
+            <select class="form-select border-dark" wire:model.defer="citizen_civil_status" name="citizen_civil_status" id="citizen_civil_status">
                 <option selected disabled hidden value="" >Elija su estado civil</option>
-                <option value="s">Soltero</option>
-                <option value="c">Casado</option>
-                <option value="d">Divorciado</option>
-                <option value="v">Viudo</option>
+                <option value="s">Soltero(a)</option>
+                <option value="c">Casado(a)</option>
+                <option value="d">Divorciado(a)</option>
+                <option value="v">Viudo(a)</option>
             </select>
         </div>
         <div>
             <label for="citizen_birthdate" class="col-form-label text-center">Fecha de Nacimiento</label>
-            <input type="datetime-local" wire:model.defer="citizen_birthdate" id="citizen_birthdate" name="citizen_birthdate"  class="form-control border-dark" placeholder="Seleccione fecha" />
+            <input type="datetime-local" wire:model.defer="citizen_birthdate" id="citizen_birthdate" name="citizen_birthdate"  class="form-control border-dark" placeholder="Seleccione fecha"/>
         </div>
         <div>
             <label for="citizen_id" class="col-form-label text-center">Documento</label>
@@ -40,7 +40,7 @@
         </div>
         <div class="mb-4">
             <label for="citizen_address" class="col-form-label text-center">Dirección de domicilio</label>
-            <textarea class="form-control" wire:model.defer="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección" ></textarea>
+            <textarea class="form-control" wire:model.defer="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección"></textarea>
         </div>
         <div class="flex text-center mb-3">
             <button type="button" class="btn btn-primary mr-1" data-bs-dismiss="modal">Cerrar</button>

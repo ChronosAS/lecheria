@@ -3,9 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>Registro Civil | Buena Conducta</title>
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-        <link rel="stylesheet" href="{{ asset('css/Documents/pdf.css') }}" />
-    </head>
+        <link rel="stylesheet" href="{{ asset('css/Documents/pdf.css') }}">
+</head>
     <body>
         <div id="header">
             <h2>
@@ -14,14 +13,14 @@
                 ALCALDÍA DEL MUNICIPIO TURÍSTICO EL MORRO<br>
                 LCDO. DIEGO BAUTISTA URBANEJA
             </h2>
-            <p style="text-align: right">Código: 202304030304</p>
+            <p>Código: 202304030304</p>
             <h1>
                 CONSTANCIA DE BUENA CONDUCTA
             </h1>
         </div>
         <div id="body">
             <p class="main-p">
-                El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. DiegoBautista Urbaneja del Estado Anzoátegui,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano/a: {{-- $citizen_name --}} Estado Civil {{-- $civil_state --}} , de <b>{{ $citizen_age }}</b> años de edad, Nacionalidad:{{-- -$nationality --}}y Titular de la C.I. Nº: {{-- $citizen_id --}}, domiciliado/a en {{-- $citizen_address --}} <b>Lechería, Estado Anzoátegui</b>.
+                El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. DiegoBautista Urbaneja del Estado Anzoátegui,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano/a: {{-- $citizen_name --}} Estado Civil {{-- $civil_state --}} , de <b>{{-- $citizen_age</b> --}} años de edad, Nacionalidad:{{-- -$nationality --}}y Titular de la C.I. Nº: {{-- $citizen_id --}}, domiciliado/a en {{-- $citizen_address --}} <b>Lechería, Estado Anzoátegui</b>.
             </p>
             <p class="p2">
                 En este mismo acto fueron consignados los documentos siguientes:
@@ -79,30 +78,28 @@
                 En Lechería, a los 03 días del mes Abril de 2023.
             </p>
         </div>
-        <div id="footer">
-        <div>
-            <b>__________________________</b>
-            <h3 class="sign">
-                Gabriel Gomez <br/>
-                C.I: 18299360
-            </h3>
-        </div>
-            <p
-                class="s9"
-                style="padding-left: 32pt; text-indent: 0pt; text-align: center"
-            >
-                ABG. DENISSE HERNANDEZ URBANEJA
-            </p>
-            <p
-                class="s9"
-                style="padding-left: 31pt; text-indent: 0pt; text-align: center"
-            >
-                Registrador Civil
-            </p>
-            <p class="s10" style="padding-left: 31pt; text-indent: 0pt; text-align: center">Según resolución Nro.180 de fecha 22/12/2017</p>
-            <h3 style="padding-left: 32pt; text-indent: 0pt; text-align: center">
-                LA EXPEDICIÓN DE LA PRESENTE CONSTANCIA ES COMPLETAMENTE GRATUITA
-            </h3>
+        <div class="footer">
+            <div class="f1">
+                <b>__________________________</b>
+                <h3>
+                    Gabriel Gomez <br/>
+                    C.I: 18299360
+                </h3>
+            </div>
+            <div class="f2">
+                <p>
+                    ABG. DENISSE HERNANDEZ URBANEJA
+                </p>
+                <p>
+                    Registrador Civil
+                </p>
+            </div>
+            <div class="f3">
+                <p>Según resolución Nro.180 de fecha 22/12/2017</p>
+                <h3>
+                    LA EXPEDICIÓN DE LA PRESENTE CONSTANCIA ES COMPLETAMENTE GRATUITA
+                </h3>
+            </div>
         </div>
     </body>
 </html>

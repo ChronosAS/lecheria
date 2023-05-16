@@ -120,7 +120,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
                         <!-- Buena Conducta -->
                         <div x-data="{}" class="portfolio-item">
-                            <a class="portfolio-link" @click="$wire.emit('entity','buena-conducta')" data-bs-toggle="modal" href="#civilRegistryModal">
+                            <a class="portfolio-link" @click="$wire.emit('entity','buena-conducta')" data-bs-toggle="modal" href="#buenaConductaModal">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
@@ -135,7 +135,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <!-- Portfolio item 9-->
                         <div x-data="{}" class="portfolio-item">
-                            <a class="portfolio-link" @click="$wire.emit('entity','solteria')"  data-bs-toggle="modal" href="#civilRegistryModal">
+                            <a class="portfolio-link"  data-bs-toggle="modal" href="#solteriaModal">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </section>
-        <livewire:civil-registry.form-modal/>
+        <livewire:civil-registry.modals.buena-conducta/>
         @push('scripts')
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
             <script>

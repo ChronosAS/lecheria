@@ -14,11 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', \App\Http\Livewire\Welcome::class)->name('home');
-
 Route::prefix('registro-civil')->group(function(){
     Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
-
-    Route::get('/civil-registry-pdf',
-        '\App\Http\Controllers\Documents\GeneratePdf'
-    )->name('civil-registry.generate-pdf');
 });

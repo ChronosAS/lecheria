@@ -24,10 +24,8 @@
     <body id="page-top">
         <!-- Navigation-->
         @include('layouts.navigation')
-
         <!-- Section -->
         {{ $slot }}
-
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
