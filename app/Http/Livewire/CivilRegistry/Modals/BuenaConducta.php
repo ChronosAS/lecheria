@@ -11,7 +11,7 @@ class BuenaConducta extends Component
 {
     public $citizen_name;
     public $citizen_civil_status = "";
-    public $citizen_nationality;
+    public $citizen_nationality = "V";
     public $citizen_birthdate;
     public $citizen_id;
     public $citizen_address;
@@ -32,10 +32,28 @@ class BuenaConducta extends Component
 
     }
 
+    public function getDateEsp()
+    {
+        $day = date('d');
+        $months = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+        $month = $months[date('n')-1];
+        $year = date('Y');
+
+        return $date = array('day'=>$day,'month'=>$month,'year'=>$year);
+
+    }
+
     protected function loadPDF($data)
     {
+
         return Pdf::loadView('documents.buena-conducta-pdf',[
-            'citizen_age' => $data['citizen_age']
+            'citizen_name' => $this->citizen_name,
+            'citizen_civil_status' => $this->citizen_civil_status,
+            'citizen_age' => $data['citizen_age'],
+            'citizen_nationality' => ($this->citizen_nationality == 'V') ? "Venezolano(a)" : "Extrangero(a)",
+            'citizen_id' => $this->citizen_id,
+            'citizen_address' => $this->citizen_address,
+            'date' => $this->getDateEsp(),
         ])->setPaper('letter')->output();
     }
 

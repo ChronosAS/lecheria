@@ -20,7 +20,7 @@
         </div>
         <div id="body">
             <p class="main-p">
-                El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. DiegoBautista Urbaneja del Estado Anzoátegui,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano/a: {{-- $citizen_name --}} Estado Civil {{-- $civil_state --}} , de <b>{{-- $citizen_age --}}</b> años de edad, Nacionalidad:{{-- -$nationality --}} y Titular de la C.I. Nº: {{-- $citizen_id --}}, domiciliado/a en {{-- $citizen_address --}} <b>Lechería, Estado Anzoátegui</b>.
+                <i>El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego Bautista Urbaneja del Estado Anzoátegui</i>,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a): <b>{{ $citizen_name }}</b> Estado Civil <b>{{ $citizen_civil_status }}</b>, de <b>{{ $citizen_age }}</b> años de edad, Nacionalidad: <b>{{ $citizen_nationality }}</b> y Titular de la C.I. Nº: <b>{{ $citizen_id }}</b>, domiciliado(a) en <b>{{ $citizen_address }} Lechería, Estado Anzoátegui</b>.
             </p>
             <p class="p2">
                 En este mismo acto fueron consignados los documentos siguientes:
@@ -78,7 +78,7 @@
                 ante todos los órganos, entes o instituciones públicas o privadas.
             </p>
             <p class="p6">
-                En Lechería, a los {{-- $day --}} días del mes {{-- $month --}} de {{-- $year --}}.
+                En Lechería, a los {{ $date['day'] }} días del mes {{ $date['month'] }} de {{ $date['year'] }}.
             </p>
         </div>
         <div id="footer">
@@ -86,8 +86,8 @@
                 <td class="ft1">
                     <div class="f1">
                         <h3>
-                            Gabriel Gomez <br/>
-                            C.I: 18299360
+                            {{ $citizen_name }} <br/>
+                            C.I: {{ $citizen_id }}
                         </h3>
                     </div>
                 </td>
