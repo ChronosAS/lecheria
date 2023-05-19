@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>{{ $title }}</title>
+        <title>{{ config('app.name','Laravel') }}</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <!-- Favicon-->
@@ -17,62 +17,15 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
-        @livewireStyles
+        @vite(['public/css/app.css','public/js/app.js','resources/js/bootstrap.js'])
         @stack('styles')
+        @livewireStyles
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('img/logo-lecheria.png') }}" alt="..." /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars ms-1"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ms-auto py-3 py-lg-0">
-
-
-                        <li class="nav-item">
-                            <a
-                                class="{{ (Route::currentRouteName() == 'home') ? 'nav-link text-primary disabled' : 'nav-link' }}"
-                                href="{{ route('home') }}"
-                            >
-                                Inicio
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="http://200.41.118.109/appweb/"
-                                target="_blank"
-                            >
-                                Declaración en Línea
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="{{ (Route::currentRouteName() == 'civil-registry') ? 'nav-link text-primary disabled' : 'nav-link' }}"
-                                href="{{ route('civil-registry') }}"
-                            >
-                                Registro Civil
-                            </a>
-                        </li>
-                        <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Catastro</a></li>-->
-                        <!--<li class="nav-item"><a class="nav-link" href="#about">Insert Here</a></li>-->
-                        <!--<li class="nav-item"><a class="nav-link" href="#team">Insert Here</a></li>-->
-                        @if (Route::currentRouteName() == "home")
-                            <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+        @include('layouts.navigation')
         <!-- Section -->
         {{ $slot }}
-
         <!-- Footer-->
         <footer class="footer py-4">
             <div class="container">
@@ -93,12 +46,12 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="{{ asset('js/app.js') }}"></script>
+        {{-- <script src="{{ asset('js/app.js') }}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *--> --}}
+        {{-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> --}}
         @livewireScripts
         @stack('scripts')
     </body>

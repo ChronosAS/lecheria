@@ -16,6 +16,6 @@ class GeneratePdf extends Controller
     }
 
     protected function loadPDF(){
-        return Pdf::loadView('documents.buena-conducta-pdf');
+        return Pdf::loadView('documents.civil-registry-pdf');
     }
 }

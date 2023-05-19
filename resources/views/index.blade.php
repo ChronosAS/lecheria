@@ -1,4 +1,4 @@
-<x-layout.dashboard title="Lechería ¡Un Estilo de Vida! ">
+<div>
 
     <!-- Masthead1-->
     <header class="masthead1">
@@ -26,8 +26,8 @@
 
             <p align="center">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8D1hrbKl8u-q1yiWVlEKszUWWd8Wo7uY7fT6OLIxPIpE5sg/viewform?embedded=true" width="500" height="600" frameborder="0" marginheight="0"  class="bg-secondary rounded" marginwidth="0">Cargando…</iframe>
-            <p/>
+            </p>
 
         </div>
     </section>
-</x-layout.dashboard>
+</div>

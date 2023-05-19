@@ -4,10 +4,10 @@ namespace App\Http\Livewire\CivilRegistry;
 
 use Livewire\Component;
 
-class BuenaConductaFormModal extends Component
+class Index extends Component
 {
     public function render()
     {
-        return view('livewire.civil-registry.buena-conducta-form-modal');
+        return view('livewire.civil-registry.index');
     }
 }

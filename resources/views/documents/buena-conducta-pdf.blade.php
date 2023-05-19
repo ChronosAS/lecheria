@@ -3,235 +3,113 @@
     <head>
         <meta charset="utf-8" />
         <title>Registro Civil | Buena Conducta</title>
-        <link rel="stylesheet" href="{{ asset('css/Documents/pdf.css') }}" />
-    </head>
+        <link rel="stylesheet" href="{{ asset('css/Documents/pdf.css') }}">
+</head>
     <body>
-        <div id="title">
+        <div id="header">
             <h2>
                 REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
                 ESTADO ANZOÁTEGUI <br>
                 ALCALDÍA DEL MUNICIPIO TURÍSTICO EL MORRO<br>
                 LCDO. DIEGO BAUTISTA URBANEJA
             </h2>
-            <p style="text-align: right">Código: 202304030304</p>
+            <p>Código: 202304030304</p>
             <h1>
                 CONSTANCIA DE BUENA CONDUCTA
             </h1>
         </div>
-        <p
-            class="s1"
-            style="
-                padding-top: 4pt;
-                padding-left: 5pt;
-                text-indent: 0pt;
-                text-align: left;
-            "
-        >
-            El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora
-            Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego
-            Bautista Urbaneja del Estado Anzoátegui,
-            <span class="p"
-                >según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,
-                de la República Bolivariana de Venezuela, Hago constar que hoy
-                se presentó ante esta Despacho, el ciudadano(a):</span
-            ><u><b> Gabriel Gomez </b></u><b> </b
-            ><span class="p">Estado Civil </span><u><b>&nbsp;Viudo </b></u
-            ><span class="p">, </span>de <u><b>&nbsp;36 </b></u><b> </b>años de
-            edad, Nacionalidad: <b>V E </b>y Titular de la C.I. Nº:<u
-                ><b> 18299360 </b></u
-            ><b> </b>, domiciliado(a) en<u><b> Lecheria </b></u
-            ><b> Lechería, Estado Anzoátegui.</b>
-        </p>
-        <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">
-            En este mismo acto fueron consignados los documentos siguientes:
-        </p>
-        <h2
-            style="
-                padding-top: 9pt;
-                padding-left: 5pt;
-                text-indent: 0pt;
-                text-align: left;
-            "
-        >
-            Obligatorio
-        </h2>
-        <p
-            class="s5"
-            style="
-                padding-top: 4pt;
-                padding-left: 5pt;
-                text-indent: 0pt;
-                text-align: left;
-            "
-        >
-            (Solo para ser llenado por el registrador)
-        </p>
-        <table
-            style="border-collapse: collapse; margin-left: 6.266pt"
-            cellspacing="0"
-        >
-            <tr style="height: 21pt">
-                <td
-                    style="
-                        width: 30pt;
-                        border-top-style: solid;
-                        border-top-width: 1pt;
-                        border-left-style: solid;
-                        border-left-width: 1pt;
-                        border-bottom-style: solid;
-                        border-bottom-width: 1pt;
-                        border-right-style: solid;
-                        border-right-width: 1pt;
-                    "
-                ></td>
-                <td
-                    style="
-                        width: 497pt;
-                        border-top-style: solid;
-                        border-top-width: 1pt;
-                        border-left-style: solid;
-                        border-left-width: 1pt;
-                        border-bottom-style: solid;
-                        border-bottom-width: 1pt;
-                        border-right-style: solid;
-                        border-right-width: 1pt;
-                        border-right-color: #282828;
-                    "
-                >
-                    <p
-                        class="s6"
-                        style="
-                            padding-top: 3pt;
-                            padding-left: 3pt;
-                            text-indent: 0pt;
-                            text-align: left;
-                        "
-                    >
-                        Fotocopia de la cédula de identidad
-                    </p>
+        <div id="body">
+            <p class="main-p">
+                <i>El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego Bautista Urbaneja del Estado Anzoátegui</i>,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a): <b>{{ $citizen_name }}</b> Estado Civil <b>{{ $citizen_civil_status }}</b>, de <b>{{ $citizen_age }}</b> años de edad, Nacionalidad: <b>{{ $citizen_nationality }}</b> y Titular de la C.I. Nº: <b>{{ $citizen_id }}</b>, domiciliado(a) en <b>{{ $citizen_address }} Lechería, Estado Anzoátegui</b>.
+            </p>
+            <p class="p2">
+                En este mismo acto fueron consignados los documentos siguientes:
+            </p>
+            <p class="p3">
+                (Solo para ser llenado por el registrador)
+            </p>
+            <h2 class="required">
+                Obligatorio
+            </h2>
+            <table class="required">
+                <tr>
+                    <td class="td1"></td>
+                    <td class="td2">
+                        <p class="p-table">
+                            Fotocopia de la cédula de identidad
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1"></td>
+                    <td class="td2">
+                        <p class="p-table">
+                            Constancia emitida por la policía de no poseer
+                            antecedentes penales
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <h2 class="required">
+                Obligatorio uno de los siguientes:
+            </h2>
+            <table class="required">
+                <tr>
+                    <td class="td1"></td>
+                    <td class="td2">
+                        <p class="p-table">
+                            Fotocopia del Registro de Información Fiscal(RIF) Vigente
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p class="p4-1">
+                El solicitante declara que los datos que anteceden son ciertos y que
+                está en conocimiento de las sanciones establecidas en los Artículos
+                321 del Código <br/>
+            </p>
+            <p class="p4-2">
+                Penal Vigente y 55 de la Ley sobre Simplificación de
+                Trámites Administrativos Vigente.
+            </p>
+            <p class="p5">
+                La presente Constancia tiene validez para acreditar su estado de
+                <b>Conducta Intachable</b>, doy fe del ciudadano identificado, por
+                ante todos los órganos, entes o instituciones públicas o privadas.
+            </p>
+            <p class="p6">
+                En Lechería, a los {{ $date['day'] }} días del mes {{ $date['month'] }} de {{ $date['year'] }}.
+            </p>
+        </div>
+        <div id="footer">
+            <table class="ft">
+                <td class="ft1">
+                    <div class="f1">
+                        <h3>
+                            {{ $citizen_name }} <br/>
+                            C.I: {{ $citizen_id }}
+                        </h3>
+                    </div>
                 </td>
-            </tr>
-            <tr style="height: 21pt">
-                <td
-                    style="
-                        width: 30pt;
-                        border-top-style: solid;
-                        border-top-width: 1pt;
-                        border-left-style: solid;
-                        border-left-width: 1pt;
-                        border-bottom-style: solid;
-                        border-bottom-width: 1pt;
-                        border-bottom-color: #282828;
-                        border-right-style: solid;
-                        border-right-width: 1pt;
-                    "
-                ></td>
-                <td
-                    style="
-                        width: 497pt;
-                        border-top-style: solid;
-                        border-top-width: 1pt;
-                        border-left-style: solid;
-                        border-left-width: 1pt;
-                        border-bottom-style: solid;
-                        border-bottom-width: 1pt;
-                        border-bottom-color: #282828;
-                        border-right-style: solid;
-                        border-right-width: 1pt;
-                        border-right-color: #282828;
-                    "
-                >
-                    <p
-                        class="s6"
-                        style="
-                            padding-top: 3pt;
-                            padding-left: 3pt;
-                            text-indent: 0pt;
-                            text-align: left;
-                        "
-                    >
-                        Constancia emitida por la policía de no poseer
-                        antecedentes penales
-                    </p>
+                <td class="ft2">
+                    <table class="finger-prints">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </table>
+                    <h3>Huellas Dactilares</h3>
                 </td>
-            </tr>
-        </table>
-        <p style="text-indent: 0pt; text-align: left"><span /></p>
-        <p
-            style="
-                padding-top: 3pt;
-                padding-left: 3pt;
-                text-indent: 0pt;
-                text-align: left;
-            "
-        >
-            Fotocopia del Registro de Información Fiscal(RIF) Vigente
-        </p>
-        <p style="text-indent: 0pt; text-align: left" />
-        <h2
-            style="
-                padding-top: 4pt;
-                padding-left: 5pt;
-                text-indent: 0pt;
-                text-align: left;
-            "
-        >
-            Obligatorio uno de los siguientes:
-        </h2>
-        <p
-            class="s7"
-            style="
-                padding-left: 134pt;
-                text-indent: -127pt;
-                line-height: 81%;
-                text-align: left;
-            "
-        >
-            El solicitante declara que los datos que anteceden son ciertos y que
-            está en conocimiento de las sanciones establecidas en los Artículos
-            321 del Código Penal Vigente y 55 de la Ley sobre Simplificación de
-            Trámites Administrativos Vigente.
-        </p>
-        <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">
-            La presente Constancia tiene validez para acreditar su estado de
-            <b>Conducta Intachable</b>, doy fe del ciudadano identificado, por
-            ante todos los órganos, entes o instituciones públicas o privadas.
-        </p>
-        <p style="padding-left: 5pt; text-indent: 0pt; text-align: left">
-            En Lechería, a los 03 días del mes Abril de 2023.
-        </p>
-        <p
-            class="s8"
-            style="padding-left: 24pt; text-indent: 0pt; text-align: left"
-        >
-            <span /> <span />
-        </p>
-        <h3 style="padding-left: 94pt; text-indent: 0pt; text-align: left">
-            Gabriel Gomez
-        </h3>
-        <h3 style="padding-left: 97pt; text-indent: 0pt; text-align: left">
-            C.I: 18299360 Huellas dactilares
-        </h3>
-        <p
-            class="s9"
-            style="padding-left: 32pt; text-indent: 0pt; text-align: center"
-        >
-            ABG. DENISSE HERNANDEZ URBANEJA
-        </p>
-        <p
-            class="s9"
-            style="padding-left: 31pt; text-indent: 0pt; text-align: center"
-        >
-            Registrador Civil
-        </p>
-        <p
-            class="s10"
-            style="padding-left: 31pt; text-indent: 0pt; text-align: center"
-        >
-            Según resolución Nro.180 de fecha 22/12/2017
-        </p>
-        <h3 style="padding-left: 32pt; text-indent: 0pt; text-align: center">
-            LA EXPEDICIÓN DE LA PRESENTE CONSTANCIA ES COMPLETAMENTE GRATUITA
-        </h3>
+            </table>
+            <div class="f2">
+                <p>ABG. DENISSE HERNANDEZ URBANEJA</p>
+                <p>Registrador Civil</p>
+            </div>
+            <div class="f3">
+                <p>Según resolución Nro.180 de fecha 22/12/2017</p>
+                <br>
+                <h3>
+                    LA EXPEDICIÓN DE LA PRESENTE CONSTANCIA ES COMPLETAMENTE GRATUITA
+                </h3>
+            </div>
+        </div>
     </body>
 </html>
