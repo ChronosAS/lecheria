@@ -45,7 +45,7 @@
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <!-- Portfolio item 3-->
                         <div x-data="{}" class="portfolio-item">
-                            <a class="portfolio-link" @click="$wire.emit('entity','fe-de-vida')"  data-bs-toggle="modal" href="#civilRegistryModal">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#feDeVidaModal">
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"></div>
                                 </div>
@@ -152,6 +152,7 @@
         </section>
         <livewire:civil-registry.modals.buena-conducta/>
         <livewire:civil-registry.modals.solteria/>
+        <livewire:civil-registry.modals.fe-de-vida/>
         @push('scripts')
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
             <script>
