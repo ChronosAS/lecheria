@@ -147,11 +147,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <!-- Portfolio item 9-->
+                        <!-- FALTA IMAGEN DE BOTON -->
+                        <div x-data="{}" class="portfolio-item">
+                            <a class="portfolio-link"  data-bs-toggle="modal" href="#viudezModal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></div>
+                                </div>
+                                <img class="img-fluid" src="{{ asset('img/portfolio/solteria.jpg') }}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Carta de Viudez</div>
+                                {{-- <div class="portfolio-caption-subheading text-muted">Photography</div> --}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <livewire:civil-registry.modals.buena-conducta/>
         <livewire:civil-registry.modals.solteria/>
+        <livewire:civil-registry.modals.viudez/>
         <livewire:civil-registry.modals.fe-de-vida/>
         @push('scripts')
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
