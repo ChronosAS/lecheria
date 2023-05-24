@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Livewire\Component;
 
-class BuenaConducta extends Component
+class Viudez extends Component
 {
     public $citizen_name;
     public $citizen_civil_status = "";
@@ -27,7 +27,7 @@ class BuenaConducta extends Component
 
         return response()->streamDownload(
             fn () => print($pdf),
-            'buena-conducta.pdf'
+            'viudez.pdf'
         );
 
     }
@@ -46,7 +46,7 @@ class BuenaConducta extends Component
     protected function loadPDF($data)
     {
 
-        return Pdf::loadView('documents.buena-conducta-pdf',[
+        return Pdf::loadView('documents.viudez-pdf',[
             'citizen_name' => $this->citizen_name,
             'citizen_civil_status' => $this->citizen_civil_status,
             'citizen_age' => $data['citizen_age'],
@@ -59,6 +59,6 @@ class BuenaConducta extends Component
 
     public function render()
     {
-        return view('livewire.civil-registry.modals.buena-conducta');
+        return view('livewire.civil-registry.modals.viudez');
     }
 }

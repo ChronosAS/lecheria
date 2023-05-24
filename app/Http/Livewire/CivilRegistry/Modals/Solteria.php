@@ -39,7 +39,7 @@ class Solteria extends Component
         $month = $months[date('n')-1];
         $year = date('Y');
 
-        return $date = array('day'=>$day,'month'=>$month,'year'=>$year);
+        return array('day'=>$day,'month'=>$month,'year'=>$year);
 
     }
 

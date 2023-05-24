@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
-        <title>Registro Civil | Soltería</title>
+        <title>Registro Civil | Viudez</title>
         <link rel="stylesheet" href="{{ asset('css/Documents/pdf.css') }}">
 </head>
     <body>
@@ -13,9 +13,9 @@
                 ALCALDÍA DEL MUNICIPIO TURÍSTICO EL MORRO<br>
                 LCDO. DIEGO BAUTISTA URBANEJA
             </h2>
-            <p>Código: 202304030305</p>
+            <p>Código: 202304030303</p>
             <h1>
-                CONSTANCIA DE SOLTERÍA
+                CONSTANCIA DE VIUDEZ
             </h1>
         </div>
         <div id="body">
@@ -75,8 +75,7 @@
                 Trámites Administrativos Vigente.
             </p>
             <p class="p5">
-                La presente Constancia tiene validez para acreditar su Estado Civil:
-                <b>{{ $citizen_civil_status }}</b>, doy fe del ciudadano identificado, por
+                La presente Constancia tiene validez para acreditar su estado de viudez, doy fe del ciudadano identificado, por
                 ante todos los órganos, entes o instituciones públicas o privadas.
             </p>
             <p class="p6">
