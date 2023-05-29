@@ -16,8 +16,25 @@ class BuenaConducta extends Component
     public $citizen_id;
     public $citizen_address;
 
+    protected $rules = [
+        'citizen_name' => 'required',
+        'citizen_civil_status' => 'required',
+        'citizen_birthdate' => 'required',
+        'citizen_id' => 'required',
+        'citizen_address' => 'required',
+    ];
+
+    protected $messages = [
+        'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
+        'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
+        'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
+        'citizen_id.required' => 'Porfavor ingrese su numero de identidad.',
+        'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.'
+    ];
+
     public function download()
     {
+        $this->validate();
         $age = Carbon::parse($this->citizen_birthdate)->age;
         $data = [
             'citizen_age' => $age,
