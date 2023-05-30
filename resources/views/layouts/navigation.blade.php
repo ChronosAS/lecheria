@@ -8,15 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-3 py-lg-0">
 
-
-                <li class="nav-item">
-                    <a
-                        class="{{ (Route::currentRouteName() == 'home') ? 'nav-link text-primary disabled' : 'nav-link' }}"
-                        href="{{ route('home') }}"
-                    >
-                        Inicio
-                    </a>
-                </li>
+                @if (Route::currentRouteName() != 'home')
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{{ route('home') }}"
+                        >
+                            Inicio
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a
                         class="nav-link"
@@ -26,14 +27,16 @@
                         Declaración en Línea
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a
-                        class="{{ (Route::currentRouteName() == 'civil-registry') ? 'nav-link text-primary disabled' : 'nav-link' }}"
-                        href="{{ route('civil-registry') }}"
-                    >
-                        Registro Civil
-                    </a>
-                </li>
+                @if(Route::currentRouteName() != 'civil-registry')
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            href="{{ route('civil-registry') }}"
+                        >
+                            Registro Civil
+                        </a>
+                    </li>
+                @endif
                 <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Catastro</a></li>-->
                 <!--<li class="nav-item"><a class="nav-link" href="#about">Insert Here</a></li>-->
                 <!--<li class="nav-item"><a class="nav-link" href="#team">Insert Here</a></li>-->
