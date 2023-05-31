@@ -1,4 +1,9 @@
-@props(['options'=> []])
+@props([
+    'options'=> [],
+    'name',
+    'show' => '',
+    'wire' => 'debounce'
+])
 
 @php
     $options = array_merge([
@@ -10,7 +15,7 @@
     ])
 @endphp
 
-<div wire:ignore>
+<div wire:ignore @if($show) x-show="{{ $show }}" @endif>
     <input
         x-data="{
             init() {
@@ -18,6 +23,9 @@
             }
         }"
         x-ref="input"
+        id ={{ $name }}
+        name ={{ $name }}
+        wire:model.{{ $wire }} = {{ $name }}
         type="text"
         {{ $attributes->merge(['class' => 'form-control border-dark']) }}
     />

@@ -20,7 +20,7 @@
         </div>
         <div id="body">
             <p class="main-p">
-                <i>El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego Bautista Urbaneja del Estado Anzoátegui</i>,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a): <b>{{ $citizen_name }}</b> Estado Civil <b>{{ $citizen_civil_status }}</b>, de <b>{{ $citizen_age }}</b> años de edad, Nacionalidad: <b>{{ $citizen_nationality }}</b> y Titular de la C.I. Nº: <b>{{ $citizen_id }}</b>, domiciliado(a) en <b>{{ $citizen_address }} Lechería, Estado Anzoátegui</b>.
+                <i>El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego Bautista Urbaneja del Estado Anzoátegui</i>,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a): <b>{{ $citizen_name }}</b> Estado Civil <b>{{ $citizen_civil_status }}</b>, de <b>{{ $citizen_age }}</b> años de edad, Nacionalidad: <b>{{ $citizen_nationality }}</b> y Titular de la C.I. Nº: <b>{{ $citizen_document }}</b>, domiciliado(a) en <b>{{ $citizen_address }} Lechería, Estado Anzoátegui</b>.
             </p>
             <p class="p2">
                 En este mismo acto fueron consignados los documentos siguientes:
@@ -87,7 +87,7 @@
                     <div class="f1">
                         <h3>
                             {{ $citizen_name }} <br/>
-                            C.I: {{ $citizen_id }}
+                            C.I: {{ $citizen_document }}
                         </h3>
                     </div>
                 </td>
