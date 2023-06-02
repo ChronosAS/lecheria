@@ -12,17 +12,21 @@
         'altFormat' => 'd-m-Y',
         'altInput' => true,
         'allowInput' =>true
-    ])
+        ],$options)
 @endphp
 
 <div wire:ignore @if($show) x-show="{{ $show }}" @endif>
     <input
         x-data="{
+            value: @entangle($attributes->wire('model')),
+            instance: undefined,
             init() {
-                flatpickr(this.$refs.input, {{ json_encode((object)$options) }});
+                $watch('value', value => this.instance.setDate(value,false));
+                this.instance = flatpickr(this.$refs.input, {{ json_encode((object)$options) }});
             }
         }"
         x-ref="input"
+        x-bind:value="value"
         id ={{ $name }}
         name ={{ $name }}
         wire:model.{{ $wire }} = {{ $name }}

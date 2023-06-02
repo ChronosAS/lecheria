@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('birthdate');
             $table->string('nationality');
             $table->string('document')->unique();
-            $table->string('address', 500);
             $table->timestamps();
         });
     }

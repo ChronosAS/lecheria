@@ -12,16 +12,16 @@
                     <h3 class="section-subheading text-muted">{{-- Conoce los requisitos y --}}Llena y descarga las planillas para tus tramites.</h3>
                     <hr/>
                     <div class="row">
-                        <div x-data="{ show: @entangle('show'), input: @entangle('input') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
+                        <div x-data="{ show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
                                     <h4>Ya a utilizado este servicio antes?</h2>
-                                    <label for="citizen_name" class="col-form-label text-center" ><h6>Ingrese su numero de documento</h6></label>
-                                    @error('citizen_name')
+                                    <label for="citizen_search" class="col-form-label text-center" ><h6>Ingrese su numero de documento</h6></label>
+                                    @error('citizen_search')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
                                     <input type="text" class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_search" id="citizen_search" search="citizen_search" placeholder="Buscar documento..."/>
-                                    <button type="button" class="btn btn-primary mt-2" @click="show = true" name="search-citizen" id="search-citizen">Es la primera vez que lo uso</button>
+                                    <button type="button" class="btn btn-primary mt-2" @click="show=true; input=true; edit=false" name="search-citizen" id="search-citizen">Es la primera vez que lo uso</button>
                                     <button type="button" class="btn btn-success mt-2" @click="$wire.searchCitizen()" name="search-citizen" id="search-citizen">Buscar</button>
                                 </div>
                                 <div x-show="show">
@@ -60,11 +60,11 @@
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
                                     <div x-show="input" class="input-group input-group-sm" style="margin-bottom: 0.65rem">
-                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model="citizen_nationality" name="citizen_nationality" id="citizen_nationality">
+                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model="citizen_nationality" name="citizen_nationality" id="citizen_nationality" @if($edit) disabled @endif>
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
                                         </select>
-                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_document" id="citizen_document" name="citizen_document" placeholder="Ingrese N° de documento"/>
+                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_document" id="citizen_document" name="citizen_document" placeholder="Ingrese N° de documento" @if($edit) disabled @endif/>
                                     </div>
                                     <h6 x-show="!input">{{ $citizen_nationality.'-'.$citizen_document }}</h6>
                                 </div>
@@ -73,7 +73,7 @@
                                     @error('citizen_address')
                                         <p class="text-xs text-danger m-2"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <textarea x-show="input" class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección"></textarea>
+                                    <textarea class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección"></textarea>
                                     <h6 x-show="!input">{{ $citizen_address }}</h6>
                                 </div>
                                 <div x-show="show" class="flex row justify-content-center gx-2 gy-3 btn-toolbar m-3">
@@ -98,10 +98,10 @@
                                         <label class="btn btn-outline-primary" for="radio-bc">Buena Conducta</label>
                                     </div>
                                 </div>
-                                <hr/>
                                 <div x-show="show" class="flex text-center mb-3">
+                                    <hr/>
                                     <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button>
-                                    <button x-show="!input" type="button" @click="input=true" wire:loading.attr='disabled' class="btn btn-warning ml-1">Editar</button>
+                                    <button x-show="!input" type="button" @click="input=true; edit=true" wire:loading.attr='disabled' class="btn btn-warning ml-1">Editar</button>
                                     <button type="submit" wire:loading.attr='disabled' class="btn btn-success ml-1">Descargar</button>
                                 </div>
                             </form>

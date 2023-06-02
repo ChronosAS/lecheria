@@ -21,6 +21,7 @@ class Index extends Component
 
     public $show = false;
     public $input = true;
+    public $edit = false;
 
     protected $rules = [
         'citizen_search' => 'nullable',
@@ -41,7 +42,7 @@ class Index extends Component
         'selected_document.required' => 'Porfavor elija una planilla para imprimir'
     ];
 
-    public function inputd($propertyName)
+    public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
     }
@@ -54,10 +55,9 @@ class Index extends Component
         {
             $this->citizen_name = $this->citizen->name;
             $this->citizen_civil_status = $this->citizen->civil_status;
-            $this->citizen_birthdate = (string) Carbon::parse($this->citizen->birthdate)->format('d-m-Y');
+            $this->citizen_birthdate = Carbon::parse($this->citizen->birthdate)->format('d-m-Y');
             $this->citizen_nationality = $this->citizen->nationality;
             $this->citizen_document = $this->citizen->document;
-            $this->citizen_address = $this->citizen->address;
 
             $this->show =true;
             $this->input = false;
@@ -94,7 +94,17 @@ class Index extends Component
                 'birthdate' => Carbon::createFromFormat('d-m-Y',$this->citizen_birthdate),
                 'nationality' => $this->citizen_nationality,
                 'document' => $this->citizen_document,
-                'address' => $this->citizen_address
+            ]);
+        }
+
+        if($this->edit)
+        {
+            $this->citizen->update([
+                'name' => $this->citizen_name,
+                'civil_status' => $this->citizen_civil_status,
+                'birthdate' => Carbon::createFromFormat('d-m-Y',$this->citizen_birthdate),
+                'nationality' => $this->citizen_nationality,
+                'document' => $this->citizen_document,
             ]);
         }
 
