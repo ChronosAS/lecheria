@@ -15,12 +15,17 @@
                         <div x-data="{ show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
-                                    <h4>Ya a utilizado este servicio antes?</h2>
-                                    <label for="citizen_search" class="col-form-label text-center" ><h6>Ingrese su numero de documento</h6></label>
+                                    <h4>Ingrese su numero de documento</h2>
                                     @error('citizen_search')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <input type="text" class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_search" id="citizen_search" search="citizen_search" placeholder="Buscar documento..."/>
+                                    <div class="input-group input-group-sm" style="margin-bottom: 0.65rem">
+                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model="citizen_search_nationality" name="citizen_search_nationality" id="citizen_search_nationality" >
+                                            <option value="V" selected>V</option>
+                                            <option value="E">E</option>
+                                        </select>
+                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
+                                    </div>
                                     <button type="button" class="btn btn-primary mt-2" @click="show=true; input=true; edit=false" name="search-citizen" id="search-citizen">Es la primera vez que lo uso</button>
                                     <button type="button" class="btn btn-success mt-2" @click="$wire.searchCitizen()" name="search-citizen" id="search-citizen">Buscar</button>
                                 </div>
@@ -68,14 +73,68 @@
                                     </div>
                                     <h6 x-show="!input">{{ $citizen_nationality.'-'.$citizen_document }}</h6>
                                 </div>
-                                <div x-show="show" class="mb-4">
+                                <div x-show="show">
+                                    <h5 class="text-center mb-3">Dirección</h5>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <select class="form-select border-dark" name="address_1_s" id="address_1_s" wire:model="address_1_s">
+                                                <option value="Urbanización">Urbanización</option>
+                                                <option value="Sector">Sector</option>
+                                                <option value="Barrio">Barrio</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <input class="form-control" wire:model="address_1_t" type="text" name="address_1_t" id="address_1_t">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <select class="form-select border-dark" name="address_2_s" id="address_2_s" wire:model="address_2_s">
+                                                <option value="Avenida">Avenida</option>
+                                                <option value="Calle">Calle</option>
+                                                <option value="Vereda">Vereda</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <input class="form-control" wire:model="address_2_t" type="text" name="address_2_t" id="address_2_t">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <select class="form-select border-dark" name="address_3_s" id="address_3_s" wire:model="address_3_s">
+                                                <option value="Edificio">Edificio</option>
+                                                <option value="Casa">Casa</option>
+                                                <option value="Habitación">Habitación</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <input class="form-control" wire:model="address_3_t" type="text" name="address_3_t" id="address_3_t">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <select class="form-select border-dark" name="address_4_s" id="address_4_s" wire:model="address_4_s">
+                                                <option value="Piso">Piso</option>
+                                                <option value="Nivel">Nivel</option>
+                                                <option value="Numero">Numero</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-8">
+                                            <input class="form-control" wire:model="address_4_t" type="text" name="address_4_t" id="address_4_t">
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input class="form-control" type="text" name="address_apto" id="address_apto" wire:model="address_apto" placeholder="Apartamento">
+                                    </div>
+                                </div>
+                                {{-- <div x-show="show" class="mb-4">
                                     <label for="citizen_address" class="col-form-label text-center"><h5>Dirección de domicilio</h5></label>
                                     @error('citizen_address')
                                         <p class="text-xs text-danger m-2"><small>{{ $message }}</small></p>
                                     @enderror
                                     <textarea class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección"></textarea>
                                     <h6 x-show="!input">{{ $citizen_address }}</h6>
-                                </div>
+                                </div> --}}
                                 <div x-show="show" class="flex row justify-content-center gx-2 gy-3 btn-toolbar m-3">
                                     <h5>Elija la planilla que desea imprimir</h5>
                                     @error('selected_document')

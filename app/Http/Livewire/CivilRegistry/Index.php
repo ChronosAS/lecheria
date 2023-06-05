@@ -10,7 +10,8 @@ use Livewire\Component;
 class Index extends Component
 {
     public $citizen;
-    public $citizen_search;
+    public $citizen_search_document;
+    public $citizen_search_nationality = "V";
     public $citizen_name;
     public $citizen_civil_status = "";
     public $citizen_nationality = "V";
@@ -24,7 +25,8 @@ class Index extends Component
     public $edit = false;
 
     protected $rules = [
-        'citizen_search' => 'nullable',
+        'citizen_search_nationality' => 'nullable',
+        'citizen_search_document' => 'nullable',
         'citizen_name' => 'required',
         'citizen_civil_status' => 'required',
         'citizen_birthdate' => 'required',
@@ -49,7 +51,9 @@ class Index extends Component
 
     public function searchCitizen()
     {
-        $this->citizen = Citizen::where('document',$this->citizen_search)->first();
+        $this->citizen = Citizen::where('document',$this->citizen_search_document)
+            ->where('nationality',$this->citizen_search_nationality)
+            ->first();
 
         if($this->citizen)
         {
