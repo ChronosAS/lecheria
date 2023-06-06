@@ -68,26 +68,25 @@ class Index extends Component
 
     public function searchCitizen()
     {
-        $this->citizen = Citizen::where('document',$this->citizen_search_document)
-            ->where('nationality',$this->citizen_search_nationality)
+        $this->citizen = Citizen::where('document', $this->citizen_search_document)
+            ->where('nationality', $this->citizen_search_nationality)
             ->first();
 
-        if($this->citizen)
-        {
+        if($this->citizen) {
             $this->citizen_name = $this->citizen->name;
             $this->citizen_civil_status = $this->citizen->civil_status;
-            $this->citizen_birthdate = Carbon::parse($this->citizen->birthdate)->format('d-m-Y');
+            $this->citizen_birthdate = $this->citizen->birthdate;
             $this->citizen_nationality = $this->citizen->nationality;
             $this->citizen_document = $this->citizen->document;
 
             $this->input = false;
 
-        }else {
+        } else {
             $this->citizen_nationality = $this->citizen_search_nationality;
             $this->citizen_document = $this->citizen_search_document;
         }
 
-            $this->show =true;
+        $this->show =true;
     }
 
     public function download()
@@ -99,7 +98,7 @@ class Index extends Component
             'citizen_document' => 'required',
             // 'citizen_address' => 'required',
             'selected_document' => 'required'
-        ],[
+        ], [
             'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
             'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
             'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
@@ -108,23 +107,22 @@ class Index extends Component
             'selected_document.required' => 'Porfavor elija una planilla para imprimir'
         ]);
 
-        if(!$this->citizen)
-        {
+        if(!$this->citizen) {
             $this->citizen = Citizen::create([
+                'uuid' => \Illuminate\Support\Str::uuid(),
                 'name' => $this->citizen_name,
                 'civil_status' => $this->citizen_civil_status,
-                'birthdate' => Carbon::createFromFormat('d-m-Y',$this->citizen_birthdate),
+                'birthdate' => $this->citizen_birthdate,
                 'nationality' => $this->citizen_nationality,
                 'document' => $this->citizen_document,
             ]);
         }
 
-        if($this->edit)
-        {
+        if($this->edit) {
             $this->citizen->update([
                 'name' => $this->citizen_name,
                 'civil_status' => $this->citizen_civil_status,
-                'birthdate' => Carbon::createFromFormat('d-m-Y',$this->citizen_birthdate),
+                'birthdate' => $this->citizen_birthdate,
                 'nationality' => $this->citizen_nationality,
                 'document' => $this->citizen_document,
             ]);
@@ -158,7 +156,7 @@ class Index extends Component
     protected function loadPDF($data)
     {
 
-        return Pdf::loadView('documents.'.$this->selected_document.'-pdf',[
+        return Pdf::loadView('documents.'.$this->selected_document.'-pdf', [
             'citizen_name' => $this->citizen_name,
             'citizen_civil_status' => $this->citizen_civil_status,
             'citizen_age' => $data['citizen_age'],

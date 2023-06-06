@@ -56,7 +56,7 @@
                                     @error('citizen_birthdate')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <x-forms.input-date show="input" wire:loading.attr='disabled' wire="lazy" name="citizen_birthdate" placeholder="Seleccione fecha"/>
+                                    <input type="date" class="input-group input-group-sm" id="birthday" name="birthday" wire:loading.attr='disabled' wire:model.defer="citizen_birthdate" placeholder="Seleccione fecha">
                                     <h6 x-show="!input">{{ $citizen_birthdate }}</h6>
                                 </div>
                                 <div x-show="show">
