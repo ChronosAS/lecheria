@@ -24,7 +24,7 @@
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
                                         </select>
-                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
+                                        <input @keyup.enter.window="$wire.searchCitizen()" type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
                                     </div>
                                     <button type="button" class="btn btn-primary mt-2" @click="show=true; input=true; edit=false" name="search-citizen" id="search-citizen">Es la primera vez que lo uso</button>
                                     <button type="button" class="btn btn-success mt-2" @click="$wire.searchCitizen()" name="search-citizen" id="search-citizen">Buscar</button>
@@ -56,15 +56,15 @@
                                     @error('citizen_birthdate')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <input type="date" class="input-group input-group-sm" id="birthday" name="birthday" wire:loading.attr='disabled' wire:model.defer="citizen_birthdate" placeholder="Seleccione fecha">
-                                    <h6 x-show="!input">{{ $citizen_birthdate }}</h6>
+                                    <input x-show="input" type="date" class="form-control" id="birthday" name="birthday" wire:loading.attr='disabled' wire:model.lazy="citizen_birthdate" placeholder="Seleccione fecha">
+                                    <h6 x-show="!input">{{ date('d-m-Y',strtotime($citizen?->birthdate)) }}</h6>
                                 </div>
                                 <div x-show="show">
                                     <label for="citizen_document" class="col-form-label text-center"><h5>Documento</h5></label>
                                     @error('citizen_document')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <div x-show="input" class="input-group input-group-sm" style="margin-bottom: 0.65rem">
+                                    <div x-show="input" class="input-group input-group-sm" style="margin-bottom: 0.65rem" @if($edit) disabled @endif>
                                         <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model="citizen_nationality" name="citizen_nationality" id="citizen_nationality" @if($edit) disabled @endif>
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
@@ -153,7 +153,7 @@
                                     <hr/>
                                     <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button>
                                     <button x-show="!input" type="button" @click="input=true; edit=true" wire:loading.attr='disabled' class="btn btn-warning ml-1">Editar</button>
-                                    <button type="submit" wire:loading.attr='disabled' class="btn btn-success ml-1">Descargar</button>
+                                    <button type="button" @click="$wire.download()" wire:loading.attr='disabled' class="btn btn-success ml-1">Descargar</button>
                                 </div>
                             </form>
                         </div>

@@ -82,6 +82,7 @@ class Index extends Component
             $this->input = false;
 
         } else {
+            $this->resetExcept(['citizen_search_nationality','citizen_search_document']);
             $this->citizen_nationality = $this->citizen_search_nationality;
             $this->citizen_document = $this->citizen_search_document;
         }
@@ -109,7 +110,6 @@ class Index extends Component
 
         if(!$this->citizen) {
             $this->citizen = Citizen::create([
-                'uuid' => \Illuminate\Support\Str::uuid(),
                 'name' => $this->citizen_name,
                 'civil_status' => $this->citizen_civil_status,
                 'birthdate' => $this->citizen_birthdate,
