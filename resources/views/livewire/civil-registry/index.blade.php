@@ -12,7 +12,7 @@
                     <h3 class="section-subheading text-muted">{{-- Conoce los requisitos y --}}Llena y descarga las planillas para tus tramites.</h3>
                     <hr/>
                     <div class="row">
-                        <div x-data="{ show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
+                        <div x-data="{ apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
                                     <h4>Ingrese su numero de documento</h2>
@@ -77,7 +77,7 @@
                                     <h5 class="text-center mb-3">Dirección</h5>
                                     <div class="row mb-2">
                                         <div class="col-4">
-                                            <select class="form-select border-dark" name="address_1_s" id="address_1_s" wire:model="address_1_s">
+                                            <select class="form-select border-dark" name="address_1_s" id="address_1_s" wire:model.defer="address_1_s">
                                                 <option value="Urbanización">Urbanización</option>
                                                 <option value="Sector">Sector</option>
                                                 <option value="Barrio">Barrio</option>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="row mb-2">
                                         <div class="col-4">
-                                            <select class="form-select border-dark" name="address_2_s" id="address_2_s" wire:model="address_2_s">
+                                            <select class="form-select border-dark" name="address_2_s" id="address_2_s" wire:model.defer="address_2_s">
                                                 <option value="Avenida">Avenida</option>
                                                 <option value="Calle">Calle</option>
                                                 <option value="Vereda">Vereda</option>
@@ -102,8 +102,8 @@
                                     <div class="row mb-2">
                                         <div class="col-4">
                                             <select class="form-select border-dark" name="address_3_s" id="address_3_s" wire:model="address_3_s">
-                                                <option value="Edificio">Edificio</option>
                                                 <option value="Casa">Casa</option>
+                                                <option value="Edificio" selected>Edificio</option>
                                                 <option value="Habitación">Habitación</option>
                                             </select>
                                         </div>
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="row mb-2">
                                         <div class="col-4">
-                                            <select class="form-select border-dark" name="address_4_s" id="address_4_s" wire:model="address_4_s">
+                                            <select class="form-select border-dark" name="address_4_s" id="address_4_s" wire:model.defer="address_4_s">
                                                 <option value="Piso">Piso</option>
                                                 <option value="Nivel">Nivel</option>
                                                 <option value="Numero">Numero</option>
@@ -123,18 +123,10 @@
                                             <input class="form-control" wire:model="address_4_t" type="text" name="address_4_t" id="address_4_t">
                                         </div>
                                     </div>
-                                    <div class="mb-2">
+                                    <div x-show="apto == 'Edificio'" x-transition class="mb-2">
                                         <input class="form-control" type="text" name="address_apto" id="address_apto" wire:model="address_apto" placeholder="Apartamento">
                                     </div>
                                 </div>
-                                {{-- <div x-show="show" class="mb-4">
-                                    <label for="citizen_address" class="col-form-label text-center"><h5>Dirección de domicilio</h5></label>
-                                    @error('citizen_address')
-                                        <p class="text-xs text-danger m-2"><small>{{ $message }}</small></p>
-                                    @enderror
-                                    <textarea class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_address" name="citizen_address" id="citizen_address" rows="2" placeholder="Ingrese dirección"></textarea>
-                                    <h6 x-show="!input">{{ $citizen_address }}</h6>
-                                </div> --}}
                                 <div x-show="show" class="flex row justify-content-center gx-2 gy-3 btn-toolbar m-3">
                                     <h5>Elija la planilla que desea imprimir</h5>
                                     @error('selected_document')

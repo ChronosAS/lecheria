@@ -17,7 +17,15 @@ class Index extends Component
     public $citizen_nationality = "V";
     public $citizen_birthdate;
     public $citizen_document;
-    public $citizen_address;
+    public $address_1_s;
+    public $address_1_t;
+    public $address_2_s;
+    public $address_2_t;
+    public $address_3_s;
+    public $address_3_t;
+    public $address_4_s;
+    public $address_4_t;
+    public $address_apto;
     public $selected_document;
 
     public $show = false;
@@ -31,7 +39,15 @@ class Index extends Component
         'citizen_civil_status' => 'required',
         'citizen_birthdate' => 'required',
         'citizen_document' => 'required',
-        'citizen_address' => 'required',
+        'address_1_s' => 'required',
+        'address_1_t' => 'required',
+        'address_2_s' => 'required',
+        'address_2_t' => 'required',
+        'address_3_s' => 'required',
+        'address_3_t' => 'required',
+        'address_4_s' => 'required',
+        'address_4_t' => 'required',
+        'address_apto' => 'required',
         'selected_document' => 'required'
     ];
 
@@ -68,7 +84,8 @@ class Index extends Component
 
         }else {
             $this->show = true;
-            $this->citizen_document = $this->citizen_search;
+            $this->citizen_nationality = $this->citizen_search_nationality;
+            $this->citizen_document = $this->citizen_search_document;
         }
     }
 
