@@ -17,6 +17,7 @@ class Index extends Component
     public $citizen_nationality = "V";
     public $citizen_birthdate;
     public $citizen_document;
+    public $address;
     public $address_1_s;
     public $address_1_t;
     public $address_2_s;
@@ -39,15 +40,15 @@ class Index extends Component
         'citizen_civil_status' => 'required',
         'citizen_birthdate' => 'required',
         'citizen_document' => 'required',
-        'address_1_s' => 'required',
-        'address_1_t' => 'required',
-        'address_2_s' => 'required',
-        'address_2_t' => 'required',
-        'address_3_s' => 'required',
-        'address_3_t' => 'required',
-        'address_4_s' => 'required',
-        'address_4_t' => 'required',
-        'address_apto' => 'required',
+        'address_1_s' => 'nullable',
+        'address_1_t' => 'nullable',
+        'address_2_s' => 'nullable',
+        'address_2_t' => 'nullable',
+        'address_3_s' => 'nullable',
+        'address_3_t' => 'nullable',
+        'address_4_s' => 'nullable',
+        'address_4_t' => 'nullable',
+        'address_apto' => 'nullable',
         'selected_document' => 'required'
     ];
 
@@ -96,14 +97,14 @@ class Index extends Component
             'citizen_civil_status' => 'required',
             'citizen_birthdate' => 'required',
             'citizen_document' => 'required',
-            'citizen_address' => 'required',
+            // 'citizen_address' => 'required',
             'selected_document' => 'required'
         ],[
             'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
             'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
             'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
             'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
-            'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.',
+            // 'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.',
             'selected_document.required' => 'Porfavor elija una planilla para imprimir'
         ]);
 
@@ -163,7 +164,7 @@ class Index extends Component
             'citizen_age' => $data['citizen_age'],
             'citizen_nationality' => ($this->citizen_nationality == 'V') ? "Venezolano(a)" : "Extrangero(a)",
             'citizen_document' => $this->citizen_document,
-            'citizen_address' => $this->citizen_address,
+            // 'citizen_address' => $this->citizen_address,
             'date' => $this->getDateEsp(),
         ])->setPaper('letter')->output();
     }
