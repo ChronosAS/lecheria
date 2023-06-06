@@ -80,14 +80,14 @@ class Index extends Component
             $this->citizen_nationality = $this->citizen->nationality;
             $this->citizen_document = $this->citizen->document;
 
-            $this->show =true;
             $this->input = false;
 
         }else {
-            $this->show = true;
             $this->citizen_nationality = $this->citizen_search_nationality;
             $this->citizen_document = $this->citizen_search_document;
         }
+
+            $this->show =true;
     }
 
     public function download()
