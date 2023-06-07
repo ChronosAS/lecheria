@@ -5,6 +5,7 @@ namespace App\Http\Livewire\CivilRegistry;
 use App\Models\Citizen;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class Index extends Component
@@ -18,13 +19,13 @@ class Index extends Component
     public $citizen_birthdate;
     public $citizen_document;
     public $address;
-    public $address_1_s;
+    public $address_1_s = "Urbanización";
     public $address_1_t;
-    public $address_2_s;
+    public $address_2_s = "Avenida";
     public $address_2_t;
-    public $address_3_s;
+    public $address_3_s = "Casa";
     public $address_3_t;
-    public $address_4_s;
+    public $address_4_s = "Numero";
     public $address_4_t;
     public $address_apto;
     public $selected_document;
@@ -34,37 +35,29 @@ class Index extends Component
     public $edit = false;
 
     protected $rules = [
-        'citizen_search_nationality' => 'nullable',
-        'citizen_search_document' => 'nullable',
-        'citizen_name' => 'required',
-        'citizen_civil_status' => 'required',
-        'citizen_birthdate' => 'required',
-        'citizen_document' => 'required',
-        'address_1_s' => 'nullable',
-        'address_1_t' => 'nullable',
-        'address_2_s' => 'nullable',
-        'address_2_t' => 'nullable',
-        'address_3_s' => 'nullable',
-        'address_3_t' => 'nullable',
-        'address_4_s' => 'nullable',
-        'address_4_t' => 'nullable',
-        'address_apto' => 'nullable',
-        'selected_document' => 'required'
-    ];
+        'citizen_search_nationality' => ['nullable'],
+        'citizen_search_document' => ['nullable'],
+        'citizen_name' => ['required'],
+        'citizen_civil_status' => ['required'],
+        'citizen_birthdate' => ['required'],
+        'citizen_document' => ['required'],
+        'selected_document' => ['required']
+        ];
 
     protected $messages = [
-        'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
-        'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
-        'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
-        'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
-        'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.',
-        'selected_document.required' => 'Porfavor elija una planilla para imprimir'
-    ];
+            'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
+            'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
+            'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
+            'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
+            'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.',
+            'selected_document.required' => 'Porfavor elija una planilla para imprimir',
+        ];
 
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
     }
+
 
     public function searchCitizen()
     {
@@ -90,23 +83,30 @@ class Index extends Component
         $this->show =true;
     }
 
+    public function clear()
+    {
+        $this->reset();
+    }
+
     public function download()
     {
         $this->validate([
             'citizen_name' => 'required',
             'citizen_civil_status' => 'required',
             'citizen_birthdate' => 'required',
-            'citizen_document' => 'required',
-            // 'citizen_address' => 'required',
-            'selected_document' => 'required'
+            'citizen_document' => ['required'],
+            'selected_document' => 'required',
+            'address_apto' => [Rule::requiredIf($this->address_3_s == 'Edificio')]
         ], [
             'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
             'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
             'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
             'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
-            // 'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.',
-            'selected_document.required' => 'Porfavor elija una planilla para imprimir'
+            'selected_document.required' => 'Porfavor elija una planilla para imprimir',
+            'address_apto.required' => 'Porfavor ingrese su numero de apartamento'
         ]);
+
+
 
         if(!$this->citizen) {
             $this->citizen = Citizen::create([
@@ -129,8 +129,12 @@ class Index extends Component
         }
 
         $age = Carbon::parse($this->citizen_birthdate)->age;
+
+        $address = $this->address_1_s + ' ' + $this->address_1_t + ', ' + $this->address_2_s + ' ' + $this->address_2_t + ', ' + $this->address_3_s + ' ' + $this->address_3_t + ', ' + $this->address_4_s + ' ' + $this->address_4_t + ' Apartamento N° ' + $this->address_apto;
+
         $data = [
             'citizen_age' => $age,
+            'citizen_address' => $address
         ];
 
         $pdf = $this->loadPDF($data);
@@ -162,7 +166,7 @@ class Index extends Component
             'citizen_age' => $data['citizen_age'],
             'citizen_nationality' => ($this->citizen_nationality == 'V') ? "Venezolano(a)" : "Extrangero(a)",
             'citizen_document' => $this->citizen_document,
-            // 'citizen_address' => $this->citizen_address,
+            'citizen_address' => $data['citizen_address'],
             'date' => $this->getDateEsp(),
         ])->setPaper('letter')->output();
     }
