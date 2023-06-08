@@ -130,7 +130,7 @@ class Index extends Component
 
         $age = Carbon::parse($this->citizen_birthdate)->age;
 
-        $address = $this->address_1_s + ' ' + $this->address_1_t + ', ' + $this->address_2_s + ' ' + $this->address_2_t + ', ' + $this->address_3_s + ' ' + $this->address_3_t + ', ' + $this->address_4_s + ' ' + $this->address_4_t + ' Apartamento N° ' + $this->address_apto;
+        $address = $this->address_1_s.' '.$this->address_1_t.', '.$this->address_2_s.' '.$this->address_2_t.', '.$this->address_3_s.' '.$this->address_3_t.', '.$this->address_4_s.' '.$this->address_4_t.' Apartamento '.$this->address_apto;
 
         $data = [
             'citizen_age' => $age,
