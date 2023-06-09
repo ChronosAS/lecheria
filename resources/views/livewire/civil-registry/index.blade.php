@@ -1,3 +1,8 @@
+@push("styles")
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+@endpush
 <div>
     <!-- Masthead1-->
     <div>
@@ -16,28 +21,28 @@
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
                                     <h4>Ingrese su numero de documento</h2>
-                                    @error('citizen_search')
+                                    @error('citizen_search_document')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
                                     <div class="input-group input-group-sm" style="margin-bottom: 0.65rem">
-                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model="citizen_search_nationality" name="citizen_search_nationality" id="citizen_search_nationality" >
+                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model.defer="citizen_search_nationality" name="citizen_search_nationality" id="citizen_search_nationality" >
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
                                         </select>
-                                        <input @keyup.enter.window="$wire.searchCitizen()" type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
+                                        <input @keyup.enter.window="$wire.searchCitizen()" type="text" wire:loading.attr='disabled'  class="form-control" wire:model.defer="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
                                     </div>
                                     <button type="button" class="btn btn-primary mt-2" @click="$wire.clear(); show=true; input=true; edit=false;" name="search-citizen" id="search-citizen">Es la primera vez que lo uso</button>
                                     <button type="button" class="btn btn-success mt-2" @click="$wire.searchCitizen()" name="search-citizen" id="search-citizen">Buscar</button>
                                 </div>
-                                <div x-show="show">
+                                <div x-cloak x-show="show">
                                     <label for="citizen_search" class="col-form-label text-center" ><h5>Nombre completo</h5></label>
                                     @error('citizen_name')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <input x-show="input" type="text" class="form-control" wire:loading.attr='disabled' wire:model.lazy="citizen_name" id="citizen_name" name="citizen_name" placeholder="Escriba su nombre completo"/>
+                                    <input x-show="input" type="text" class="form-control" wire:loading.attr='disabled' wire:model.defer="citizen_name" id="citizen_name" name="citizen_name" placeholder="Escriba su nombre completo"/>
                                     <h6 x-show="!input">{{ $citizen_name }}</h6>
                                 </div>
-                                <div x-show="show" x-data="{ selected: false }">
+                                <div x-cloak x-show="show" x-data="{ selected: false }">
                                     <label for="citizen_civil_status" class="col-form-label text-center"><h5>Estado Civil</h5></label>
                                     @error('citizen_civil_status')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
@@ -51,15 +56,15 @@
                                     </select>
                                     <h6 x-show="!input">{{ $citizen_civil_status }}</h6>
                                 </div>
-                                <div x-show="show">
+                                <div x-cloak x-show="show">
                                     <label for="citizen_birthdate" class="col-form-label text-center"><h5>Fecha de Nacimiento</h5></label>
                                     @error('citizen_birthdate')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <input x-show="input" type="date" class="form-control" id="birthday" name="birthday" wire:loading.attr='disabled' wire:model.lazy="citizen_birthdate" placeholder="Seleccione fecha">
+                                    <input x-show="input" type="date" class="form-control" id="birthday" name="birthday" wire:loading.attr='disabled' wire:model.defer="citizen_birthdate" placeholder="Seleccione fecha">
                                     <h6 x-show="!input">{{ date('d-m-Y',strtotime($citizen?->birthdate)) }}</h6>
                                 </div>
-                                <div x-show="show">
+                                <div x-cloak x-show="show">
                                     <label for="citizen_document" class="col-form-label text-center"><h5>Documento</h5></label>
                                     @error('citizen_document')
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
@@ -69,11 +74,11 @@
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
                                         </select>
-                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.lazy="citizen_document" id="citizen_document" name="citizen_document" placeholder="Ingrese N° de documento" @if($edit) disabled @endif/>
+                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.defer="citizen_document" id="citizen_document" name="citizen_document" placeholder="Ingrese N° de documento" @if($edit) disabled @endif/>
                                     </div>
                                     <h6 x-show="!input">{{ $citizen_nationality.'-'.$citizen_document }}</h6>
                                 </div>
-                                <div x-show="show">
+                                <div x-cloak x-show="show">
                                     <h5 class="text-center mb-3">Dirección</h5>
                                     <div class="row mb-2">
                                         <div class="col-4">
@@ -142,7 +147,7 @@
                                         <input class="form-control" type="text" name="address_apto" id="address_apto" wire:model="address_apto" placeholder="Apartamento">
                                     </div>
                                 </div>
-                                <div x-show="show" class="flex row justify-content-center gx-2 gy-3 btn-toolbar m-3">
+                                <div x-cloak x-show="show" class="flex row justify-content-center gx-2 gy-3 btn-toolbar m-3">
                                     <h5>Elija la planilla que desea imprimir</h5>
                                     @error('selected_document')
                                         <p class="text-xs text-center text-danger m-2"><small>{{ $message }}</small></p>
@@ -164,7 +169,7 @@
                                         <label class="btn btn-outline-primary" for="radio-bc">Buena Conducta</label>
                                     </div>
                                 </div>
-                                <div x-show="show" class="flex text-center mb-3">
+                                <div x-cloak x-show="show" class="flex text-center mb-3">
                                     <hr/>
                                     <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button>
                                     <button x-show="!input" type="button" @click="input=true; edit=true" wire:loading.attr='disabled' class="btn btn-warning ml-1">Editar</button>

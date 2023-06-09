@@ -34,33 +34,17 @@ class Index extends Component
     public $input = true;
     public $edit = false;
 
-    protected $rules = [
-        'citizen_search_nationality' => ['nullable'],
-        'citizen_search_document' => ['nullable'],
-        'citizen_name' => ['required'],
-        'citizen_civil_status' => ['required'],
-        'citizen_birthdate' => ['required'],
-        'citizen_document' => ['required'],
-        'selected_document' => ['required']
-        ];
-
-    protected $messages = [
-            'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
-            'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
-            'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
-            'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
-            'citizen_address.required' => 'Porfavor ingrese su dirección de domicilio.',
-            'selected_document.required' => 'Porfavor elija una planilla para imprimir',
-        ];
-
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    }
-
 
     public function searchCitizen()
     {
+        $this->validate([
+            'citizen_search_document' => ['required','integer','max_digits:10']
+        ],[
+            'citizen_search_document.integer' => "Porfavor ingrese un numero de documento valido.",
+            'citizen_search_document.max_digits' => "Numero de documento no puede tener mas de 10 digitos.",
+            'citizen_search_document.required' => "Porfavor ingrese un numero de documento."
+        ]);
+
         $this->citizen = Citizen::where('document', $this->citizen_search_document)
             ->where('nationality', $this->citizen_search_nationality)
             ->first();
@@ -90,32 +74,32 @@ class Index extends Component
 
     public function download()
     {
-        $this->validate([
-            'citizen_name' => 'required',
-            'citizen_civil_status' => 'required',
-            'citizen_birthdate' => 'required',
-            'citizen_document' => ['required'],
-            'selected_document' => 'required',
-            'address_apto' => [Rule::requiredIf($this->address_3_s == 'Edificio')]
-        ], [
-            'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
-            'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
-            'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
-            'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
-            'selected_document.required' => 'Porfavor elija una planilla para imprimir',
-            'address_apto.required' => 'Porfavor ingrese su numero de apartamento'
-        ]);
+        // $this->validate([
+        //     'citizen_name' => ['required','string',''],
+        //     'citizen_civil_status' => ['required'],
+        //     'citizen_birthdate' => ['required','date'],
+        //     'citizen_document' => ['required','integer','max_digits:10'],
+        //     'selected_document' => ['required'],
+        //     'address_apto' => [Rule::requiredIf($this->address_3_s == 'Edificio')]
+        // ], [
+        //     'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
+        //     'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
+        //     'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
+        //     'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
+        //     'selected_document.required' => 'Porfavor elija una planilla para imprimir',
+        //     'address_apto.required' => 'Porfavor ingrese su numero de apartamento'
+        // ]);
 
 
 
-        if(!$this->citizen) {
+        if(!$this->citizen && !Citizen::where('document',$this->citizen_document)) {
             $this->citizen = Citizen::create([
-                'name' => $this->citizen_name,
-                'civil_status' => $this->citizen_civil_status,
-                'birthdate' => $this->citizen_birthdate,
-                'nationality' => $this->citizen_nationality,
-                'document' => $this->citizen_document,
-            ]);
+                    'name' => $this->citizen_name,
+                    'civil_status' => $this->citizen_civil_status,
+                    'birthdate' => $this->citizen_birthdate,
+                    'nationality' => $this->citizen_nationality,
+                    'document' => $this->citizen_document,
+                ]);
         }
 
         if($this->edit) {
