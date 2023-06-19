@@ -43,6 +43,17 @@
                 @if (Route::currentRouteName() == "home")
                     <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
                 @endif
+                @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="event.preventDefault();
+                                            this.closest('form').submit()">
+                                Logout
+                            </a>
+                        </li>
+                    </form>
+                @endauth
             </ul>
         </div>
     </div>

@@ -13,5 +13,6 @@ class Citizen extends Model
     use HasUuid;
 
     protected $guarded = ['id','uuid'];
+    protected $casts = ['birthdate' => 'datetime'];
 
 }
