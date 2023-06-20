@@ -74,25 +74,45 @@ class Index extends Component
 
     public function download()
     {
-        // $this->validate([
-        //     'citizen_name' => ['required','string',''],
-        //     'citizen_civil_status' => ['required'],
-        //     'citizen_birthdate' => ['required','date'],
-        //     'citizen_document' => ['required','integer','max_digits:10'],
-        //     'selected_document' => ['required'],
-        //     'address_apto' => [Rule::requiredIf($this->address_3_s == 'Edificio')]
-        // ], [
-        //     'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
-        //     'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
-        //     'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
-        //     'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
-        //     'selected_document.required' => 'Porfavor elija una planilla para imprimir',
-        //     'address_apto.required' => 'Porfavor ingrese su numero de apartamento'
-        // ]);
+        $address = collect([
+            $this->address_1_s.' '.$this->address_1_t,
+            $this->address_2_s.' '.$this->address_2_t,
+            $this->address_3_s.' '.$this->address_3_t,
+            $this->address_4_s.' '.$this->address_4_t
+        ])->join(', ');
 
+        if($this->address_3_s == 'Edificio'){
+            $address .= ' Apartamento '.$this->address_apto;
+        }
+        dd($address);
+        $this->validate([
+            'citizen_name' => ['required','string','max:255'],
+            'citizen_civil_status' => ['required'],
+            'citizen_birthdate' => ['required','date'],
+            'citizen_document' => ['required','integer','max_digits:10'],
+            'selected_document' => ['required'],
+            'address_1_t' => ['required','string','max:255'],
+            'address_2_t' => ['required','string','max:255'],
+            'address_3_t' => ['required','string','max:255'],
+            'address_4_t' => ['required','string','max:255'],
+            'address_apto' => [Rule::requiredIf($this->address_3_s == 'Edificio'),'max:255']
+        ], [
+            'max' => 'Maximo de caracteres exedido.',
+            'address_1_t.required' => 'Porfavor llene los campos de dirección.',
+            'address_2_t.required' => 'Porfavor llene los campos de dirección.',
+            'address_3_t.required' => 'Porfavor llene los campos de dirección.',
+            'address_4_t.required' => 'Porfavor llene los campos de dirección.',
+            'citizen_name.required' => 'Porfavor ingrese su nombre completo.',
+            'citizen_civil_status.required' => 'Porfavor seleccione su estado civil.',
+            'citizen_birthdate.required' => 'Porfavor seleccione su fecha de nacimiento.',
+            'citizen_document.required' => 'Porfavor ingrese su numero de identidad.',
+            'citizen_document.integer' => 'Caracteres invalidos ingresados.',
+            'citizen_document.max_digits' => 'Documento excede el numero de caracteres maximos.',
+            'selected_document.required' => 'Porfavor elija una planilla para imprimir.',
+            'address_apto.required' => 'Porfavor ingrese su numero de apartamento.'
+        ]);
 
-
-        if(!$this->citizen && !Citizen::where('document',$this->citizen_document)) {
+        if(!$this->citizen && !Citizen::where('document',$this->citizen_document)->first()) {
             $this->citizen = Citizen::create([
                     'name' => $this->citizen_name,
                     'civil_status' => $this->citizen_civil_status,
@@ -113,8 +133,21 @@ class Index extends Component
         }
 
         $age = Carbon::parse($this->citizen_birthdate)->age;
+        $address = collect([
+            $this->address_1_s,
+            $this->address_1_t,
+            $this->address_2_s,
+            $this->address_2_t,
+            $this->address_3_s,
+            $this->address_3_t,
+            $this->address_4_s,
+            $this->address_4_t
+        ])->join(',',' ');
 
-        $address = $this->address_1_s.' '.$this->address_1_t.', '.$this->address_2_s.' '.$this->address_2_t.', '.$this->address_3_s.' '.$this->address_3_t.', '.$this->address_4_s.' '.$this->address_4_t.' Apartamento '.$this->address_apto;
+        if($this->address_3_s == 'Edificio'){
+            $address .= 'Apartamento '.$this->address_apto;
+        }
+        // $this->address_1_s.' '.$this->address_1_t.', '.$this->address_2_s.' '.$this->address_2_t.', '.$this->address_3_s.' '.$this->address_3_t.', '.$this->address_4_s.' '.$this->address_4_t.' Apartamento '.$this->address_apto;
 
         $data = [
             'citizen_age' => $age,

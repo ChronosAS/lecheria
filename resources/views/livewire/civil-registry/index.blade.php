@@ -81,6 +81,9 @@
                                 <div x-cloak x-show="show">
                                     <h5 class="text-center mb-3">Dirección</h5>
                                     <div class="row mb-2">
+                                        @error('address_1_t')
+                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
+                                        @enderror
                                         <div class="col-4">
                                             <select class="form-select border-dark" name="address_1_s" id="address_1_s" wire:model.defer="address_1_s">
                                                 <option value="Urbanización">Urbanización</option>
@@ -88,14 +91,14 @@
                                                 <option value="Barrio">Barrio</option>
                                             </select>
                                         </div>
-                                        @error('address_1_t')
-                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
-                                        @enderror
                                         <div class="col-8">
                                             <input class="form-control" wire:model="address_1_t" type="text" name="address_1_t" id="address_1_t">
                                         </div>
                                     </div>
                                     <div class="row mb-2">
+                                        @error('address_2_t')
+                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
+                                        @enderror
                                         <div class="col-4">
                                             <select class="form-select border-dark" name="address_2_s" id="address_2_s" wire:model.defer="address_2_s">
                                                 <option value="Avenida">Avenida</option>
@@ -103,14 +106,14 @@
                                                 <option value="Vereda">Vereda</option>
                                             </select>
                                         </div>
-                                        @error('address_2_t')
-                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
-                                        @enderror
                                         <div class="col-8">
                                             <input class="form-control" wire:model="address_2_t" type="text" name="address_2_t" id="address_2_t">
                                         </div>
                                     </div>
                                     <div class="row mb-2">
+                                        @error('address_3_t')
+                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
+                                        @enderror
                                         <div class="col-4">
                                             <select class="form-select border-dark" name="address_3_s" id="address_3_s" wire:model="address_3_s">
                                                 <option value="Casa">Casa</option>
@@ -118,14 +121,14 @@
                                                 <option value="Habitación">Habitación</option>
                                             </select>
                                         </div>
-                                        @error('address_3_t')
-                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
-                                        @enderror
                                         <div class="col-8">
                                             <input class="form-control" wire:model="address_3_t" type="text" name="address_3_t" id="address_3_t">
                                         </div>
                                     </div>
                                     <div class="row mb-2">
+                                        @error('address_4_t')
+                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
+                                        @enderror
                                         <div class="col-4">
                                             <select class="form-select border-dark" name="address_4_s" id="address_4_s" wire:model.defer="address_4_s">
                                                 <option value="Numero">Numero</option>
@@ -133,9 +136,6 @@
                                                 <option value="Nivel">Nivel</option>
                                             </select>
                                         </div>
-                                        @error('address_4_t')
-                                            <p class="text-xs text-danger"><small>{{ $message }}</small></p>
-                                        @enderror
                                         <div class="col-8">
                                             <input class="form-control" wire:model="address_4_t" type="text" name="address_4_t" id="address_4_t">
                                         </div>
