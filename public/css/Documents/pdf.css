@@ -219,6 +219,12 @@
         width: 150px;
     }
 
+    #header img {
+        text-align: left;
+        width: 8.50in;
+        height: 150px;
+        object-fit: scale-down;
+    }
 
     #header h1 {
         text-align: center;
@@ -228,16 +234,6 @@
         text-decoration: underline;
         font-size: 15.5pt;
         margin-bottom: 20pt;
-    }
-
-    #header h2 {
-        text-align: center;
-        text-decoration: none;
-        font-style: italic;
-        font-weight: bold;
-        margin-bottom: 10px;
-        font-size: 8.80pt;
-        contain-intrinsic-block-size: 100px ;
     }
 
     #header p {

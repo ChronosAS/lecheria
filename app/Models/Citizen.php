@@ -16,4 +16,11 @@ class Citizen extends Model
 
     protected $guarded = ['id','uuid'];
 
+    public function age(): Attribute
+    {
+        return new Attribute (
+            get: fn() => Carbon::parse($this->birthdate)->age
+        );
+    }
+
 }

@@ -7,12 +7,7 @@
 </head>
     <body>
         <div id="header">
-            <h2>
-                REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
-                ESTADO ANZOÁTEGUI <br>
-                ALCALDÍA DEL MUNICIPIO TURÍSTICO EL MORRO<br>
-                LCDO. DIEGO BAUTISTA URBANEJA
-            </h2>
+            <img src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
             <p>Código: 202304030303</p>
             <h1>
                 CONSTANCIA DE VIUDEZ
@@ -20,7 +15,7 @@
         </div>
         <div id="body">
             <p class="main-p">
-                Yo, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, actuando en mi carácter de Registradora Civil del Municipio <b>M.L/ DIEGO BAUTISTA URBANEJA</b>, estado Anzoátegui, según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017, de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a) <b>{{ $citizen_name }}</b>, de nacionalidad <b>{{ $citizen_nationality }}</b>, Titular de la C.I. Nº: <b>{{ $citizen_document }}</b> de <b>{{ $citizen_age }}</b> años de edad, domiciliado(a) en <b>{{ $citizen_address }} Lechería, Estado Anzoátegui</b>.
+                Yo, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, actuando en mi carácter de Registradora Civil del Municipio <b>M.L/ DIEGO BAUTISTA URBANEJA</b>, estado Anzoátegui, según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017, de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a) <b>{{ $citizen_name }}</b>, de nacionalidad <b>{{ $citizen_nationality }}</b>, Titular de la C.I. Nº: <b>{{ $citizen_document }}</b> de <b>{{ $citizen_age }}</b> años de edad, domiciliado(a) en <b>{{ $citizen_address }}, Lechería, Estado Anzoátegui</b>.
             </p>
             <p class="p2">
                 En este mismo acto fueron consignados los documentos siguientes:

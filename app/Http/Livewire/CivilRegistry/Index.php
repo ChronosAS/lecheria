@@ -74,17 +74,7 @@ class Index extends Component
 
     public function download()
     {
-        $address = collect([
-            $this->address_1_s.' '.$this->address_1_t,
-            $this->address_2_s.' '.$this->address_2_t,
-            $this->address_3_s.' '.$this->address_3_t,
-            $this->address_4_s.' '.$this->address_4_t
-        ])->join(', ');
 
-        if($this->address_3_s == 'Edificio'){
-            $address .= ' Apartamento '.$this->address_apto;
-        }
-        dd($address);
         $this->validate([
             'citizen_name' => ['required','string','max:255'],
             'citizen_civil_status' => ['required'],
@@ -132,22 +122,17 @@ class Index extends Component
             ]);
         }
 
-        $age = Carbon::parse($this->citizen_birthdate)->age;
+        $age = $this->citizen->age;
         $address = collect([
-            $this->address_1_s,
-            $this->address_1_t,
-            $this->address_2_s,
-            $this->address_2_t,
-            $this->address_3_s,
-            $this->address_3_t,
-            $this->address_4_s,
-            $this->address_4_t
-        ])->join(',',' ');
+            $this->address_1_s.' '.$this->address_1_t,
+            $this->address_2_s.' '.$this->address_2_t,
+            $this->address_3_s.' '.$this->address_3_t,
+            $this->address_4_s.' '.$this->address_4_t
+        ])->join(', ');
 
         if($this->address_3_s == 'Edificio'){
-            $address .= 'Apartamento '.$this->address_apto;
+            $address .= ' Apartamento '.$this->address_apto;
         }
-        // $this->address_1_s.' '.$this->address_1_t.', '.$this->address_2_s.' '.$this->address_2_t.', '.$this->address_3_s.' '.$this->address_3_t.', '.$this->address_4_s.' '.$this->address_4_t.' Apartamento '.$this->address_apto;
 
         $data = [
             'citizen_age' => $age,
