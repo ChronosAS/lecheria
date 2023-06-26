@@ -7,7 +7,7 @@
 </head>
     <body>
         <div id="header">
-            <img src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
+            <img style="@page{margin-left:0;}" src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
             <p>Código: 202304030303</p>
             <h1>
                 CONSTANCIA DE VIUDEZ
@@ -101,7 +101,6 @@
             </div>
             <div class="f3">
                 <p>Según resolución Nro.180 de fecha 22/12/2017</p>
-                <br>
                 <h3>
                     LA EXPEDICIÓN DE LA PRESENTE CONSTANCIA ES COMPLETAMENTE GRATUITA
                 </h3>
