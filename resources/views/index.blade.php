@@ -8,13 +8,8 @@
 
     <!-- Masthead-->
     <header class="masthead">
-        {{-- <div class="container">
-            <div class="masthead-heading text-black text-uppercase">It's Nice To Meet You</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
-        </div> --}}
+
     </header>
-
-
     <!-- Contact-->
     <section class="page-section" id="contact">
         <div class="container">
@@ -27,6 +22,9 @@
             <p align="center">
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8D1hrbKl8u-q1yiWVlEKszUWWd8Wo7uY7fT6OLIxPIpE5sg/viewform?embedded=true" width="500" height="600" frameborder="0" marginheight="0"  class="bg-secondary rounded" marginwidth="0">Cargando…</iframe>
             </p>
+
+        </div>
+        <div class="container">
 
         </div>
     </section>
