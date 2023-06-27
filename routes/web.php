@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
 Route::get('/', \App\Http\Livewire\Welcome::class)->name('home');
 Route::prefix('registro-civil')->group(function(){
     Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
 });
+
+Route::middleware('auth')
+    ->prefix('admin')
+    ->group(function(){
+
+    });
