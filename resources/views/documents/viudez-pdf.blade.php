@@ -7,7 +7,7 @@
 </head>
     <body>
         <div id="header">
-            <img style="@page{margin-left:0;}" src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
+            <img src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
             <p>Código: 202304030303</p>
             <h1>
                 CONSTANCIA DE VIUDEZ

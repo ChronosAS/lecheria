@@ -136,7 +136,7 @@
 
     table,
     tr {
-        height: 21pt;
+        height: 0pt;
     }
 
     .td1 {
@@ -170,7 +170,7 @@
     }
 
     .f2 {
-        padding-top: 20px;
+        padding-top: 0px;
     }
 
     .f2 p {
@@ -204,7 +204,7 @@
     }
 
     td.ft2 {
-        height: 200px;
+        height: 150px;
         text-align: center;
         vertical-align: bottom;
         font-size: 11.5pt;
@@ -219,8 +219,8 @@
 
     table.finger-prints td {
         border: solid;
-        height: 100px;
-        width: 150px;
+        height: 80px;
+        width: 130px;
     }
 
     @page{

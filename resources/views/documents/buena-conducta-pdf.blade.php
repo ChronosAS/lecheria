@@ -7,12 +7,7 @@
 </head>
     <body>
         <div id="header">
-            <h2>
-                REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
-                ESTADO ANZOÁTEGUI <br>
-                ALCALDÍA DEL MUNICIPIO TURÍSTICO EL MORRO<br>
-                LCDO. DIEGO BAUTISTA URBANEJA
-            </h2>
+            <img src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
             <p>Código: 202304030304</p>
             <h1>
                 CONSTANCIA DE BUENA CONDUCTA

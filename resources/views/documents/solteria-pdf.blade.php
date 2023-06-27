@@ -7,12 +7,7 @@
 </head>
     <body>
         <div id="header">
-            <h2>
-                REPÚBLICA BOLIVARIANA DE VENEZUELA <br>
-                ESTADO ANZOÁTEGUI <br>
-                ALCALDÍA DEL MUNICIPIO TURÍSTICO EL MORRO<br>
-                LCDO. DIEGO BAUTISTA URBANEJA
-            </h2>
+            <img src="{{ asset('img/registro-civil/header.jpg') }}" alt="">
             <p>Código: 202304030305</p>
             <h1>
                 CONSTANCIA DE SOLTERÍA
@@ -20,7 +15,7 @@
         </div>
         <div id="body">
             <p class="main-p">
-                Yo, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, actuando en mi carácter de Registradora Civil del Municipio <b>M.L/ DIEGO BAUTISTA URBANEJA</b>, estado Anzoátegui, según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017, de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a) <b>{{ $citizen_name }}</b>, de nacionalidad <b>{{ $citizen_nationality }}</b>, Titular de la C.I. Nº: <b>{{ $citizen_document }}</b> de <b>{{ $citizen_age }}</b> años de edad, domiciliado(a) en <b>{{ $citizen_address }}, Lechería, Estado Anzoátegui</b>.
+                <i>El Suscrito, ABG. <b>DENISSE HERNANDEZ URBANEJA</b>, Registradora Civil de la Alcaldía del Municipio Turístico El Morro, Lic. Diego Bautista Urbaneja del Estado Anzoátegui</i>,según Resolución Nº 180/2017, publicada en Gaceta Nº 032/2017,de la República Bolivariana de Venezuela, Hago constar que hoy se presentó ante esta Despacho, el ciudadano(a): <b>{{ $citizen_name }}</b> Estado Civil <b>{{ $citizen_civil_status }}</b>, de <b>{{ $citizen_age }}</b> años de edad, Nacionalidad: <b>{{ $citizen_nationality }}</b> y Titular de la C.I. Nº: <b>{{ $citizen_document }}</b>, domiciliado(a) en<b> {{ $citizen_address }}, Lechería, Estado Anzoátegui</b>.
             </p>
             <p class="p2">
                 En este mismo acto fueron consignados los documentos siguientes:
@@ -107,7 +102,6 @@
             </div>
             <div class="f3">
                 <p>Según resolución Nro.180 de fecha 22/12/2017</p>
-                <br>
                 <h3>
                     LA EXPEDICIÓN DE LA PRESENTE CONSTANCIA ES COMPLETAMENTE GRATUITA
                 </h3>

@@ -67,6 +67,13 @@ class Index extends Component
         $this->show =true;
     }
 
+    public function updatedAddress3S()
+    {
+        if($this->address_3_s != "Edificio"){
+            $this->reset("address_apto");
+        }
+    }
+
     public function clear()
     {
         $this->reset();
@@ -84,7 +91,7 @@ class Index extends Component
             'address_1_t' => ['required','string','max:255'],
             'address_2_t' => ['required','string','max:255'],
             'address_3_t' => ['required','string','max:255'],
-            'address_4_t' => ['required','string','max:255'],
+            'address_4_t' => [Rule::requiredIf($this->address_3_s != 'Casa'),'max:255'],
             'address_apto' => [Rule::requiredIf($this->address_3_s == 'Edificio'),'max:255']
         ], [
             'max' => 'Maximo de caracteres exedido.',
@@ -123,12 +130,7 @@ class Index extends Component
         }
 
         $age = $this->citizen->age;
-        $address = collect([
-            $this->address_1_s.' '.$this->address_1_t,
-            $this->address_2_s.' '.$this->address_2_t,
-            $this->address_3_s.' '.$this->address_3_t,
-            $this->address_4_s.' '.$this->address_4_t
-        ])->join(', ');
+        $address = collect($this->setAddress())->join(', ');
 
         if($this->address_3_s == 'Edificio'){
             $address .= ' Apartamento '.$this->address_apto;
@@ -157,6 +159,27 @@ class Index extends Component
 
         return array('day'=>$day,'month'=>$month,'year'=>$year);
 
+    }
+
+    public function setAddress()
+    {
+        if(!$this->address_4_t)
+        {
+            return [
+                $this->address_1_s.' '.$this->address_1_t,
+                $this->address_2_s.' '.$this->address_2_t,
+                $this->address_3_s.' '.$this->address_3_t,
+            ];
+
+        }else
+        {
+            return [
+                $this->address_1_s.' '.$this->address_1_t,
+                $this->address_2_s.' '.$this->address_2_t,
+                $this->address_3_s.' '.$this->address_3_t,
+                $this->address_4_s.' '.$this->address_4_t
+            ];
+        }
     }
 
     protected function loadPDF($data)
