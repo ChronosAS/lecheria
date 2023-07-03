@@ -38,7 +38,10 @@
                     </div>
                     <div class="col-lg-4 text-lg-end">
                         <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                        <a class="link-dark text-decoration-none me-3" href="#!">Terms of Use</a>
+                        @guest
+                            <a class="link-dark text-decoration-none" href="{{ route('login') }}">Admin</a>
+                        @endguest
                     </div>
                 </div>
             </div>
