@@ -11743,10 +11743,10 @@ header.masthead .masthead-heading {
 
 section#contact {
   background-color: #03284d;
-  background-image: url("../img/map-image.png");
   background-repeat: no-repeat;
   background-position: center;
 }
+
 section#contact .section-heading {
   color: #fff;
 }
