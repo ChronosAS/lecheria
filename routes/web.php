@@ -20,8 +20,6 @@ Route::prefix('registro-civil')->group(function(){
     Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
 });
 
-Route::middleware('auth')
-    ->prefix('admin')
-    ->group(function(){
-
-    });
+Route::group(['middleware' => ['role:admin','auth']], function(){
+    // Route::get('/admin', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+});
