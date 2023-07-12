@@ -15,11 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes(['register'=> false]);
+
 Route::get('/', \App\Http\Livewire\Welcome::class)->name('home');
 Route::prefix('registro-civil')->group(function(){
     Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
 });
 
 Route::group(['middleware' => ['role:admin','auth']], function(){
-    // Route::get('/admin', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+
+    Route::prefix('admin')->group(function(){
+        Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+
+        Route::prefix('news')->group(function(){
+            Route::get('/',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
+        });
+    });
 });

@@ -1,4 +1,3 @@
-@props(['title'])
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,6 +41,9 @@
                         @guest
                             <a class="link-dark text-decoration-none" href="{{ route('login') }}">Admin</a>
                         @endguest
+                        @hasrole('admin')
+                            <a class="link-dark text-decoration-none" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        @endhasrole
                     </div>
                 </div>
             </div>
