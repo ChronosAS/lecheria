@@ -9,10 +9,11 @@
         @livewireStyles
     </head>
     <body>
-        @include('layouts.admin.sidebar')
-        <main>
-            {{ $slot }}
-        </main>
+        <div>
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
     </body>
     <footer>
         @livewireScripts
