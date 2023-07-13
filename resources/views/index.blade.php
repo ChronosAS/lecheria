@@ -1,6 +1,13 @@
 @push('styles')
     <style>
 
+        section#contact {
+            background-color: gray;
+            background-image: url("../img/map-image.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
         section#news {
             background-color: #03284d;
             background-image: url("../img/map-image.png");
@@ -84,17 +91,18 @@
 
     <!-- Contact-->
 
-    <section class="page-section bg-secondary" id="contact">
+    <section class="page-section" id="contact">
         <div class="container">
 
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Contactanos</h2>
-                <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3>
+                <h3 class="section-subheading text-black">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3>
             </div>
 
-            <p align="center">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8D1hrbKl8u-q1yiWVlEKszUWWd8Wo7uY7fT6OLIxPIpE5sg/viewform?embedded=true" width="500" height="600" frameborder="0" marginheight="0"  class="bg-secondary rounded" marginwidth="0">Cargando…</iframe>
-            </p>
+            <div class="embed-responsive rounded text-center">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8D1hrbKl8u-q1yiWVlEKszUWWd8Wo7uY7fT6OLIxPIpE5sg/viewform?embedded=true" width="500" height="1500" frameborder="0" marginheight="0" scrolling="no"  class="embed-responsive-item" marginwidth="0">Cargando…</iframe>
+            </div>
+
 
         </div>
     </section>
