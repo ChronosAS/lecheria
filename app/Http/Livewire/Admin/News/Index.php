@@ -6,12 +6,7 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    public $message;
-
-    public function updatedMessage()
-    {
-        dd($this->message);
-    }
+    public $content;
 
     public function render()
     {

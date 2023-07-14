@@ -10,6 +10,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/scss/app.scss',
                 'resources/js/bootstrap.js',
+                'public/assets/vendor/ckeditor5/sample/styles.css',
+                'public/assets/vendor/ckeditor5/build/translations/es.js',
                 'public/css/app.css',
                 'public/js/app.js'
             ],

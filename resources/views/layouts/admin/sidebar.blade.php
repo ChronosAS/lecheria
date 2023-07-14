@@ -1,4 +1,4 @@
-<nav class="min-vh-100 text-white bg-dark">
+<nav class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
       <span class="fs-4">{{ env('APP_NAME') }}</span>
     </a>
