@@ -11,6 +11,7 @@
 	--ck-sample-container-width: 1285px;
 	--ck-sample-sidebar-width: 350px;
 	--ck-sample-editor-min-height: 400px;
+	--ck-sample-editor-max-height: 400px;
 	--ck-sample-editor-z-index: 10;
 }
 
@@ -29,6 +30,7 @@ main .ck-editor[role='application'] .ck.ck-content,
 	font-size: 1em;
 	line-height: 1.6em;
 	min-height: var(--ck-sample-editor-min-height);
+    max-height: var(--ck-sample-editor-max-height);
 	padding: 1.5em 2em;
 }
 
@@ -370,6 +372,7 @@ body, html {
 body {
 	height: 100%;
 	color: #2D3A4A;
+    word-wrap: break-word;
 }
 
 body * {

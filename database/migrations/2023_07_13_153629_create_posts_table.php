@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('title');
             $table->text('subtitle')->nullable();
-            $table->text('body');
+            $table->text('content');
             $table->timestamps();
             $table->softDeletes();
         });
