@@ -12,7 +12,7 @@
                     <x-sortable-table-th title="Fecha de Creacion" field="created_at" :sortAsc="$sortAsc" :sortField="$sortField" />
                 </x-table-th>
                 <x-table-th>
-                    <span class="visually-hidden">Actions</span>
+                    <a class="btn btn-secondary text-black" href="{{ route('admin.news.create') }}" role="button">Crear</a>
                 </x-table-th>
             </tr>
         </x-slot>

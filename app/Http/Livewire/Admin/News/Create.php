@@ -6,8 +6,10 @@ use Livewire\Component;
 
 class Create extends Component
 {
+    public $content;
+
     public function render()
     {
-        return view('livewire.admin.news.create')->layout('layouts.auth.app');
+        return view('livewire.admin.news.create')->layout('layouts.blank');
     }
 }

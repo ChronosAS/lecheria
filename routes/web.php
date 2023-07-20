@@ -28,6 +28,8 @@ Route::group(['middleware' => ['role:admin','auth']], function(){
 
         Route::prefix('news')->group(function(){
             Route::get('/',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
+
+            Route::get('/create', App\Http\Livewire\Admin\News\Create::class)->name('admin.news.create');
         });
     });
 });

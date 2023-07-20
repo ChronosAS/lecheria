@@ -14,13 +14,13 @@ import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
-import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
-import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload.js';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
@@ -28,11 +28,9 @@ import Link from '@ckeditor/ckeditor5-link/src/link.js';
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
-import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
 import SelectAll from '@ckeditor/ckeditor5-select-all/src/selectall.js';
-import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters.js';
 import SpecialCharactersCurrency from '@ckeditor/ckeditor5-special-characters/src/specialcharacterscurrency.js';
 import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials.js';
@@ -56,13 +54,13 @@ Editor.builtinPlugins = [
 	FontFamily,
 	FontSize,
 	Heading,
+	HorizontalLine,
+	HtmlEmbed,
 	Image,
 	ImageCaption,
-	ImageInsert,
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
-	ImageUpload,
 	Indent,
 	IndentBlock,
 	Italic,
@@ -70,11 +68,9 @@ Editor.builtinPlugins = [
 	LinkImage,
 	List,
 	MediaEmbed,
-	PageBreak,
 	Paragraph,
 	PasteFromOffice,
 	SelectAll,
-	SimpleUploadAdapter,
 	SpecialCharacters,
 	SpecialCharactersCurrency,
 	SpecialCharactersEssentials,
@@ -92,29 +88,28 @@ Editor.defaultConfig = {
 			'|',
 			'bold',
 			'italic',
-			'fontColor',
-			'fontFamily',
-			'fontSize',
 			'underline',
+			'fontColor',
+			'fontSize',
+			'fontFamily',
 			'link',
 			'alignment',
+			'specialCharacters',
 			'bulletedList',
 			'numberedList',
-			'specialCharacters',
+			'|',
+			'outdent',
+			'horizontalLine',
+			'indent',
 			'|',
 			'undo',
 			'selectAll',
 			'redo',
 			'|',
 			'blockQuote',
-			'pageBreak',
-			'outdent',
-			'indent',
-			'|',
+			'insertTable',
 			'mediaEmbed',
-			'imageUpload',
-			'imageInsert',
-			'insertTable'
+			'htmlEmbed'
 		]
 	},
 	language: 'es',
