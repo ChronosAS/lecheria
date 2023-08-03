@@ -5,7 +5,7 @@
             Menu
             <i class="fas fa-bars ms-1"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-3 py-lg-0">
 
                 @if (Route::currentRouteName() != 'home')

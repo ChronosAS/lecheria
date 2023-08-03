@@ -14,6 +14,18 @@
             background-repeat: no-repeat;
             background-position: center;
         }
+
+        .contact-embed {
+            min-height: 1300px;
+        }
+
+        @media(max-width: 360px) {
+            .contact-embed {
+                min-height: 1500px;
+            }
+        }
+
+
     </style>
 @endpush
 <div>
@@ -99,8 +111,8 @@
                 <h3 class="section-subheading text-black">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3>
             </div>
 
-            <div class="embed-responsive rounded text-center">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8D1hrbKl8u-q1yiWVlEKszUWWd8Wo7uY7fT6OLIxPIpE5sg/viewform?embedded=true" width="500" height="1500" frameborder="0" marginheight="0" scrolling="no"  class="embed-responsive-item" marginwidth="0">Cargando…</iframe>
+            <div class="ratio ratio-1x1 rounded text-center contact-embed">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf8D1hrbKl8u-q1yiWVlEKszUWWd8Wo7uY7fT6OLIxPIpE5sg/viewform?embedded=true"  scrolling="no">Cargando…</iframe>
             </div>
 
 

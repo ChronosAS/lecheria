@@ -8,11 +8,10 @@
                 </textarea>
             </div>
         </div>
-        <div class="col-md-6 container">
-            <div class="ck-content m-5">
+        <div class="col-md-6 container vh-100">
+            <div class="ck-content ">
                {!! $content !!}
             </div>
-            <figure class="media"><oembed url="https://www.instagram.com/p/BmMZgokAGGQ/?taken-by=nasa"></oembed></figure>
         </div>
     </div>
     @push('blank-styles')
