@@ -1,3 +1,4 @@
 <div>
-    {{-- Success is as dangerous as failure. --}}
+    <img src="{{$post->getFirstMediaUrl('post-images')}}"><br/>
+              {{$post->getFirstMediaUrl('post-images')}}
 </div>

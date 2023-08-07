@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register'=> false]);
 
-Route::get('/', \App\Http\Livewire\Welcome::class)->name('home');
+Route::get('/', \App\Http\Livewire\AppHome::class)->name('home');
 Route::prefix('registro-civil')->group(function(){
     Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
 });
@@ -30,6 +30,8 @@ Route::group(['middleware' => ['role:admin','auth']], function(){
             Route::get('/',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
 
             Route::get('/create', App\Http\Livewire\Admin\News\Create::class)->name('admin.news.create');
+
+            Route::get('/{post}/show', App\Http\Livewire\Admin\News\Show::class)->name('admin.news.show');
         });
     });
 });

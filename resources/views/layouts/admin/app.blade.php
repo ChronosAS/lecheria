@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin Panel</title>
-        <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script>
+        <!-- <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script> -->
         @vite(['resources/scss/app.scss','resources/js/app.js','public/assets/vendor/ckeditor5/sample/styles.css','public/assets/vendor/ckeditor5/build/translations/es.js'])
         @stack('admin-styles')
         @livewireStyles
@@ -13,7 +13,7 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col px-0 position-fixed">
+                <div class="col-3 px-0 position-fixed">
                     <!-- Nav Sidebar-->
                     <div class="d-none position-relative d-lg-block d-sm-block min-vh-100">
                         <x-admin.navigation/>

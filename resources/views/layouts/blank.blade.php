@@ -11,7 +11,7 @@
     @livewireStyles
 </head>
 <body>
-    <div class="bg-secondary">
+    <div>
         {{ $slot }}
     </div>
 </body>
