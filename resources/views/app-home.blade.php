@@ -48,19 +48,19 @@
             <div class="container " id="news-carousel">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase text-white">Noticias recientes</h2>
-                    <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3>
+                    {{-- <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3> --}}
                 </div>
 
                 <div id="news" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         @foreach ($posts as $index => $post)
-                            <button type="button" data-bs-target="#news" data-bs-slide-to="0" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
+                            <button type="button" data-bs-target="#news" data-bs-slide-to="{{ $index }}" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
                         @endforeach
                     </div>
                     <div class="carousel-inner">
                         @foreach ($posts as $index => $post)
                             <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
-                                <a href="#"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="rounded mx-auto d-block" alt="..."></a>
+                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="rounded mx-auto d-block" alt="..."></a>
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>{{ $post->title }}</h5>
                                     <p>{{ $post->subtitle ?? '' }}</p>

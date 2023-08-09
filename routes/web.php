@@ -21,6 +21,10 @@ Route::prefix('registro-civil')->group(function(){
     Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
 });
 
+Route::prefix('noticias')->group(function(){
+    Route::get('show/{post}/{slug}', \App\Http\Livewire\News\Show::class)->name('news.show');
+});
+
 Route::group(['middleware' => ['role:admin','auth']], function(){
 
     Route::prefix('admin')->group(function(){

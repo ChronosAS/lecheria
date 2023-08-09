@@ -17,7 +17,8 @@ class Post extends Model implements HasMedia
     protected $fillable = [
         'title',
         'subtitle',
-        'content'
+        'content',
+        'slug'
     ];
 
     public function scopeSearch($query, $term) : void
