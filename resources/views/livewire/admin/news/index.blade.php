@@ -23,7 +23,7 @@
                       <x-table-td>{{ $post->title }}</x-table-td>
                       <x-table-td>{{ $post->subtitle }}</x-table-td>
                       <x-table-td>{{ date('d-m-Y',strtotime($post->created_at)) }}</x-table-td>
-                      <x-table-td><a href="{{ route('admin.news.show', $post->id) }}" class="link-success text-decoration-none">Ver</a></x-table-td>
+                      <x-table-td><a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}" class="link-success text-decoration-none">Ver</a></x-table-td>
                 </tr>
             @endforeach
         </x-slot>

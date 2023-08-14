@@ -19,6 +19,17 @@ class Show extends Component
 
     public function render()
     {
+        // $image_num = count($this->images);
+        // switch ($image_num) {
+        //     case ($image_num > 0):
+        //         # code...
+        //         break;
+
+        //     default:
+        //         # code...
+        //         break;
+        // }
+
         return view('livewire.news.show');
     }
 }

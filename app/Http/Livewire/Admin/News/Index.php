@@ -28,6 +28,7 @@ class Index extends Component
                 'id',
                 'title',
                 'subtitle',
+                'slug',
                 'content',
                 'created_at',
                 'updated_at',

@@ -41,6 +41,9 @@
                 <div class="col">
                     <label for="images"><h5>Imagenes</h5></label>
                     <input class="form-control" wire:model="images" type="file" id="images" multiple />
+                    @error('images.*')
+                        <span class="text-danger"><b>{{ $message }}</b></span>
+                    @enderror
                 </div>
             </div>
             <div class="text-center pt-4 m-0">
@@ -65,6 +68,8 @@
     @endpush
     @push('blank-scripts')
         <script>
+
+
             ClassicEditor
             .create( document.querySelector( '#editor' ), {
                 mediaEmbed: {previewsInData: true}

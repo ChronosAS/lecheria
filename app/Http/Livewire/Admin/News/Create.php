@@ -16,12 +16,25 @@ class Create extends Component
     public $content;
     public $images = [];
 
+
+    public function mount()
+    {
+        $this->content = "<h1>Title</h1>";
+    }
+
     public function submit()
     {
+
         $this->validate([
             'title' => ['required','string','max:80'],
             'subtitle' => ['nullable','string','max:124'],
-            'images.*' => ['nullable','image','max:1024'],
+            'images.*' => ['nullable','image','max:4096'],
+            'images' => ['max:4']
+        ],[
+            'title.required' => 'Porfavor ingrese un titulo.',
+            'max' => 'Maximo de caracteres exedido.',
+            'images.max' => 'Ingrese un maximo de 4 imagenes',
+            'images.*.max' => 'Achivos exeden el tamaño maximo de memoria',
         ]);
 
         if($this->content){
