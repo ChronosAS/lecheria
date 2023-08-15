@@ -39,10 +39,10 @@
                         <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
                         <a class="link-dark text-decoration-none me-3" href="#!">Terms of Use</a>
                         @guest
-                            <a class="link-dark text-decoration-none" href="{{ route('login') }}">Admin</a>
+                            <a class="link-dark text-decoration-none" href="{{ route('login') }}">A</a>
                         @endguest
                         @hasrole('admin')
-                            <a class="link-dark text-decoration-none" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                            <a class="link-dark text-decoration-none" href="{{ route('admin.dashboard') }}">DB</a>
                         @endhasrole
                     </div>
                 </div>

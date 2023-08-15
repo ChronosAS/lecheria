@@ -51,7 +51,7 @@
                     {{-- <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3> --}}
                 </div>
 
-                <div id="news" class="carousel slide" data-bs-ride="carousel">
+                <div id="news" class="carousel carousel-dark slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         @foreach ($posts as $index => $post)
                             <button type="button" data-bs-target="#news" data-bs-slide-to="{{ $index }}" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
@@ -60,8 +60,8 @@
                     <div class="carousel-inner">
                         @foreach ($posts as $index => $post)
                             <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
-                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="rounded mx-auto d-block" alt="..."></a>
-                                <div class="carousel-caption d-none d-md-block">
+                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="img-fluid w-100 d-block" alt="..."></a>
+                                <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
                                     <h5>{{ $post->title }}</h5>
                                     <p>{{ $post->subtitle ?? '' }}</p>
                                 </div>

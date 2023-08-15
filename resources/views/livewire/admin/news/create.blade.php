@@ -50,6 +50,7 @@
                 <button type="submit" class="btn btn-success">
                     Subir Post
                 </button>
+                <a href="javascript:history.back()" class="btn btn-danger">Cancelar</a>
             </div>
             <div wire:ignore class="pt-4">
                 <textarea
