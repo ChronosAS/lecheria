@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin Panel</title>
-        <!-- <script src="{{ asset('assets/vendor/ckeditor5/build/ckeditor.js') }}"></script> -->
-        @vite(['resources/scss/app.scss','resources/js/app.js','public/assets/vendor/ckeditor5/sample/styles.css','public/assets/vendor/ckeditor5/build/translations/es.js'])
+        @vite(['resources/scss/app.scss','resources/js/app.js','public/assets/vendor/ckeditor5/sample/styles.css'])
         @stack('admin-styles')
         @livewireStyles
     </head>
