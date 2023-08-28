@@ -1,4 +1,4 @@
-<div class="modal fade" id="{{ $id }}" tabindex="-1" role="dialog" aria-hidden="true" wire:ignore.self>
+<div class="modal fade" tabindex="-1" role="dialog" {{ $attributes }} wire:ignore.self>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header d-inline text-center">

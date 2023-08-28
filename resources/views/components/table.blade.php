@@ -1,6 +1,6 @@
 <div class="table-responsive">
-    <table class="table table-striped table-bordered mb-0 mt-4">
-      <thead style="background-color: grey">
+    <table class="table table-dark table-hover table-bordered mb-0 mt-4">
+      <thead>
         {{ $thead }}
       </thead>
       <tbody>
