@@ -35,7 +35,7 @@
             @endforelse
         </x-slot>
     </x-table>
-    <livewire:admin.news.delete>
+    {{-- <livewire:admin.news.delete> --}}
     <div class="my-3 d-flex justify-content-center">
         {{ $posts->links() }}
     </div>
