@@ -22,6 +22,10 @@ Route::prefix('registro-civil')->group(function(){
 });
 
 Route::prefix('noticias')->group(function(){
+
+    Route::get('/',
+    \App\Http\Livewire\News\Index::class)->name('news.index');
+
     Route::get('show/{post}/{slug}', \App\Http\Livewire\News\Show::class)->name('news.show');
 });
 

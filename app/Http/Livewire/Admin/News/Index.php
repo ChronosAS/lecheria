@@ -31,8 +31,7 @@ class Index extends Component
                 'slug',
                 'content',
                 'created_at',
-                'updated_at',
-                'deleted_at'
+                'updated_at'
             ])
             ->search($this->search)
             ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')
