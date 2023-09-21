@@ -10,8 +10,6 @@ class Index extends Component
 {
     use CustomPagination;
 
-    public $content;
-
     public $sortField = null;
 
     protected $queryString = [

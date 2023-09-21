@@ -4,16 +4,20 @@ namespace App\Http\Livewire\News;
 
 use App\Models\News\Post;
 use Livewire\Component;
+use App\Concerns\CustomPagination;
 
 class Index extends Component
 {
+    use CustomPagination;
 
-    public $news;
+    public $sortField = null;
 
-    public function mount()
-    {
-        $this->news = $this->loadPosts();
-    }
+    protected $queryString = [
+        'sortField' => ['except' => ''],
+        'perPage' => ['except' => 10],
+        'sortAsc' => ['except' => false]
+
+    ];
 
     private function loadPosts()
     {
@@ -35,6 +39,8 @@ class Index extends Component
 
     public function render()
     {
-        return view('livewire.news.index');
+        return view('livewire.news.index',[
+                'posts' => $this->loadPosts()
+            ]);
     }
 }
