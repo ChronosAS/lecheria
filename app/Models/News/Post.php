@@ -25,7 +25,8 @@ class Post extends Model implements HasMedia
     {
         if($term) {
             $query->where('id', 'like', '%' . $term . '%')
-                ->orWhere('id', 'title', '%' . $term . '%');
+                  ->orWhere('title', 'like', '%' . $term . '%')
+                  ->orWhere('subtitle', 'like', '%' . $term . '%');
         }
     }
 

@@ -56,6 +56,7 @@
                 <textarea
                     id="editor"
                     wire:model="content">
+                    {{ $content }}
                 </textarea>
             </div>
         </form>
@@ -69,8 +70,6 @@
     @endpush
     @push('blank-scripts')
         <script>
-
-
             ClassicEditor
             .create( document.querySelector( '#editor' ), {
                 mediaEmbed: {previewsInData: true}

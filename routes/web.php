@@ -39,6 +39,8 @@ Route::group(['middleware' => ['role:admin','auth']], function(){
 
             Route::get('/create', App\Http\Livewire\Admin\News\Create::class)->name('admin.news.create');
 
+            Route::get('/{post}/edit', App\Http\Livewire\Admin\News\Edit::class)->name('admin.news.edit');
+
             Route::get('/{post}/show', App\Http\Livewire\Admin\News\Show::class)->name('admin.news.show');
         });
     });

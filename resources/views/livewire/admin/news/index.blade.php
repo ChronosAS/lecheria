@@ -25,7 +25,7 @@
                       <x-table-td>{{ date('d-m-Y',strtotime($post->created_at)) }}</x-table-td>
                       <x-table-td>
                         <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}" class="btn btn-primary">Ver</a>
-                        <button type="button" wire:click='$emit(deletePost,{{ $post->id }})' data-bs-toggle="modal" data-bs-target="#deletePostModal" class="btn btn-danger">Eliminar</button>
+                        <a href="{{ route('admin.news.edit',[ 'post' => $post->id]) }}" class="btn btn-warning">Editar</a>
                     </x-table-td>
                 </tr>
             @empty

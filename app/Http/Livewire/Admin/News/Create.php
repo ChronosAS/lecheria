@@ -16,12 +16,6 @@ class Create extends Component
     public $content;
     public $images = [];
 
-
-    public function mount()
-    {
-        $this->content = "<h1>Title</h1>";
-    }
-
     public function submit()
     {
 
