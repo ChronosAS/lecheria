@@ -51,10 +51,10 @@
                     {{-- <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3> --}}
                 </div>
 
-                <div id="news" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         @foreach ($posts as $index => $post)
-                            <button type="button" data-bs-target="#news" data-bs-slide-to="{{ $index }}" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
+                            <button type="button" data-bs-target="#newsCarousel" data-bs-slide-to="{{ $index }}" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
                         @endforeach
                     </div>
                     <div class="carousel-inner">
@@ -68,11 +68,11 @@
                             </div>
                         @endforeach
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#news" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#news" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>

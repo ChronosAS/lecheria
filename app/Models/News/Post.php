@@ -21,6 +21,12 @@ class Post extends Model implements HasMedia
         'slug'
     ];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('post-images')
+            ->useFallbackUrl('https://www.flaticon.com/free-icons/no-photo');
+    }
+
     public function scopeSearch($query, $term) : void
     {
         if($term) {

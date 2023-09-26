@@ -34,7 +34,7 @@ class Index extends Component
             ])
             ->search($this->search)
             ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')
-            ->paginate($this->perPage);
+            ->paginate(2);
     }
 
     public function render()

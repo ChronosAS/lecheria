@@ -1,4 +1,5 @@
 <div>
+    @include('livewire.admin.news.modals.delete-modal')
     <x-alert/>
     <x-table>
         <x-slot name="thead">
@@ -26,6 +27,11 @@
                       <x-table-td>
                         <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}" class="btn btn-primary">Ver</a>
                         <a href="{{ route('admin.news.edit',[ 'post' => $post->id]) }}" class="btn btn-warning">Editar</a>
+                        @if(!$post->trashed())
+                            <button type="button" class="btn btn-danger" wire:click="delete({{ $post->id }})">Eliminar</button>
+                        @else
+                            <button type="button" class="btn btn-warning" wire:click="restore({{ $post->id }})">Restaurar</button>
+                        @endif
                     </x-table-td>
                 </tr>
             @empty
@@ -35,7 +41,6 @@
             @endforelse
         </x-slot>
     </x-table>
-    {{-- <livewire:admin.news.delete> --}}
     <div class="my-3 d-flex justify-content-center">
         {{ $posts->links() }}
     </div>

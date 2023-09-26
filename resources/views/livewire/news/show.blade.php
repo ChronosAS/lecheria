@@ -3,10 +3,10 @@
         <header class="masthead1">
             {{-- <div class="container"></div> --}}
         </header>
-        <section id="portfolio" class="page-section bg-dark">
-            <div class="container-lg bg-light p-5 text-center">
-                <div class="rounded p-5" style="background-color: rgba(0, 0, 0, 0.737)">
-                    <h1 class="pb-5 text-light">{{ $post->title }}</h1>
+        <section id="portfolio" class="page-section p-4 bg-dark">
+            <h1 class="text-light text-center pt-0">{{ $post->title }}</h1>
+            <div class="container-lg pb-3 bg-light p-0 text-center">
+                <div class="p-4 mb-0" style="background-color: rgba(0, 0, 0, 0.737)">
                     @foreach ($post->getMedia('post-images')->chunk(2) as $set)
                         <div class="row">
                             @foreach($set as $image)
@@ -15,11 +15,12 @@
                         </div>
                     @endforeach
                 </div>
-                <hr>
                 <div class="m-2 mt-5">
                     {!! $post->content !!}
                 </div>
             </div>
+        </section>
+        <section id="portfolio2" class="page-section p-4" style="background-color: grey">
             <div class="container-lg mt-5">
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     @foreach ($navPosts as $post)

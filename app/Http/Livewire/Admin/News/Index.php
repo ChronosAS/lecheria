@@ -29,11 +29,29 @@ class Index extends Component
                 'slug',
                 'content',
                 'created_at',
-                'updated_at'
+                'updated_at',
+                'deleted_at'
             ])
+            ->withTrashed()
             ->search($this->search)
             ->orderBy($this->sortField ?? 'id', $this->sortAsc ? 'ASC' : 'DESC')
             ->paginate($this->perPage);
+    }
+
+    public function delete(Post $post)
+    {
+        $post->forceDelete();
+
+        session()->flash('message','Post Eliminado');
+        session()->flash('alert','alert-danger');
+
+    }
+
+    public function restore($post)
+    {
+        (Post::withTrashed()->find($post))->restore();
+        session()->flash('message','Post Restaurado');
+        session()->flash('alert','alert-success');
     }
 
     public function render()
