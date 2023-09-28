@@ -21,6 +21,15 @@
                 <li class="nav-item">
                     <a
                         class="nav-link"
+                        href="http://pdul.lecheria.gov.ve"
+                        target="_blank"
+                    >
+                        PDUL
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
                         href="http://200.41.118.109/appweb/"
                         target="_blank"
                     >
