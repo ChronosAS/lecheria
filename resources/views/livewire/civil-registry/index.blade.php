@@ -17,7 +17,7 @@
                     <h3 class="section-subheading text-muted">{{-- Conoce los requisitos y --}}Llena y descarga las planillas para tus tramites.</h3>
                     <hr/>
                     <div class="row">
-                        <div x-data="{ apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
+                        <div x-data="{ civil_status: @entangle('citizen_civil_status') apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
                                     <h4>Ingrese su numero de documento</h2>
@@ -152,11 +152,11 @@
                                     @error('selected_document')
                                         <p class="text-xs text-center text-danger m-2"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <div class="col col-lg-4 col-sm-12">
+                                    <div x-show="civil_status == 'Viudo'" class="col col-lg-4 col-sm-12">
                                         <input type="radio" wire:model='selected_document' class="btn-check" name="selected_document" id="radio-v" autocomplete="off" value="viudez">
                                         <label class="btn btn-outline-primary" for="radio-v">Viudez</label>
                                      </div>
-                                    <div class="col col-lg-4 col-sm-12">
+                                    <div x-show="civil_status == 'Soltero'" class="col col-lg-4 col-sm-12">
                                         <input type="radio" wire:model='selected_document' class="btn-check" name="selected_document" id="radio-s" autocomplete="off" value="solteria">
                                         <label class="btn btn-outline-primary" for="radio-s">Solteria</label>
                                     </div>
