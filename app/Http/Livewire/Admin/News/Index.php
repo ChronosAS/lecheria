@@ -40,7 +40,7 @@ class Index extends Component
 
     public function delete(Post $post)
     {
-        $post->forceDelete();
+        $post->delete();
 
         session()->flash('message','Post Eliminado');
         session()->flash('alert','alert-danger');
@@ -50,6 +50,7 @@ class Index extends Component
     public function restore($post)
     {
         (Post::withTrashed()->find($post))->restore();
+
         session()->flash('message','Post Restaurado');
         session()->flash('alert','alert-success');
     }

@@ -17,7 +17,7 @@
                     <h3 class="section-subheading text-muted">{{-- Conoce los requisitos y --}}Llena y descarga las planillas para tus tramites.</h3>
                     <hr/>
                     <div class="row">
-                        <div x-data="{ civil_status: @entangle('citizen_civil_status') apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
+                        <div x-data="{ civil_status: @entangle('citizen_civil_status'), apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
                                     <h4>Ingrese su numero de documento</h2>

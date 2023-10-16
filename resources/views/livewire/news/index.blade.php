@@ -5,7 +5,7 @@
         <h1 class="text-center text-white">Noticias</h1>
         <div style="background-color: rgb(178, 175, 175)">
             <div class="container p-3">
-                @foreach ($posts as $post)
+                @forelse ($posts as $post)
                     <div class="card h-100 mx-auto m-4 shadow">
                         <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}">
                             <img class="card-img-top" src="{{ asset(($post->getMedia('post-images')[0]->getUrl())) }}" alt="" srcset="">
@@ -19,7 +19,11 @@
                             <small class="test-muted">{{ ucfirst($post->created_at->diffForHumans()).'.' }}</small>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="card h-100 mx-auto m-4 p-3 text-center shadow">
+                        <h1>No hay Noticias</h1>
+                    </div>
+                @endforelse
             </div>
             <div class="my-3 d-flex justify-content-center">
                 {{ $posts->links() }}
