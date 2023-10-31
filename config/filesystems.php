@@ -36,6 +36,12 @@ return [
             'throw' => false,
         ],
 
+        'News' => [
+            'driver' => 'local',
+            'root' => storage_path('app/news'),
+            'url' => env('APP_URL').'/storage/news',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

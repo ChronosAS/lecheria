@@ -17,7 +17,7 @@
                     <h3 class="section-subheading text-muted">{{-- Conoce los requisitos y --}}Llena y descarga las planillas para tus tramites.</h3>
                     <hr/>
                     <div class="row">
-                        <div x-data="{ apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
+                        <div x-data="{ civil_status: @entangle('citizen_civil_status'), apto: @entangle('address_3_s'),show: @entangle('show'), input: @entangle('input'), edit: @entangle('edit') }" class="col-md-6 col-sm-12 offset-md-3 text-center">
                             <form wire:submit.prevent="download">
                                 <div x-show="!show">
                                     <h4>Ingrese su numero de documento</h2>
@@ -29,7 +29,7 @@
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
                                         </select>
-                                        <input @keyup.enter.window="$wire.searchCitizen()" type="text" wire:loading.attr='disabled'  class="form-control" wire:model.defer="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
+                                        <input type="text" wire:loading.attr='disabled'  class="form-control" wire:model.defer="citizen_search_document" id="citizen_search_document" name="citizen_search_document" placeholder="Buscar documento..."/>
                                     </div>
                                     <button type="button" class="btn btn-primary mt-2" @click="$wire.clear(); show=true; input=true; edit=false;" name="search-citizen" id="search-citizen">Es la primera vez que lo uso</button>
                                     <button type="button" class="btn btn-success mt-2" @click="$wire.searchCitizen()" name="search-citizen" id="search-citizen">Buscar</button>
@@ -125,11 +125,11 @@
                                             <input class="form-control" wire:model="address_3_t" type="text" name="address_3_t" id="address_3_t">
                                         </div>
                                     </div>
-                                    <div class="row mb-2">
+                                    <div x-show="apto != 'Casa'" class="row mb-2">
                                         @error('address_4_t')
                                             <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                         @enderror
-                                        <div class="col-4">
+                                        <div  class="col-4">
                                             <select class="form-select border-dark" name="address_4_s" id="address_4_s" wire:model.defer="address_4_s">
                                                 <option value="Numero">Numero</option>
                                                 <option value="Piso">Piso</option>
@@ -152,11 +152,11 @@
                                     @error('selected_document')
                                         <p class="text-xs text-center text-danger m-2"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <div class="col col-lg-4 col-sm-12">
+                                    <div x-show="civil_status == 'Viudo(a)'" class="col col-lg-4 col-sm-12">
                                         <input type="radio" wire:model='selected_document' class="btn-check" name="selected_document" id="radio-v" autocomplete="off" value="viudez">
                                         <label class="btn btn-outline-primary" for="radio-v">Viudez</label>
                                      </div>
-                                    <div class="col col-lg-4 col-sm-12">
+                                    <div x-show="civil_status == 'Soltero(a)'" class="col col-lg-4 col-sm-12">
                                         <input type="radio" wire:model='selected_document' class="btn-check" name="selected_document" id="radio-s" autocomplete="off" value="solteria">
                                         <label class="btn btn-outline-primary" for="radio-s">Solteria</label>
                                     </div>
@@ -171,7 +171,7 @@
                                 </div>
                                 <div x-cloak x-show="show" class="flex text-center mb-3">
                                     <hr/>
-                                    <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button>
+                                    {{-- <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button> --}}
                                     <button x-show="!input" type="button" @click="input=true; edit=true" wire:loading.attr='disabled' class="btn btn-warning ml-1">Editar</button>
                                     <button type="button" @click="$wire.download()" wire:loading.attr='disabled' class="btn btn-success ml-1">Descargar</button>
                                 </div>

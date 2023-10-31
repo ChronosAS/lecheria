@@ -5,7 +5,7 @@
             Menu
             <i class="fas fa-bars ms-1"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse text-center" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ms-auto py-3 py-lg-0">
 
                 @if (Route::currentRouteName() != 'home')
@@ -18,6 +18,15 @@
                         </a>
                     </li>
                 @endif
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="http://pdul.lecheria.gov.ve"
+                        target="_blank"
+                    >
+                        PDUL
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a
                         class="nav-link"
@@ -43,7 +52,7 @@
                 @if (Route::currentRouteName() == "home")
                     <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
                 @endif
-                @if (Route::currentRouteName() == "home")
+                @if (Route::currentRouteName() == "home" && \App\Models\News\Post::count() > 0)
                     <li class="nav-item"><a class="nav-link" href="#news">Noticias</a></li>
                 @endif
                 @auth
