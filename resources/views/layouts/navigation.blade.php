@@ -52,7 +52,7 @@
                 @if (Route::currentRouteName() == "home")
                     <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
                 @endif
-                @if (Route::currentRouteName() == "home")
+                @if (Route::currentRouteName() == "home" && \App\Models\News\Post::count() > 0)
                     <li class="nav-item"><a class="nav-link" href="#news">Noticias</a></li>
                 @endif
                 @auth

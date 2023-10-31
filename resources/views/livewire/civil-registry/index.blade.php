@@ -152,11 +152,11 @@
                                     @error('selected_document')
                                         <p class="text-xs text-center text-danger m-2"><small>{{ $message }}</small></p>
                                     @enderror
-                                    <div x-show="civil_status == 'Viudo'" class="col col-lg-4 col-sm-12">
+                                    <div x-show="civil_status == 'Viudo(a)'" class="col col-lg-4 col-sm-12">
                                         <input type="radio" wire:model='selected_document' class="btn-check" name="selected_document" id="radio-v" autocomplete="off" value="viudez">
                                         <label class="btn btn-outline-primary" for="radio-v">Viudez</label>
                                      </div>
-                                    <div x-show="civil_status == 'Soltero'" class="col col-lg-4 col-sm-12">
+                                    <div x-show="civil_status == 'Soltero(a)'" class="col col-lg-4 col-sm-12">
                                         <input type="radio" wire:model='selected_document' class="btn-check" name="selected_document" id="radio-s" autocomplete="off" value="solteria">
                                         <label class="btn btn-outline-primary" for="radio-s">Solteria</label>
                                     </div>
