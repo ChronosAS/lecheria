@@ -17,11 +17,11 @@
                     <div class="d-none position-relative d-lg-block d-sm-block min-vh-100">
                         <x-admin.navigation/>
                     </div>
-                    <!-- Nav Sidebar Mobile-->
-                    <div class="d-block d-sm-none">
-                        <x-admin.navigation-mobile/>
-                    </div>
                 </div>
+                <div class="d-block d-sm-none">
+                    <x-admin.navigation-mobile/>
+                </div>
+                <!-- Nav Sidebar Mobile-->
                 <div class="col-9 bg-secondary offset-3 min-vh-100">
                     <div class="mx-5">
                         {{ $slot }}
