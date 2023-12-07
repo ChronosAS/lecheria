@@ -1,4 +1,4 @@
-@push('blank-styles')
+{{-- @push('blank-styles')
     <style>
         .lecheria-bg {
             background-image: url("/img/lecheria-bg-2.jpg");
@@ -8,14 +8,10 @@
             background-size: cover;
         }
     </style>
-@endpush
-<div class="p-5 lecheria-bg">
-    @if(session()->has('message'))
-        <div class="alert {{ session('alert') ?? 'alert-info'}}">
-            {{ session('message') }}
-        </div>
-    @endif
-    <div class="justify-content-center border border-dark container-md bg-secondary rounded p-3">
+@endpush --}}
+<div>
+    <x-alert/>
+    <div class="justify-content-center container-md p-3">
         <form wire:submit.prevent="submit">
             <div class="row pt-2">
                 <div class="col-sm-4 pt-2 text-center text-white">
@@ -61,14 +57,15 @@
             </div>
         </form>
     </div>
-    @push('blank-styles')
+    @push('admin-styles')
         <style>
             .ck.ck-content:not(.ck-comment__input *) {
-                height: 100vh;
+                min-height: 35em;
+                height: 35em;
             }
         </style>
     @endpush
-    @push('blank-scripts')
+    @push('admin-scripts')
         <script>
             ClassicEditor
             .create( document.querySelector( '#editor' ), {

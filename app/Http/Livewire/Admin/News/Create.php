@@ -55,6 +55,6 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.admin.news.create')->layout('layouts.blank', ['title'=>'Crear Post']);
+        return view('livewire.admin.news.create')->layout('layouts.admin.app', ['title'=>'Crear Post']);
     }
 }
