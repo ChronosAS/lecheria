@@ -15,7 +15,7 @@
         </style>
     </head>
     <body>
-        <div class="container-fluid p-0 d-flex h-100 position-fixed">
+        <div class="container-fluid p-0 d-flex h-100 position-fixed" x-data="{ offCanvasOpen: true }">
             <div id="adminSidebar" class="d-flex flex-column text-white flex-shink-0 bg-dark p-3 offcanvas-md offcanvas-start">
                 <!-- Nav Sidebar-->
                 <x-admin.navigation/>

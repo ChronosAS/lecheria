@@ -34,13 +34,44 @@
                 </div>
             </div>
             <div class="row text-center pt-2 text-white">
-                <div class="col">
+                {{-- <div class="col">
                     <label for="images"><h5>Imagenes</h5></label>
                     <input class="form-control" wire:model="images" type="file" id="images" multiple />
                     @error('images.*')
                         <span class="text-danger"><b>{{ $message }}</b></span>
                     @enderror
-                </div>
+                </div> --}}
+                <x-table>
+                    <x-slot name="thead">
+                        <x-table-th class="pb-3 col-4">
+                            Imagenes
+                        </x-table-th>
+                        <x-table-th class="pb-3">
+                            Pie de foto
+                        </x-table-th>
+                        <x-table-th class="col-2">
+                            <button type="button" class="btn btn-secondary" wire:click="addImage">Agregar</button>
+                        </x-table-th>
+                    </x-slot>
+                    <x-slot name="tbody">
+                        @foreach ($images as $index => $image)
+                            <tr>
+                                <x-table-td>
+                                    <input class="form-control form-control-sm" wire:model.defer="images.{{ $index }}.image" type="file" id="images.{{ $index }}.image">
+                                </x-table-td>
+                                <x-table-td>
+                                    <input class="form-control form-control-sm"
+                                    wire:model.defer="images.{{ $index }}.description" type="text" id="images.{{ $index }}.description" name="images.{{ $index }}.description" placeholder="Ingresar...">
+                                </x-table-td>
+                                <x-table-td>
+                                    <button wire:click="removeImage({{ $index }})" type="button" class="btn btn-warning" style="border-radius: 50%" >
+                                        X
+                                    </button>
+                                </x-table-td>
+                            </tr>
+                        @endforeach
+                    </x-slot>
+                </x-table>
             </div>
             <div class="text-center pt-4 m-0">
                 <button type="submit" class="btn btn-success">

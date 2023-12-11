@@ -16,19 +16,49 @@ class Create extends Component
     public $content;
     public $images = [];
 
+    public function mount()
+    {
+        $this->images[] = $this->additionalImage();
+    }
+
+    public function addImage()
+    {
+        if (count($this->images) <= 9) {
+            $this->images[] = $this->additionalImage();
+        }
+    }
+
+    public function removeImage($line)
+    {
+        $this->resetErrorBag();
+
+        unset($this->images[$line]);
+
+        $this->images = array_values($this->images);
+    }
+
+    public function additionalImage()
+    {
+        return [
+            'image',
+            'description'
+        ];
+    }
+
     public function submit()
     {
 
         $this->validate([
             'title' => ['required','string','max:80'],
             'subtitle' => ['nullable','string','max:124'],
-            'images.*' => ['nullable','image','max:4096'],
-            'images' => ['max:4']
+            'images.*.image' => ['nullable','image','max:4096'],
+            'images.*.description' => ['nullable','string','max:100'],
+            'images' => ['nullable','max:6']
         ],[
             'title.required' => 'Porfavor ingrese un titulo.',
             'max' => 'Maximo de caracteres exedido.',
             'images.max' => 'Ingrese un maximo de 4 imagenes',
-            'images.*.max' => 'Achivos exeden el tamaño maximo de memoria',
+            'images.*.image.max' => 'Achivos exeden el tamaño maximo de memoria',
         ]);
 
         if($this->content){
