@@ -15,13 +15,13 @@
         </style>
     </head>
     <body>
-        <div class="container-fluid p-0 d-flex h-100 position-fixed" x-data="{ offCanvasOpen: true }">
+        <div class="container-fluid p-0 d-flex h-100 position-fixed">
             <div id="adminSidebar" class="d-flex flex-column text-white flex-shink-0 bg-dark p-3 offcanvas-md offcanvas-start">
                 <!-- Nav Sidebar-->
                 <x-admin.navigation/>
             </div>
         </div>
-        <div class="bg-secondary flex-fill">
+        <div class="bg-secondary flex-fill " style="overflow: auto">
             <div class="p-4 d-md-none d-flex justify-content-between text-white bg-dark">
                 <a href="/" class="navbar-brand">
                     {{ env('APP_NAME') }}

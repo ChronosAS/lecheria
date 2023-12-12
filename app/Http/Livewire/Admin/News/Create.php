@@ -23,7 +23,7 @@ class Create extends Component
 
     public function addImage()
     {
-        if (count($this->images) <= 9) {
+        if (count($this->images) <= 5) {
             $this->images[] = $this->additionalImage();
         }
     }
@@ -40,7 +40,7 @@ class Create extends Component
     public function additionalImage()
     {
         return [
-            'image',
+            'url',
             'description'
         ];
     }
@@ -51,14 +51,16 @@ class Create extends Component
         $this->validate([
             'title' => ['required','string','max:80'],
             'subtitle' => ['nullable','string','max:124'],
-            'images.*.image' => ['nullable','image','max:4096'],
-            'images.*.description' => ['nullable','string','max:100'],
-            'images' => ['nullable','max:6']
+            'images.*.url' => ['required','image','max:4096'],
+            'images.*.description' => ['required','string','max:100'],
+            'images' => ['required','min:1','max:6']
         ],[
             'title.required' => 'Porfavor ingrese un titulo.',
             'max' => 'Maximo de caracteres exedido.',
-            'images.max' => 'Ingrese un maximo de 4 imagenes',
-            'images.*.image.max' => 'Achivos exeden el tamaño maximo de memoria',
+            'images.max' => 'Ingrese un maximo de 6 imagenes.',
+            'images.*.url.required' => 'El campo de imagen no puede estar vacio.',
+            'images.*.description.required' => 'El campo de descripcion no puede estar vacio.',
+            'images.*.url.max' => 'Achivo exeden el tamaño maximo de memoria.',
         ]);
 
         if($this->content){
@@ -70,8 +72,9 @@ class Create extends Component
             ]),function($post){
                 if($this->images){
                     foreach ($this->images as $image) {
-                        $post->addMedia($image->getRealPath())
-                        ->usingName($image->getClientOriginalName())
+                        $post->addMedia($image['url']->getRealPath())
+                        ->withCustomProperties(['description'=> $image['description']])
+                        ->usingName($image['url']->getClientOriginalName())
                         ->toMediaCollection('post-images');
                     }
                 }

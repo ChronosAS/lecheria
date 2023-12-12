@@ -57,11 +57,17 @@
                         @foreach ($images as $index => $image)
                             <tr>
                                 <x-table-td>
-                                    <input class="form-control form-control-sm" wire:model.defer="images.{{ $index }}.image" type="file" id="images.{{ $index }}.image">
+                                    <input class="form-control form-control-sm" wire:model.defer="images.{{ $index }}.url" type="file" id="images.{{ $index }}.url">
+                                    @error('images.*.url')
+                                        <span class="text-danger"><b>{{ $message }}</b></span>
+                                    @enderror
                                 </x-table-td>
                                 <x-table-td>
                                     <input class="form-control form-control-sm"
                                     wire:model.defer="images.{{ $index }}.description" type="text" id="images.{{ $index }}.description" name="images.{{ $index }}.description" placeholder="Ingresar...">
+                                    @error('images.*.description')
+                                        <span class="text-danger"><b>{{ $message }}</b></span>
+                                    @enderror
                                 </x-table-td>
                                 <x-table-td>
                                     <button wire:click="removeImage({{ $index }})" type="button" class="btn btn-warning" style="border-radius: 50%" >

@@ -60,7 +60,7 @@
                     <div class="carousel-inner">
                         @foreach ($posts as $index => $post)
                             <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
-                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="w-100 img-fluid text-center d-block" height="500" width="500" alt="..."></a>
+                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="mx-auto w-50 d-block" alt="..."></a>
                                 <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
                                     <h5>{{ $post->title }}</h5>
                                     <p>{{ $post->subtitle ?? '' }}</p>
