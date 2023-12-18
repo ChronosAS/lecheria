@@ -53,11 +53,12 @@ class Create extends Component
             'subtitle' => ['nullable','string','max:124'],
             'images.*.url' => ['required','image','max:4096'],
             'images.*.description' => ['required','string','max:100'],
-            'images' => ['required','min:1','max:6']
+            'images' => ['required','max:6']
         ],[
             'title.required' => 'Porfavor ingrese un titulo.',
             'max' => 'Maximo de caracteres exedido.',
             'images.max' => 'Ingrese un maximo de 6 imagenes.',
+            'images.required' => 'Ingrese un minimo de 1 imagen.',
             'images.*.url.required' => 'El campo de imagen no puede estar vacio.',
             'images.*.description.required' => 'El campo de descripcion no puede estar vacio.',
             'images.*.url.max' => 'Achivo exeden el tamaño maximo de memoria.',

@@ -76,6 +76,9 @@
                                 </x-table-td>
                             </tr>
                         @endforeach
+                        @error('images')
+                            <tr><x-table-td colspan="3"><span class="text-danger"><b>{{ $message }}</b></span></x-table-td></tr>
+                        @enderror
                     </x-slot>
                 </x-table>
             </div>
