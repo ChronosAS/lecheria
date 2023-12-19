@@ -3,9 +3,10 @@
         <header class="masthead1">
             {{-- <div class="container"></div> --}}
         </header>
-        <section id="portfolio" class="page-section p-4 bg-dark">
-            <div class="container-lg pb-3 bg-light p-0">
-                <h1 class="text-light text-center pt-0">{{ $post->title }}</h1>
+        <section id="portfolio" class="page-section p-4" style="background-color: grey">
+            <div class="container-lg pb-3 bg-light p-0 shadow-lg border rounded">
+                <h1 class="text-center m-2 p-2">{{ ucfirst($post->title) }}</h1>
+                <p class="text-start px-3">Creado el: {{ $post->postedAt }}</p>
                 {{-- <div class="p-4 mb-0 text-center">
                     @foreach ($post->getMedia('post-images')->chunk(2) as $set)
                         <div class="row">
@@ -16,7 +17,7 @@
                     @endforeach
                 </div> --}}
                 @if($post->getMedia('post-images'))
-                    <div id="postCarousel" class="carousel carousel-dark bg-secondary slide m-2" data-bs-ride="carousel">
+                    <div id="postCarousel" class="carousel bg-dark slide m-2" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             @foreach ($post->getMedia('post-images') as $index => $image)
                                 <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="{{ $index }}" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
@@ -29,6 +30,7 @@
                                     <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
                                         {{-- <h5>{{ $post->title }}</h5> --}}
                                         <p>{{ $image->getCustomProperty('description') }}</p>
+                                        @dump($image->getUrl())
                                     </div>
                                 </div>
                             @endforeach
@@ -51,12 +53,12 @@
             </div>
         </section>
         @if(count($navPosts) != 0)
-            <section id="portfolio2" class="page-section p-4" style="background-color: grey">
-                <div class="container-lg mt-5">
-                    <div class="row row-cols-1 row-cols-md-2 g-4">
+            <section id="portfolio2" class="page-section bg-dark">
+                <div class="container-lg mt-2 text-center">
+                    <div class="row row-cols-1 row-cols-md-{{ count($navPosts) }} g-2">
                         @foreach ($navPosts as $post)
                             <div class="col">
-                                <div class="card">
+                                <div class="card shadow-md mx-auto" style="max-width: 20rem;">
                                     <a class="text-decoration-none text-black" href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}">
                                         <img class="card-img-top img-thumbnail" src="{{ asset(($post->getMedia('post-images')[0]->getUrl())) }}" alt="" srcset="">
                                         <hr>
