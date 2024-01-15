@@ -6,9 +6,9 @@
         <div style="background-color: rgb(178, 175, 175)">
             <div class="container p-3">
                 @forelse ($posts as $post)
-                    <div class="card h-100 mx-auto m-4 shadow">
+                    <div class="card mx-auto m-5 shadow">
                         <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}">
-                            <img class="card-img-top" src="{{ asset(($post->getMedia('post-images')[0]->getUrl())) }}" alt="" srcset="">
+                            <img class="card-img-top" src="{{ asset($post->getFirstMediaUrl('post-images')) }}" alt="" srcset="">
                         </a>
                         <hr>
                         <div class="card-body">

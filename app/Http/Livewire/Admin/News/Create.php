@@ -23,7 +23,7 @@ class Create extends Component
 
     public function addImage()
     {
-        if (count($this->images) <= 5) {
+        if (count($this->images) <= 9) {
             $this->images[] = $this->additionalImage();
         }
     }
@@ -50,16 +50,16 @@ class Create extends Component
         $this->title= Str::lower($this->title);
 
         $this->validate([
-            'title' => ['required','string','max:80','unique:posts'],
-            'subtitle' => ['nullable','string','max:124'],
+            'title' => ['required','string','max:200','unique:posts'],
+            'subtitle' => ['nullable','string','max:200'],
             'images.*.url' => ['required','image','max:4096'],
             'images.*.description' => ['nullable','string','max:100'],
-            'images' => ['required','max:6']
+            'images' => ['required','max:10']
         ],[
             'title.required' => 'Porfavor ingrese un titulo.',
             'title.unique' => 'Ya existe un post con este titulo',
             'max' => 'Maximo de caracteres exedido.',
-            'images.max' => 'Ingrese un maximo de 6 imagenes.',
+            'images.max' => 'Ingrese un maximo de 10 imagenes.',
             'images.required' => 'Ingrese un minimo de 1 imagen.',
             'images.*.url.required' => 'El campo de imagen no puede estar vacio.',
             'images.*.description.required' => 'El campo de descripcion no puede estar vacio.',
@@ -75,8 +75,9 @@ class Create extends Component
             ]),function($post){
                 if($this->images){
                     foreach ($this->images as $image) {
+                        $description = (isset($image['description'])) ? $image['description'] : '';
                         $post->addMedia($image['url']->getRealPath())
-                        ->withCustomProperties(['description'=> $image['description']])
+                        ->withCustomProperties(['description'=> $description])
                         ->usingName($image['url']->getClientOriginalName())
                         ->toMediaCollection('post-images');
                     }

@@ -16,10 +16,10 @@
                         </div>
                     @endforeach
                 </div> --}}
-                @if($post->getMedia('post-images'))
+                @if($images)
                     <div id="postCarousel" class="carousel bg-dark slide m-2" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            @foreach ($post->getMedia('post-images') as $index => $image)
+                            @foreach ($images as $index => $image)
                                 <button type="button" data-bs-target="#postCarousel" data-bs-slide-to="{{ $index }}" @if($index == 0) class="active" aria-current="true" @endif  aria-label="{{ 'Post '.$index }}"></button>
                             @endforeach
                         </div>
@@ -30,7 +30,6 @@
                                     <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
                                         {{-- <h5>{{ $post->title }}</h5> --}}
                                         <p>{{ $image->getCustomProperty('description') }}</p>
-                                        @dump($image->getUrl())
                                     </div>
                                 </div>
                             @endforeach
@@ -60,7 +59,7 @@
                             <div class="col">
                                 <div class="card shadow-md mx-auto" style="max-width: 20rem;">
                                     <a class="text-decoration-none text-black" href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}">
-                                        <img class="card-img-top img-thumbnail" src="{{ asset(($post->getMedia('post-images')[0]->getUrl())) }}" alt="" srcset="">
+                                        <img class="card-img-top img-thumbnail" src="{{ asset($post->getFirstMediaUrl('post-images')) }}" alt="" srcset="">
                                         <hr>
                                         <div class="card-body">
                                             <h5 class="card-title text-center" >{{ $post->title }}</h5>
