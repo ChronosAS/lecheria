@@ -40,7 +40,7 @@ class Index extends Component
 
     public function delete(Post $post)
     {
-        $post->delete();
+        $post->forceDelete();
 
         session()->flash('message','Post Eliminado');
         session()->flash('alert','alert-danger');

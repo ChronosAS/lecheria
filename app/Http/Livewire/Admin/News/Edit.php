@@ -31,16 +31,23 @@ class Edit extends Component
     public function submit()
     {
 
+        $this->title= Str::lower($this->title);
+
         $this->validate([
-            'title' => ['required','string','max:80'],
-            'subtitle' => ['nullable','string','max:124'],
-            'images.*' => ['nullable','image','max:4096'],
-            'images' => ['max:4']
+            'title' => ['required','string','max:200','unique:posts'],
+            'subtitle' => ['nullable','string','max:200'],
+            'images.*.url' => ['required','image','max:4096'],
+            'images.*.description' => ['nullable','string','max:100'],
+            'images' => ['required','max:10']
         ],[
             'title.required' => 'Porfavor ingrese un titulo.',
+            'title.unique' => 'Ya existe un post con este titulo',
             'max' => 'Maximo de caracteres exedido.',
-            'images.max' => 'Ingrese un maximo de 4 imagenes',
-            'images.*.max' => 'Achivos exeden el tamaño maximo de memoria',
+            'images.max' => 'Ingrese un maximo de 10 imagenes.',
+            'images.required' => 'Ingrese un minimo de 1 imagen.',
+            'images.*.url.required' => 'El campo de imagen no puede estar vacio.',
+            'images.*.description.required' => 'El campo de descripcion no puede estar vacio.',
+            'images.*.url.max' => 'Achivo exeden el tamaño maximo de memoria.',
         ]);
 
         if($this->content){
@@ -67,6 +74,6 @@ class Edit extends Component
 
     public function render()
     {
-        return view('livewire.admin.news.edit')->layout('layouts.blank', ['title'=>'Crear Post']);
+        return view('livewire.admin.news.edit')->layout('layouts.admin.app', ['title'=>'Editar Post']);
     }
 }

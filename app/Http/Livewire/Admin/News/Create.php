@@ -53,7 +53,7 @@ class Create extends Component
             'title' => ['required','string','max:200','unique:posts'],
             'subtitle' => ['nullable','string','max:200'],
             'images.*.url' => ['required','image','max:4096'],
-            'images.*.description' => ['nullable','string','max:100'],
+            'images.*.description' => ['nullable','string','max:150'],
             'images' => ['required','max:10']
         ],[
             'title.required' => 'Porfavor ingrese un titulo.',
@@ -86,7 +86,7 @@ class Create extends Component
 
             return redirect()->route('admin.news.index')->with(['message' => 'Post Creado', 'alert'=>'alert-success']);
         }else {
-            return redirect()->route('admin.news.index')->with(['message' => 'Post no contiene contenido','alert'=>'alert-danger']);
+            return redirect()->route('admin.news.index')->with(['message' => 'Post no tiene contenido','alert'=>'alert-danger']);
         }
     }
 
