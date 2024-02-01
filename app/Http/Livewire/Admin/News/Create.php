@@ -47,6 +47,7 @@ class Create extends Component
 
     public function submit()
     {
+
         $this->title= Str::lower($this->title);
 
         $this->validate([

@@ -28,6 +28,13 @@ class Edit extends Component
         $this->images = $post->getMedia('post-images');
     }
 
+    public function deleteImage($index)
+    {
+        $image = $this->images[$index];
+
+        dd($image);
+    }
+
     public function submit()
     {
 
