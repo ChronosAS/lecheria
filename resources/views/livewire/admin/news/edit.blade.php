@@ -48,6 +48,11 @@
                                     <button wire:click="deleteImage({{ $index }})" type="button" class="btn btn-warning" style="border-radius: 50%" >
                                         X
                                     </button>
+                                    @if ($index != 0)
+                                        <button wire:click.debounce="moveImageUp({{ $index }})" type="button" class="btn">
+                                            subir
+                                        </button>
+                                    @endif
                                 </x-table-td>
                             </tr>
                         @empty

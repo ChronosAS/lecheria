@@ -25,7 +25,18 @@ class Edit extends Component
         $this->title = $post->title;
         $this->subtitle = $post->subtitle;
         $this->content = $post->content;
-        $this->images = $post->getMedia('post-images');
+        $this->images = $post->getMedia('post-images')->sortBy('order_column');
+    }
+
+    public function moveImageUp($index)
+    {
+        $image = $this->images[$index];
+        $image2 = $this->images[$index];
+        $image2->order_column += 1;
+        $image->order_column -= 1 ;
+        $image->save();
+        $image2->save();
+        dd($this->images);
     }
 
     public function deleteImage($index)
