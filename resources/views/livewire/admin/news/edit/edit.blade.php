@@ -23,7 +23,8 @@
                 </div>
             </div>
             <div class="row text-center pt-2 text-white">
-                                <x-table>
+                <livewire:admin.news.edit.additionals.images-table :post="$post">
+                {{-- <x-table>
                     <x-slot name="thead">
                         <x-table-th class="pb-3 col-4">
                             Imagenes
@@ -49,7 +50,7 @@
                                         X
                                     </button>
                                     @if ($index != 0)
-                                        <button wire:click.debounce="moveImageUp({{ $index }})" type="button" class="btn">
+                                        <button wire:click.defer="moveImageUp({{ $image->order_column }})" type="button" class="btn">
                                             subir
                                         </button>
                                     @endif
@@ -59,7 +60,7 @@
                             <tr><h2>No hay imagenes en este post</h2></tr>
                         @endforelse
                     </x-slot>
-                </x-table>
+                </x-table> --}}
             </div>
             <div class="text-center pt-4 m-0">
                 <button type="submit" class="btn btn-success">
