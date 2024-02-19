@@ -25,8 +25,13 @@
                             X
                         </button>
                         @if ($index != 0)
-                            <button wire:click.defer="moveImageUp({{ $image->order_column }})" type="button" class="btn">
+                            <button wire:click.defer="moveImageUp({{ $image->order_column }})" type="button" class="btn m-1">
                                 subir
+                            </button>
+                        @endif
+                        @if($index != count($images)-1)
+                            <button wire:click.defer="moveImageDown({{ $image->order_column }})" type="button" class="btn">
+                                bajar
                             </button>
                         @endif
                     </x-table-td>

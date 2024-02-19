@@ -33,6 +33,18 @@ class ImagesTable extends Component
         $this->emitUp('refreshComponent');
     }
 
+    public function moveImageDown($order)
+    {
+
+        $image = $this->images->where('order_column',$order)->first();
+        $next_image = $this->images->where('order_column',$order+1)->first();
+        $image->order_column++;
+        $next_image->order_column--;
+        $image->save();
+        $next_image->save();
+        $this->emitUp('refreshComponent');
+    }
+
     public function deleteImage($index)
     {
         $image = $this->images[$index];
