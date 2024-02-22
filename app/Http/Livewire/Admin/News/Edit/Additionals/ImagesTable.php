@@ -9,6 +9,11 @@ class ImagesTable extends Component
 {
     public Post $post;
     public $images;
+    public $a = 0;
+
+    protected $listeners = [
+        'refreshTable' => '$refresh'
+    ];
 
     public function mount($post)
     {
@@ -30,7 +35,9 @@ class ImagesTable extends Component
         $prev_image->order_column++;
         $image->save();
         $prev_image->save();
+        $this->images->sortBy('order_column');
         $this->emitUp('refreshComponent');
+        $this->emit('$refresh');
     }
 
     public function moveImageDown($order)
@@ -42,7 +49,9 @@ class ImagesTable extends Component
         $next_image->order_column--;
         $image->save();
         $next_image->save();
+        $this->images->sortBy('order_column');
         $this->emitUp('refreshComponent');
+        $this->emit('$refresh');
     }
 
     public function deleteImage($index)
@@ -53,8 +62,7 @@ class ImagesTable extends Component
     }
     public function render()
     {
-        return view('livewire.admin.news.edit.additionals.images-table',[
-            'images' => $this->images->sortBy('order_column')->toArray()
-        ]);
+        $this->a++;
+        return view('livewire.admin.news.edit.additionals.images-table');
     }
 }

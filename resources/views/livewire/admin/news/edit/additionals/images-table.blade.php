@@ -1,4 +1,5 @@
 <div>
+    <h1>{{ $a }}</h1>
     <x-table>
         <x-slot name="thead">
             <x-table-th class="pb-3 col-4">
@@ -8,7 +9,8 @@
                 Pie de foto
             </x-table-th>
             <x-table-th class="col-2">
-                <button type="button" class="btn btn-secondary" wire:click="addImage">Agregar</button>
+                <button type="button" class="btn" wire:click="$emit('refreshComponent')">Reset</button>
+                {{-- <button type="button" class="btn btn-secondary" wire:click="addImage">Agregar</button> --}}
             </x-table-th>
         </x-slot>
         <x-slot name="tbody">
@@ -30,7 +32,7 @@
                             </button>
                         @endif
                         @if($index != count($images)-1)
-                            <button wire:click.defer="moveImageDown({{ $image->order_column }})" type="button" class="btn">
+                            <button wire:click.defer="moveImageDown({{ $image->order_column }})" type="button" class="btn m-1">
                                 bajar
                             </button>
                         @endif

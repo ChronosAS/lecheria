@@ -4,6 +4,7 @@
         <form wire:submit.prevent="submit">
             <div class="row pt-2">
                 <div class="col-sm-4 pt-2 text-center text-white">
+                    <h1>Count : {{ $count }}</h1>
                     <label for="title">
                         <h5>Titulo</h5>
                     </label>
