@@ -31,12 +31,15 @@ class ImagesTable extends Component
 
         $image = $this->images->where('order_column',$order)->first();
         $prev_image = $this->images->where('order_column',$order-1)->first();
+
         $image->order_column--;
         $prev_image->order_column++;
+
         $image->save();
         $prev_image->save();
-        $this->images->sortBy('order_column');
-        $this->emitUp('refreshComponent');
+
+        $this->getImages();
+        // $this->emitUp('refreshComponent');
         $this->emit('$refresh');
     }
 
@@ -45,12 +48,15 @@ class ImagesTable extends Component
 
         $image = $this->images->where('order_column',$order)->first();
         $next_image = $this->images->where('order_column',$order+1)->first();
+
         $image->order_column++;
         $next_image->order_column--;
+
         $image->save();
         $next_image->save();
-        $this->images->sortBy('order_column');
-        $this->emitUp('refreshComponent');
+
+        $this->getImages();
+        // $this->emitUp('refreshComponent');
         $this->emit('$refresh');
     }
 
