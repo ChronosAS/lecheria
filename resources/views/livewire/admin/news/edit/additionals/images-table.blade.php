@@ -10,7 +10,6 @@
             </x-table-th>
             <x-table-th class="col-2">
                 <button type="button" class="btn" wire:click="$emit('refreshComponent')">Reset</button>
-                {{-- <button type="button" class="btn btn-secondary" wire:click="addImage">Agregar</button> --}}
             </x-table-th>
         </x-slot>
         <x-slot name="tbody">
