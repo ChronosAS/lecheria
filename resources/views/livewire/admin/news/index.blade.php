@@ -1,5 +1,4 @@
-<div>
-    @include('livewire.admin.news.modals.delete-modal')
+<div class="m-4">
     <x-alert/>
     <x-table>
         <x-slot name="thead">
