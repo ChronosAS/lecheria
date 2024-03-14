@@ -16,7 +16,6 @@ class EditComponent extends Component
     public $title;
     public $subtitle;
     public $content;
-    public $count=0;
     // public $images;
 
     protected $listeners = [
@@ -82,7 +81,6 @@ class EditComponent extends Component
 
     public function render()
     {
-        $this->count += 1;
-        return view('livewire.admin.news.edit.edit')->layout('layouts.admin.app', ['title'=>'Editar Post']);
+        return view('livewire.admin.news.edit.edit')->layout('layouts.admin.new-app', ['title'=>'Editar Post']);
     }
 }

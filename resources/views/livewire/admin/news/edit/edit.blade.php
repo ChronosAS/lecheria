@@ -3,8 +3,7 @@
     <div class="justify-content-center container-md p-3">
         <form wire:submit.prevent="submit">
             <div class="row pt-2">
-                <div class="col-sm-4 pt-2 text-center text-white">
-                    <h1>Count : {{ $count }}</h1>
+                <div class="col-sm-4 pt-2 text-center ">
                     <label for="title">
                         <h5>Titulo</h5>
                     </label>
@@ -13,7 +12,7 @@
                         <span class="text-danger"><b>{{ $message }}</b></span>
                     @enderror
                 </div>
-                <div class="col-sm-8 pt-2 text-center text-white">
+                <div class="col-sm-8 pt-2 text-center ">
                     <label for="subtitle">
                         <h5>Sub Titulo</h5>
                     </label>
@@ -23,7 +22,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="row text-center pt-2 text-white">
+            <div class="row text-center pt-2 ">
                 <livewire:admin.news.edit.additionals.images-table :post="$post">
                 {{-- <x-table>
                     <x-slot name="thead">
@@ -78,14 +77,14 @@
             </div>
         </form>
     </div>
-    @push('admin-styles')
+    @push('styles')
         <style>
             .ck.ck-content:not(.ck-comment__input *) {
-                height: 100vh;
+                height: 20rem;
             }
         </style>
     @endpush
-    @push('admin-scripts')
+    @push('scripts')
         <script>
             ClassicEditor
             .create( document.querySelector( '#editor' ), {

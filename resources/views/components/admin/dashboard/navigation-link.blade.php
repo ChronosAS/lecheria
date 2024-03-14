@@ -1,0 +1,4 @@
+@props([
+    'route',
+    'title'
+])

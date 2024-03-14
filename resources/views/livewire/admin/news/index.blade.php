@@ -22,13 +22,15 @@
                     <x-table-td>{{ $post->subtitle }}</x-table-td>
                     <x-table-td>{{ date('d-m-Y',strtotime($post->created_at)) }}</x-table-td>
                     <x-table-td>
-                        <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}" class="btn btn-primary">Ver</a>
-                        <a href="{{ route('admin.news.edit',[ 'post' => $post->id]) }}" class="btn btn-warning">Editar</a>
-                        @if(!$post->trashed())
-                            <button type="button" class="btn btn-danger" wire:click="delete({{ $post->id }})">Eliminar</button>
-                        @else
-                            <button type="button" class="btn btn-warning" wire:click="restore({{ $post->id }})">Restaurar</button>
-                        @endif
+                        <div class="btn-group">
+                            <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                            <a href="{{ route('admin.news.edit',[ 'post' => $post->id]) }}" class="btn btn-warning"><i class="fas fa-pen"></i></a>
+                            @if(!$post->trashed())
+                                <a type="button" class="btn btn-danger" wire:click="delete({{ $post->id }})"><i class="fas fa-trash-alt"></i></a>
+                            @else
+                                <a type="button" class="btn btn-success" wire:click="restore({{ $post->id }})"><i class="fas fa-trash-restore-alt"></i></a>
+                            @endif
+                        </div>
                     </x-table-td>
                 </tr>
             @empty

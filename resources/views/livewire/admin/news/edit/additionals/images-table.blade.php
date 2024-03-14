@@ -1,5 +1,4 @@
 <div>
-    <h1>{{ $a }}</h1>
     <x-table>
         <x-slot name="thead">
             <x-table-th class="pb-3 col-4">
@@ -9,7 +8,7 @@
                 Pie de foto
             </x-table-th>
             <x-table-th class="col-2">
-                <button type="button" class="btn" wire:click="$emit('refreshComponent')">Reset</button>
+
             </x-table-th>
         </x-slot>
         <x-slot name="tbody">
@@ -22,19 +21,21 @@
                         {{ $image->getCustomProperty('description') }}
                     </x-table-td>
                     <x-table-td>
-                        <button wire:click="deleteImage({{ $index }})" type="button" class="btn btn-warning" style="border-radius: 50%" >
-                            X
-                        </button>
-                        @if ($index != 0)
-                            <button wire:click.defer="moveImageUp({{ $image->order_column }})" type="button" class="btn m-1">
-                                subir
-                            </button>
-                        @endif
-                        @if($index != count($images)-1)
-                            <button wire:click.defer="moveImageDown({{ $image->order_column }})" type="button" class="btn m-1">
-                                bajar
-                            </button>
-                        @endif
+                        <div class="btn-group">
+                            <a wire:click="deleteImage({{ $index }})" class="btn btn-danger">
+                                <i class="fas fa-window-close"></i>
+                            </a>
+                            @if ($index != 0)
+                                <a wire:click.defer="moveImageUp({{ $image->order_column }})" class="btn btn-primary">
+                                    <i class="fas fa-arrow-up"></i>
+                                </a>
+                            @endif
+                            @if($index != count($images)-1)
+                                <a wire:click.defer="moveImageDown({{ $image->order_column }})" class="btn btn-primary">
+                                    <i class="fas fa-arrow-down"></i>
+                                </a>
+                            @endif
+                        </div>
                     </x-table-td>
                 </tr>
             @empty

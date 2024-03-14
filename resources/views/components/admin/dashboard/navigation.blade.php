@@ -33,7 +33,7 @@
             <i class="fas fa-fw fa-newspaper"></i>
             <span>Noticias</span>
         </a>
-        <div id="News" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="News" class="collapse" aria-labelledby="headingNews" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item" href="{{ route('admin.news.index') }}">Indice</a>
@@ -47,7 +47,7 @@
             <i class="fas fa-fw fa-address-book"></i>
             <span>Registro Civil</span>
         </a>
-        <div id="civil_reg" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="civil_reg" class="collapse" aria-labelledby="headingCivilReg" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item" href="#">Estadisticas</a>
