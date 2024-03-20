@@ -14,7 +14,7 @@
     <div class="justify-content-center container-md p-3">
         <form wire:submit.prevent="submit">
             <div class="row pt-2">
-                <div class="col-sm-4 pt-2 text-center text-white">
+                <div class="col-sm-4 pt-2 text-center">
                     <label for="title">
                         <h5>Titulo</h5>
                     </label>
@@ -23,7 +23,7 @@
                         <span class="text-danger"><b>{{ $message }}</b></span>
                     @enderror
                 </div>
-                <div class="col-sm-8 pt-2 text-center text-white">
+                <div class="col-sm-8 pt-2 text-center">
                     <label for="subtitle">
                         <h5>Sub Titulo</h5>
                     </label>
@@ -33,7 +33,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="row text-center pt-2 text-white">
+            <div class="row text-center pt-2">
                 {{-- <div class="col">
                     <label for="images"><h5>Imagenes</h5></label>
                     <input class="form-control" wire:model="images" type="file" id="images" multiple />
@@ -97,7 +97,7 @@
             </div>
         </form>
     </div>
-    @push('admin-styles')
+    @push('styles')
         <style>
             .ck.ck-content:not(.ck-comment__input *) {
                 min-height: 35em;
@@ -105,7 +105,7 @@
             }
         </style>
     @endpush
-    @push('admin-scripts')
+    @push('scripts')
         <script>
             ClassicEditor
             .create( document.querySelector( '#editor' ), {

@@ -35,7 +35,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-            @include('layouts.admin.sidebar')
+            <x-admin.sidebar/>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->

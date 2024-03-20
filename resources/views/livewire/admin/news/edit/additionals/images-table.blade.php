@@ -22,19 +22,19 @@
                     </x-table-td>
                     <x-table-td>
                         <div class="btn-group">
+                            @if ($index != 0)
+                            <a wire:click.defer="moveImageUp({{ $image->order_column }})" class="btn btn-primary">
+                                <i class="fas fa-arrow-up"></i>
+                            </a>
+                            @endif
+                            @if($index != count($images)-1)
+                            <a wire:click.defer="moveImageDown({{ $image->order_column }})" class="btn btn-primary">
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                            @endif
                             <a wire:click="deleteImage({{ $index }})" class="btn btn-danger">
                                 <i class="fas fa-window-close"></i>
                             </a>
-                            @if ($index != 0)
-                                <a wire:click.defer="moveImageUp({{ $image->order_column }})" class="btn btn-primary">
-                                    <i class="fas fa-arrow-up"></i>
-                                </a>
-                            @endif
-                            @if($index != count($images)-1)
-                                <a wire:click.defer="moveImageDown({{ $image->order_column }})" class="btn btn-primary">
-                                    <i class="fas fa-arrow-down"></i>
-                                </a>
-                            @endif
                         </div>
                     </x-table-td>
                 </tr>

@@ -32,7 +32,7 @@ Route::prefix('noticias')->group(function(){
 Route::group(['middleware' => ['role:admin','auth']], function(){
 
     Route::prefix('admin')->group(function(){
-        Route::get('/', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+        Route::get('/dashboard', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
 
         Route::prefix('news')->group(function(){
             Route::get('/',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
