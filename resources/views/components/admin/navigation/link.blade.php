@@ -3,4 +3,4 @@
     'title'
 ])
 
-<a @class(['collapse-item','active'=> request()->routeIs(Str::beforeLast($route, '.'),'*')]) href="{{ route($route) }}">{{ $title }}</a>
+<a @class(['collapse-item']) href="{{ route($route) }}">{{ $title }}</a>

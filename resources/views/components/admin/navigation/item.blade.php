@@ -1,12 +1,11 @@
 @props([
     'title',
-    'route',
-    'url'
+    'route'
 ])
 
 <li @class([
         'nav-item',
-        'active'=> request()->is($url)
+        'active'=> request()->routeIs($route)
     ])
 >
     <a class="nav-link" href="{{ route($route) }}">

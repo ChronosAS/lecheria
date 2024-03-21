@@ -8,7 +8,7 @@
 
 <li @class([
         'nav-item',
-        'active'=> request()->routeIs(Str::beforeLast($route, '.').'*')
+        'active'=> request()->routeIs('admin.'.$route.'*')
         ])
 >
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#{{ $name }}"

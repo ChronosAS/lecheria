@@ -34,8 +34,8 @@ Route::group(['middleware' => ['role:admin','auth']], function(){
     Route::prefix('admin')->group(function(){
         Route::get('/dashboard', \App\Http\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
 
-        Route::prefix('news')->group(function(){
-            Route::get('/',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
+        Route::prefix('noticias')->group(function(){
+            Route::get('/todas',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
 
             Route::get('/create', App\Http\Livewire\Admin\News\Create::class)->name('admin.news.create');
 

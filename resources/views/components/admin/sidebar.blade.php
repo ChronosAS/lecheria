@@ -12,12 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    {{-- <li class="nav-item">
-        <a class="nav-link" href="{{ route('admin.dashboard') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li> --}}
-    <x-admin.navigation.item title="Dashboard" route="admin.dashboard" url="admin/dashboard" >
+    <x-admin.navigation.item title="Dashboard" route="admin.dashboard">
         <x-slot name="icon">
             <i class="fas fa-fw fa-tachometer-alt"></i>
         </x-slot>
@@ -31,21 +26,8 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    {{-- <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#News"
-            aria-expanded="true" aria-controls="News">
-            <i class="fas fa-fw fa-newspaper"></i>
-            <span>Noticias</span>
-        </a>
-        <div id="News" class="collapse" aria-labelledby="headingNews" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Modulos:</h6>
-                <a class="collapse-item" href="{{ route('admin.news.index') }}">Indice</a>
-            </div>
-        </div>
-    </li> --}}
 
-    <x-admin.navigation.menu route="admin.news." title="Noticias" name="News" header="Modulos">
+    <x-admin.navigation.menu route="news" title="Noticias" name="News" header="Modulos">
         <x-slot name="icon">
             <i class="fas fa-fw fa-newspaper"></i>
         </x-slot>
@@ -54,19 +36,14 @@
         </x-slot>
     </x-admin.navigation.menu>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#civil_reg"
-            aria-expanded="true" aria-controls="civil_reg">
+    <x-admin.navigation.menu route="#" title="Registro Civil" name="civiRegistry" header="Modulos">
+        <x-slot name="icon">
             <i class="fas fa-fw fa-address-book"></i>
-            <span>Registro Civil</span>
-        </a>
-        <div id="civil_reg" class="collapse" aria-labelledby="headingCivilReg" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="#">Estadisticas</a>
-            </div>
-        </div>
-    </li>
+        </x-slot>
+        <x-slot name="link">
+            <a class="collapse-item">Estadisticas</a>
+        </x-slot>
+    </x-admin.navigation.menu>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
