@@ -24,7 +24,7 @@
                         href="http://pdul.lecheria.gov.ve"
                         target="_blank"
                     >
-                        PDUL
+                        PDUL Lechería
                     </a>
                 </li>
                 <li class="nav-item">
@@ -52,9 +52,10 @@
                 @if (Route::currentRouteName() == "home")
                     <li class="nav-item"><a class="nav-link" href="#contact">Atención al Ciudadano</a></li>
                 @endif
-                @if (Route::currentRouteName() == "home" && \App\Models\News\Post::count() > 0)
+                {{-- @if (Route::currentRouteName() == "home" && \App\Models\News\Post::count() > 0)
                     <li class="nav-item"><a class="nav-link" href="#news">Noticias</a></li>
-                @endif
+                @endif --}}
+                <li class="nav-item"><a class="nav-link" href="#">Boletín de Noticias</a></li>
                 @auth
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf

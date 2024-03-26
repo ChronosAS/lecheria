@@ -18,7 +18,7 @@ Auth::routes(['register'=> false]);
 
 Route::get('/', \App\Http\Livewire\AppHome::class)->name('home');
 Route::prefix('registro-civil')->group(function(){
-    Route::get('/', \App\Http\Livewire\CivilRegistry\Index::class)->name('civil-registry');
+    Route::get('/', \App\Http\Livewire\CivilRegistry\IndexTemp::class)->name('civil-registry');
 });
 
 Route::prefix('noticias')->group(function(){
@@ -36,6 +36,8 @@ Route::group(['middleware' => ['role:admin','auth']], function(){
 
         Route::prefix('noticias')->group(function(){
             Route::get('/todas',App\Http\Livewire\Admin\News\Index::class)->name('admin.news.index');
+
+            Route::get('/boletin',App\Http\Livewire\Admin\News\BulletinLink::class)->name('admin.news.bulletin');
 
             Route::get('/create', App\Http\Livewire\Admin\News\Create::class)->name('admin.news.create');
 

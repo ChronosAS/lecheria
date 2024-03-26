@@ -33,6 +33,7 @@
         </x-slot>
         <x-slot name="link">
             <x-admin.navigation.link title="Index" route="admin.news.index"/>
+            <x-admin.navigation.link title="Boletín de Noticias" route="admin.news.bulletin"/>
         </x-slot>
     </x-admin.navigation.menu>
 
