@@ -32,19 +32,19 @@
             <i class="fas fa-fw fa-newspaper"></i>
         </x-slot>
         <x-slot name="link">
-            <x-admin.navigation.link title="Index" route="admin.news.index"/>
+            {{-- <x-admin.navigation.link title="Index" route="admin.news.index"/> --}}
             <x-admin.navigation.link title="Boletín de Noticias" route="admin.news.bulletin"/>
         </x-slot>
     </x-admin.navigation.menu>
 
-    <x-admin.navigation.menu route="#" title="Registro Civil" name="civiRegistry" header="Modulos">
+    {{-- <x-admin.navigation.menu route="#" title="Registro Civil" name="civiRegistry" header="Modulos">
         <x-slot name="icon">
             <i class="fas fa-fw fa-address-book"></i>
         </x-slot>
         <x-slot name="link">
             <a class="collapse-item">Estadisticas</a>
         </x-slot>
-    </x-admin.navigation.menu>
+    </x-admin.navigation.menu> --}}
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

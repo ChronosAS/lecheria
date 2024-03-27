@@ -11428,8 +11428,8 @@ header.masthead1 {
 }
 
 header.masthead {
-  padding-top: 16rem;
-  padding-bottom: 15rem;
+  padding-top: 10rem;
+  padding-bottom: 14.13rem;
   text-align: right;
   color: #fff;
   background-image: url("../img/manuel-bg.jpg");
@@ -11476,16 +11476,43 @@ header.masthead .masthead-heading {
   }
 } */
 
-@media (max-width: 500px) {
+@media (max-width: 1900px) {
 
     header.masthead1 {
-        padding-top: 10em;
-        padding-bottom: 4.26em;
+        padding-top: 100px;
+        padding-bottom: 30rem;
       }
 
     header.masthead {
-        padding-top: 4em;
-        padding-bottom: 6em;
+        padding-top: 20rem;
+        padding-bottom: 25rem;
+    }
+}
+
+@media (max-width: 800px) {
+
+    header.masthead1 {
+        padding-top: 14em;
+        padding-bottom: 10em;
+      }
+
+    header.masthead {
+        padding-top: 7rem;
+        padding-bottom: 8em;
+    }
+}
+
+@media (max-width: 500px) {
+
+    header.masthead1 {
+        background-size: 100% auto;
+        padding-top: 11rem;
+        padding-bottom: 20px;
+      }
+
+    header.masthead {
+        background-size: 100% auto;
+        padding-top: 10px;
     }
 
     /* header.masthead .masthead-subheading {

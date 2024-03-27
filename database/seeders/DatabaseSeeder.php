@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\News\NewsBulletin;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -18,12 +20,13 @@ class DatabaseSeeder extends Seeder
 
         tap(User::factory([
             'name' => 'admin',
-            'email' => 'admin@admin.ad'
+            'email' => 'prensa@lecheria.gob',
         ])->create(),function($user){
             $role = Role::create(['name'=>'admin']);
             $user->assignRole($role);
         }
     );
+    NewsBulletin::factory(['url'=>'ejemplo.com']);
 
     }
 }

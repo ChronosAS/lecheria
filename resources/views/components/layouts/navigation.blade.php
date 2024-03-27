@@ -37,7 +37,7 @@
                             Declaración en Línea
                         </a>
                     </li>
-                    @if(Route::currentRouteName() != 'civil-registry')
+                    {{-- @if(Route::currentRouteName() != 'civil-registry')
                         <li class="nav-item">
                             <a
                                 class="nav-link"
@@ -46,7 +46,7 @@
                                 Registro Civil
                             </a>
                         </li>
-                    @endif
+                    @endif --}}
                     <!--<li class="nav-item"><a class="nav-link" href="#portfolio">Catastro</a></li>-->
                     <!--<li class="nav-item"><a class="nav-link" href="#about">Insert Here</a></li>-->
                     <!--<li class="nav-item"><a class="nav-link" href="#team">Insert Here</a></li>-->
