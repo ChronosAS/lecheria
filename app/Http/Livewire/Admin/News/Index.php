@@ -59,6 +59,6 @@ class Index extends Component
     {
         return view('livewire.admin.news.index',[
             'posts' => $this->loadPosts()
-            ])->layout('layouts.admin.app');
+            ])->layout('layouts.admin.new-app',['title'=> 'Noticias']);
     }
 }

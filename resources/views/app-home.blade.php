@@ -28,27 +28,20 @@
 
     </style>
 @endpush
-<div>
-
-    <!-- Masthead1-->
-    <header class="masthead1">
-        <!--<div class="container">
-        </div>-->
-    </header>
-
+<div data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-smooth-scroll="true">
     <!-- Masthead-->
     <header class="masthead">
 
     </header>
 
         <!-- News -->
-    @if(!$posts->isEmpty())
+    {{-- @if(!$posts->isEmpty())
         <section class="page-section" id="news">
 
             <div class="container " id="news-carousel">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase text-white">Noticias recientes</h2>
-                    {{-- <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3> --}}
+                    <h3 class="section-subheading text-muted">Nuestra directora de Atención al Ciudadano esta atenta a sus solicitudes.</h3>
                 </div>
 
                 <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -60,7 +53,7 @@
                     <div class="carousel-inner">
                         @foreach ($posts as $index => $post)
                             <div class="carousel-item {{ ($index == 0) ? 'active' : '' }}">
-                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="w-100 img-fluid text-center d-block" height="500" width="500" alt="..."></a>
+                                <a href="{{ route('news.show',[ 'post' => $post->id, 'slug' => $post->slug ]) }}"><img src="{{ $post->getFirstMediaUrl('post-images') }}" class="mx-auto w-50 d-block" alt="..."></a>
                                 <div class="carousel-caption d-none d-md-block bg-secondary bg-opacity-50">
                                     <h5>{{ $post->title }}</h5>
                                     <p>{{ $post->subtitle ?? '' }}</p>
@@ -90,7 +83,7 @@
             </div>
 
         </section>
-    @endif
+    @endif --}}
 
 
     <!-- Contact-->

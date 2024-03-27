@@ -1,6 +1,6 @@
 @if(session()->has('message'))
-    <div class="alert mt-2 {{ session('alert') ?? 'alert-info'}} alert-dismissible fade show" role="alert">
+    <div class="alert {{ session('alert') ?? 'alert-info'}} alert-dismissible fade show" role="alert">
         {{ session('message') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" style="padding-top: .60rem"></button>
     </div>
 @endif

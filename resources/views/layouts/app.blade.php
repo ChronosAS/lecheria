@@ -16,14 +16,18 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        @vite(['resources/scss/app.scss','public/css/app.css','public/js/app.js','resources/js/app.js'])
+        @vite(['resources/scss/app.scss','public/css/app.css','public/js/app.js'])
         @stack('styles')
         @livewireStyles
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        @include('layouts.navigation')
+        <x-layouts.navigation />
         <!-- Section -->
+        <header class="masthead1">
+            <!--<div class="container">
+            </div>-->
+        </header>
         {{ $slot }}
         <!-- Footer-->
         <footer class="footer py-4">
@@ -50,6 +54,8 @@
         </footer>
         <!-- Bootstrap core JS-->
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> --}}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <!-- Core theme JS-->
         {{-- <script src="{{ asset('js/app.js') }}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->

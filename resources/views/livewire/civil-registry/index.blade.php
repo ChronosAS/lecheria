@@ -6,10 +6,7 @@
 <div>
     <!-- Masthead1-->
     <div>
-        <header class="masthead1">
-            <!--<div class="container">
-            </div>-->
-        </header>
+
         <section class="page-section bg-dark" id="portfolio">
             <div class="container-md rounded p-5 bg-light">
                 <div class="text-center">
@@ -25,7 +22,7 @@
                                         <p class="text-xs text-danger"><small>{{ $message }}</small></p>
                                     @enderror
                                     <div class="input-group input-group-sm" style="margin-bottom: 0.65rem">
-                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 border-dark " style="max-width: 76px;" wire:model.defer="citizen_search_nationality" name="citizen_search_nationality" id="citizen_search_nationality" >
+                                        <select wire:loading.attr='disabled' class="form-select bg-secondary bg-opacity-25 " style="max-width: 76px;" wire:model.defer="citizen_search_nationality" name="citizen_search_nationality" id="citizen_search_nationality" >
                                             <option value="V" selected>V</option>
                                             <option value="E">E</option>
                                         </select>
@@ -171,7 +168,7 @@
                                 </div>
                                 <div x-cloak x-show="show" class="flex text-center mb-3">
                                     <hr/>
-                                    {{-- <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button> --}}
+                                    <button type="button" @click="show=false" wire:loading.attr='disabled' class="btn btn-primary ml-1">Buscar mi documento</button>
                                     <button x-show="!input" type="button" @click="input=true; edit=true" wire:loading.attr='disabled' class="btn btn-warning ml-1">Editar</button>
                                     <button type="button" @click="$wire.download()" wire:loading.attr='disabled' class="btn btn-success ml-1">Descargar</button>
                                 </div>
